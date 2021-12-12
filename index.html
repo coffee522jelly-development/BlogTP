@@ -2,8 +2,8 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8" >
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover">
-		<meta name="format-detection" content="telephone=no" >
+	    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover">
+	    <meta name="format-detection" content="telephone=no" >
         <script type="text/javascript" src="index.js"></script>
         <link rel="stylesheet" type="text/css" href="common.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -11,14 +11,20 @@
         <title>microBlog</title>
     </head>
         <header>
-            <div id="title">microBlog</div>
-            <div id="menu"></div>
+            <nav class="navbar sticky-top navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">microBlog</a>
+                </div>
+            </nav>
         </header>
             <body>
-                <div id="sidebar"></div>
-                <div id="news"></div>
-                <div id="createdAt"></div>
-                <div id="main"></div>
+                <div id="main">
+                    <div id="title"></div>
+                    <div id="category"></div>
+                    <div id="contents"></div>
+                    <div id="createdAt"></div>
+                </div>
+                </div>
             </body>
         <footer>
         </footer>

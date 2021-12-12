@@ -1,0 +1,23 @@
+body {
+    background: #dddddd;
+}
+
+#title {
+    font-size:24px;
+}
+
+#category {
+    font-size:10.5px;
+}
+
+#main {
+    margin: 10px;
+}
+
+p {
+    font-size:16px;
+}
+
+#createdAt{
+    font-size:8px;
+}

@@ -35,7 +35,7 @@ fetch(url, {
       var img = document.createElement('img');
       img.src = obj.photos.url; // 画像パス
       img.width = 320; // 横サイズ（px）
-      img.height = 180; // 縦サイズ（px）
+      img.height = 320; // 縦サイズ（px）
       parent.appendChild(img);
 
       // コンテンツ作成

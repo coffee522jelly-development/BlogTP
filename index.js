@@ -1,6 +1,3 @@
-// ブログ用変数
-var parent = document.getElementById('main');
-
 // APIのURL
 const url = 'https://think-free.microcms.io/api/v1/blog';
 

@@ -8,6 +8,7 @@ body {
 
 #category {
     font-size:10.5px;
+    margin-bottom:20px;
 }
 
 #main {
@@ -20,4 +21,5 @@ p {
 
 #createdAt{
     font-size:8px;
+    margin-bottom:20px;
 }

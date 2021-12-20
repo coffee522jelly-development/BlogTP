@@ -10,23 +10,28 @@
     color:white;
     text-align: left;
     z-index: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     background: #dddddd;
     border-radius: 10px;
     z-index: 1;
+    margin: 5px;
 }
 
 h1 {
     padding-top: 20px;
     padding-bottom: 10px;
     color: #aaaaaa;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
     font-size:16px;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
 }
 
 footer {
@@ -41,26 +46,38 @@ footer {
 footer p {
     color: #fff;
     font-size:10.5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #title {
     font-size:24px;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#category {
+    margin: 5px;
 }
 
 #main {
-    /* margin: 20px; */
+
 }
 
 #sidebar {
     border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .ft-area {
     height:300px;
-    background-color: #dddddd;
+    background-color: #eeeeee;
+    margin:10px;
+    border-radius: 10px;
 }
 
 #createdAt{
     font-size:8px;
     margin-bottom:20px;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }

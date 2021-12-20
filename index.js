@@ -25,6 +25,34 @@ fetch(url, {
 });
 
 
+// カテゴリ:すべて
+function OnAllClick(){
+  const parent = document.getElementById('main');
+  parent.innerHTML = '';
+
+  fetch(url, {
+    headers: {
+      "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(json => {
+      // jsonパース部分
+      const paperSize = json.totalCount;
+
+      var All = document.getElementById('All');
+      All.innerHTML = paperSize;
+
+      parseBlogs(parent, json, paperSize);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+
+
 // カテゴリ:日常
 function OnADayClick(){
   const parent = document.getElementById('main');

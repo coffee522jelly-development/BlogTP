@@ -25,7 +25,7 @@ fetch(url, {
 });
 
 
-// カテゴリ日常
+// カテゴリ:日常
 function OnADayClick(){
   const parent = document.getElementById('main');
   parent.innerHTML = '';
@@ -52,7 +52,7 @@ function OnADayClick(){
 }
 
 
-// カテゴリプログラミング
+// カテゴリ:プログラミング
 function OnProgrammingClick(){
   const parent = document.getElementById('main');
   parent.innerHTML = '';
@@ -79,7 +79,7 @@ function OnProgrammingClick(){
 }
 
 
-// カテゴリなし
+// カテゴリ:なし
 function OnNoneClick(){
   const parent = document.getElementById('main');
   parent.innerHTML = '';

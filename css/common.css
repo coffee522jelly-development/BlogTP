@@ -55,6 +55,11 @@ footer p {
     border-radius: 10px;
 }
 
+.ft-area {
+    height:300px;
+    background-color: #dddddd;
+}
+
 #createdAt{
     font-size:8px;
     margin-bottom:20px;

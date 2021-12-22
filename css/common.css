@@ -18,7 +18,11 @@ body {
     border-radius: 10px;
     z-index: 1;
     margin: 15px;
-    overflow-x: hidden;
+}
+
+#wrapper{
+    width:100%;
+    overflow-x: hidden !important;
 }
 
 h1 {

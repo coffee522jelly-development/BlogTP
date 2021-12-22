@@ -1,9 +1,5 @@
 const blogCategory = ['日常', 'プログラミング', 'なし'];
-
 const url = 'https://think-free.microcms.io/api/v1/blog';
-const urlDay = 'https://think-free.microcms.io/api/v1/blog?filters=category[contains]日常';
-const urlProgram = 'https://think-free.microcms.io/api/v1/blog?filters=category[contains]プログラミング';
-const urlNone = 'https://think-free.microcms.io/api/v1/blog?filters=category[contains]なし';
 
 // すべての記事数
 var totalCount = 0;
@@ -75,15 +71,23 @@ function parseBlogs(parent, json, Size, paperCategory){
     parent.appendChild(contents);
  
     // 作成日時
+    var date = new Date(obj.createdAt);
     var createdAt = document.createElement('div');
     createdAt.id = 'createdAt';
-    createdAt.innerHTML = "作成日時：" + obj.createdAt;
+    createdAt.innerHTML = "作成日時：" + formatDate(date);
     parent.appendChild(createdAt);
  
     // パーティション
     var part = document.createElement('hr');
     parent.appendChild(part);
   } 
+}
+
+
+// 日時表示関数
+function formatDate(current_datetime){
+  let formatted_date = current_datetime.getFullYear() + "年" + (current_datetime.getMonth() + 1) + "月" + current_datetime.getDate() + "日　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
+  return formatted_date;
 }
 
 
@@ -124,19 +128,22 @@ function onlyCategoryzer(parent, category){
   parseBlogs(parent, blogObj, totalCount, category);
 }
  
-// カテゴリ
+// すべて
 function OnAllClick(){
   onlyCategoryzer(document.getElementById('main'), 'All');
 }
 
+// 日常
 function OnADayClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
 }
 
+// プログラム
 function OnProgrammingClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
 }
 
+// なし
 function OnNoneClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
 }

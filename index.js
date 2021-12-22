@@ -1,3 +1,5 @@
+const blogCategory = ['日常', 'プログラミング', 'なし'];
+
 const url = 'https://think-free.microcms.io/api/v1/blog';
 const urlDay = 'https://think-free.microcms.io/api/v1/blog?filters=category[contains]日常';
 const urlProgram = 'https://think-free.microcms.io/api/v1/blog?filters=category[contains]プログラミング';
@@ -9,10 +11,15 @@ var DayCount = 0;
 var ProgramCount = 0;
 var NoneCount = 0;
 
+// jsonオブジェクト
+var blogObj;
+
 window.addEventListener('DOMContentLoaded', () => {
   GetBlogData();
 });
 
+
+// ブログデータ取得関数
 function GetBlogData(){
 const parent = document.getElementById('main');
  fetch(url, {
@@ -22,74 +29,65 @@ const parent = document.getElementById('main');
   }
   }).then(function (response) {
     return response.json();
-  }).then(function (myjson) {
-    GetParam(myjson);
-    parseBlogs(parent, myjson, totalCount);
-    console.log(myjson);
+  }).then(function (blogjson) { 
+    GetParam(blogjson);
+    parseBlogs(parent, blogjson, totalCount, 'All');
+    blogObj = blogjson;
+    console.log(blogObj);
   }).catch(function (error) {
     console.log(error);
   });
 }
 
 
-function GetDayData(){
-const parent = document.getElementById('main');
-  fetch(urlDay, {
-  headers: {
-    "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
-    "Content-Type": "application/json"
-  }
-  }).then(function (response) {
-    return response.json();
-  }).then(function (myjson) {
-    GetParam(myjson);
-    parseCategoryBlog(parent, myjson, '日常');
-    console.log(myjson);
-  }).catch(function (error) {
-    console.log(error);
-  });
+// ブログ描画関数
+function parseBlogs(parent, json, Size, paperCategory){
+  for (var i=0; i < Size; i++){
+    var obj = json.contents[i];
+
+    if (paperCategory != 'All'){
+      if (obj.category != paperCategory)  continue;
+    }
+ 
+    // タイトル作成
+    var title = document.createElement('div');
+    title.id = 'title';
+    title.innerHTML = obj.title;
+    parent.appendChild(title);
+ 
+    // カテゴリ作成
+    var category = document.createElement('div');
+    category.id = 'category';
+    category.innerHTML = "カテゴリ:" + obj.category;
+    parent.appendChild(category);
+ 
+    // img要素を作成
+    var img = document.createElement('img');
+    img.src = obj.photos.url; // 画像パス
+    img.width = 320; // 横サイズ（px）
+    img.height = 320; // 縦サイズ（px）
+    parent.appendChild(img);
+ 
+    // コンテンツ作成
+    var contents = document.createElement('div');
+    contents.id = 'contents';
+    contents.innerHTML = obj.contents;
+    parent.appendChild(contents);
+ 
+    // 作成日時
+    var createdAt = document.createElement('div');
+    createdAt.id = 'createdAt';
+    createdAt.innerHTML = "作成日時：" + obj.createdAt;
+    parent.appendChild(createdAt);
+ 
+    // パーティション
+    var part = document.createElement('hr');
+    parent.appendChild(part);
+  } 
 }
 
 
-function GetProgramData(){
-const parent = document.getElementById('main');
-  fetch(urlProgram, {
-  headers: {
-    "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
-    "Content-Type": "application/json"
-  }
-  }).then(function (response) {
-    return response.json();
-  }).then(function (myjson) {
-    GetParam(myjson);
-    parseCategoryBlog(parent, myjson, 'プログラミング');
-    console.log(myjson);
-  }).catch(function (error) {
-    console.log(error);
-  });
-}
-
-
-function GetNoneData(){
-const parent = document.getElementById('main');
-  fetch(urlNone, {
-  headers: {
-    "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
-    "Content-Type": "application/json"
-  }
-  }).then(function (response) {
-    return response.json();
-  }).then(function (myjson) {
-    GetParam(myjson);
-    parseCategoryBlog(parent, myjson, 'なし');
-    console.log(myjson);
-  }).catch(function (error) {
-    console.log(error);
-  });
-}
-
-
-// ブログ記事数取得
+// ブログ記事数取得関数
 function GetParam(myjson){
   totalCount = 0;
   DayCount = 0;
@@ -99,11 +97,11 @@ function GetParam(myjson){
   totalCount = myjson.totalCount;
 
   for (var i=0; i<totalCount; i++){
-    if (myjson.contents[i].category == '日常')
+    if (myjson.contents[i].category == blogCategory[0])
       DayCount++;
-    if (myjson.contents[i].category == 'プログラミング')
+    if (myjson.contents[i].category == blogCategory[1])
       ProgramCount++;
-    if (myjson.contents[i].category == 'なし')
+    if (myjson.contents[i].category == blogCategory[2])
       NoneCount++;
   }
 
@@ -120,125 +118,25 @@ function GetParam(myjson){
   None.innerHTML = NoneCount;
 }
 
-// ブログ描画関数
-function parseBlogs(parent, json, Size){
-  for (var i=0; i < Size; i++){
-    var obj = json.contents[i];
- 
-    // タイトル作成
-    var title = document.createElement('div');
-    title.id = 'title';
-    title.innerHTML = obj.title;
-    parent.appendChild(title);
- 
-    // カテゴリ作成
-    var category = document.createElement('div');
-    category.id = 'category';
-    category.innerHTML = "カテゴリ:" + obj.category;
-    parent.appendChild(category);
- 
-    // img要素を作成
-    var img = document.createElement('img');
-    img.src = obj.photos.url; // 画像パス
-    img.width = 320; // 横サイズ（px）
-    img.height = 320; // 縦サイズ（px）
-    parent.appendChild(img);
- 
-    // コンテンツ作成
-    var contents = document.createElement('div');
-    contents.id = 'contents';
-    contents.innerHTML = obj.contents;
-    parent.appendChild(contents);
- 
-    // 作成日時
-    var createdAt = document.createElement('div');
-    createdAt.id = 'createdAt';
-    createdAt.innerHTML = "作成日時：" + obj.createdAt;
-    parent.appendChild(createdAt);
- 
-    // パーティション
-    var part = document.createElement('hr');
-    parent.appendChild(part);
-  } 
+// 選択カテゴリのみ表示
+function onlyCategoryzer(parent, category){
+  parent.innerHTML = '';
+  parseBlogs(parent, blogObj, totalCount, category);
 }
-
-
-// ブログ描画関数
-function parseCategoryBlog(parent, json, Size, category){
-  for (var i=0; i < Size; i++){
-    var obj = json.contents[i];
-
-    if (category != json.contents[i].category)  continue;
  
-    // タイトル作成
-    var title = document.createElement('div');
-    title.id = 'title';
-    title.innerHTML = obj.title;
-    parent.appendChild(title);
- 
-    // カテゴリ作成
-    var category = document.createElement('div');
-    category.id = 'category';
-    category.innerHTML = "カテゴリ:" + obj.category;
-    parent.appendChild(category);
- 
-    // img要素を作成
-    var img = document.createElement('img');
-    img.src = obj.photos.url; // 画像パス
-    img.width = 320; // 横サイズ（px）
-    img.height = 320; // 縦サイズ（px）
-    parent.appendChild(img);
- 
-    // コンテンツ作成
-    var contents = document.createElement('div');
-    contents.id = 'contents';
-    contents.innerHTML = obj.contents;
-    parent.appendChild(contents);
- 
-    // 作成日時
-    var createdAt = document.createElement('div');
-    createdAt.id = 'createdAt';
-    createdAt.innerHTML = "作成日時：" + obj.createdAt;
-    parent.appendChild(createdAt);
- 
-    // パーティション
-    var part = document.createElement('hr');
-    parent.appendChild(part);
-  } 
-}
-
- 
-// カテゴリ:すべて
+// カテゴリ
 function OnAllClick(){
-  const parent = document.getElementById('main');
-  parent.innerHTML = '';
-
-  GetBlogData();
+  onlyCategoryzer(document.getElementById('main'), 'All');
 }
 
-
-// カテゴリ:日常
 function OnADayClick(){
-  const parent = document.getElementById('main');
-  parent.innerHTML = '';
-
-  GetDayData();
+  onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
 }
 
-
-// カテゴリ:プログラミング
 function OnProgrammingClick(){
-  const parent = document.getElementById('main');
-  parent.innerHTML = '';
-
-  GetProgramData();
+  onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
 }
 
-
-// カテゴリ:なし
 function OnNoneClick(){
-  const parent = document.getElementById('main');
-  parent.innerHTML = '';
-
-  GetNoneData();
+  onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
 }

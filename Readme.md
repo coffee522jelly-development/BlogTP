@@ -15,6 +15,6 @@ APIスキーマについては現在時点では以下の通りになります�
 |contents|コンテンツ|リッチエディタ|
 |photos|画像|画像|
 
-###
+### デモページ
 デモページは下記のとおりです。
 https://coffee522jelly-development.github.io/BlogTP/

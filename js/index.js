@@ -145,19 +145,37 @@ function onlyCategoryzer(parent, category){
 // すべて
 function OnAllClick(){
   onlyCategoryzer(document.getElementById('main'), 'All');
+  scrollToTop();
 }
 
 // 日常
 function OnADayClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
+  scrollToTop();
 }
 
 // プログラム
 function OnProgrammingClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
+  scrollToTop();
 }
 
 // なし
 function OnNoneClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
+  scrollToTop();
 }
+
+//スクロール量を取得
+function getScrolled() {
+  return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
+}
+
+// トップまでスクロール
+function scrollToTop() {
+  var scrolled = getScrolled();
+  window.scrollTo( 0, Math.floor( scrolled / 2 ) );
+  if ( scrolled > 0 ) {
+    window.setTimeout( scrollToTop, 30 );
+  }
+};

@@ -73,6 +73,14 @@ p {
   margin: 10px;
 }
 
+.sun {
+  color:#ff7043;
+}
+
+.sat {
+  color:blue;
+}
+
 #category {
   font-size: 8px;
   margin: 15px;

@@ -115,9 +115,21 @@ function generate_month_calendar(year, month) {
     insertData += '<thead>';
     insertData += '<tr>';
     for (var i = 0; i < weekdayData.length; i++) {
-        insertData += '<th>';
-        insertData += weekdayData[i];
-        insertData += '</th>';
+        if (i == 0){
+            insertData += '<th class="sun">';
+            insertData += weekdayData[i];
+            insertData += '</th>';
+        }
+        else if (i == 6){
+            insertData += '<th class="sat">';
+            insertData += weekdayData[i];
+            insertData += '</th>';
+        }
+        else{
+            insertData += '<th>';
+            insertData += weekdayData[i];
+            insertData += '</th>';
+        }
     }
     insertData += '</tr>';
     insertData += '</thead>';
@@ -133,7 +145,7 @@ function generate_month_calendar(year, month) {
         insertData += '</td>';
         if(calendarData[i]['weekday'] >= 6) {
             insertData += '</tr>';
-        }
+        }        
     }
     insertData += '</tbody>';
  

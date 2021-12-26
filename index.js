@@ -53,7 +53,7 @@ function parseBlogs(parent, json, Size, paperCategory){
     // カテゴリ作成
     var category = document.createElement('div');
     category.id = 'category';
-    category.innerHTML = "カテゴリ:" + obj.category;
+    category.innerHTML = "category : " + obj.category;
     parent.appendChild(category);
  
     // img要素を作成
@@ -73,7 +73,7 @@ function parseBlogs(parent, json, Size, paperCategory){
     var date = new Date(obj.createdAt);
     var createdAt = document.createElement('div');
     createdAt.id = 'createdAt';
-    createdAt.innerHTML = "作成日時：" + formatDate(date);
+    createdAt.innerHTML = "created-At ： " + formatDate(date);
     parent.appendChild(createdAt);
  
     // パーティション
@@ -85,7 +85,7 @@ function parseBlogs(parent, json, Size, paperCategory){
 
 // 日時表示関数
 function formatDate(current_datetime){
-  let formatted_date = current_datetime.getFullYear() + "年" + (current_datetime.getMonth() + 1) + "月" + current_datetime.getDate() + "日　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
+  let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "-" + current_datetime.getMinutes() + "";
   return formatted_date;
 }
 

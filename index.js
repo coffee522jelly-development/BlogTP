@@ -10,7 +10,19 @@ var NoneCount = 0;
 // jsonオブジェクト
 var blogObj;
 
+// ツイッターカラーの初期値設定
+function ResetTwitterColor(){
+  const twitter = document.querySelector('.twitter-timeline');
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
+    twitter.setAttribute('data-theme', 'dark');
+  }
+  else{
+    twitter.setAttribute('data-theme', 'light');
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+  ResetTwitterColor();
   GetBlogData();
 });
 

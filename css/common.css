@@ -5,7 +5,7 @@
     height:12px;
 }
 
-#header p{
+#header p {
     font-size: 8px;
     color:white;
     text-align: left;
@@ -19,9 +19,19 @@ body {
     margin: 15px;
 }
 
-#wrapper{
+#wrapper {
     width:100%;
     overflow-x: hidden !important;
+}
+
+#title {
+  font-size:24px;
+  margin: 5px;
+  background-color: #34558b;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
 }
 
 h1 {
@@ -39,19 +49,16 @@ p {
     margin: 15px;
 }
 
-#title {
-    font-size:24px;
-    margin: 5px;
-    background-color: #34558b;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    color:white;
-}
-
 #wrapper img {
     border-radius: 10px;
     margin: 10px;
+}
+
+#createdAt {
+  font-size: 8px;
+  margin-bottom: 20px;
+  margin: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #sidebar {
@@ -71,7 +78,7 @@ p {
     text-decoration-line: none;
 }
 
-#sidebar a:hover{
+#sidebar a:hover {
     color : #ff7043;
 }
 
@@ -110,48 +117,49 @@ footer p {
     border-radius: 10px;
 }
 
-#createdAt{
-    font-size: 8px;
-    margin-bottom: 20px;
-    margin: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 /*スマートフォン*/
 @media screen and (max-width: 480px) { 
 }
 
 /*ダークモード*/
 @media (prefers-color-scheme: dark) {
-  #header {
-    background-color: #889696 !important;
-  }
-  body {
-    background-color: #1d2324 !important;
-    color: #e4e4e4 !important;
-  }
-  a {
-    color: #d8ce97 !important;
-  }
-  img {
-    border: 3px solid #d8ce97;
-    filter: grayscale(30%);
-  }
-  #title{
-    border: 3px solid #d8ce97;
-    background-color: #1d2324 !important;
-  }
-  #sidebar ul {
-    border: 3px solid #d8ce97;
-    background-color: #1d2324 !important;
-  }
-  #sidebar li {
-    background-color: #1d2324 !important;
-  }
-  #sidebar span{
-    background-color: #8a8b94 !important;
-  }
-  footer {
-    background-color: #121212 !important;
-  }
+#header {
+  background-color: #889696 !important;
+}
+
+body {
+  background-color: #1d2324 !important;
+  color: #e4e4e4 !important;
+}
+
+a {
+  color: #d8ce97 !important;
+}
+
+#wrapper img {
+  border: 3px solid #d8ce97;
+  filter: grayscale(30%);
+}
+
+#title{
+  border: 3px solid #d8ce97;
+  background-color: #1d2324 !important;
+}
+
+#sidebar ul {
+  border: 3px solid #d8ce97;
+  background-color: #1d2324 !important;
+}
+
+#sidebar li {
+  background-color: #1d2324 !important;
+}
+
+#sidebar span{
+  background-color: #8a8b94 !important;
+}
+
+footer {
+  background-color: #121212 !important;
+}
 }

@@ -55,7 +55,19 @@ p {
     margin: 10px;
 }
 
-#calendar{
+#calendar {
+  font-size: 15px;
+  font-family: 'Bebas Neue', cursive;
+  margin: 10px;
+}
+
+#calendar th{
+  font-size: 13px;
+  font-family: 'Bebas Neue', cursive;
+  margin: 10px;
+}
+
+#calendar td{
   font-size: 15px;
   font-family: 'Bebas Neue', cursive;
   margin: 10px;

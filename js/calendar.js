@@ -83,7 +83,7 @@ function generate_calendar_header(wrapper, year, month) {
  * @param {number} month - 月の指定
  */
 function generate_month_calendar(year, month) {
-    var weekdayData = ['日', '月', '火', '水', '木', '金', '土'];
+    var weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     // カレンダーの情報を取得
     var calendarData = get_month_calendar(year, month);
  

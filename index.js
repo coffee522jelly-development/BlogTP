@@ -10,6 +10,12 @@ var NoneCount = 0;
 // jsonオブジェクト
 var blogObj;
 
+window.addEventListener('DOMContentLoaded', () => {
+  ResetTwitterColor();
+  GetBlogData();
+});
+
+
 // ツイッターカラーの初期値設定
 function ResetTwitterColor(){
   const twitter = document.querySelector('.twitter-timeline');
@@ -21,10 +27,6 @@ function ResetTwitterColor(){
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  ResetTwitterColor();
-  GetBlogData();
-});
 
 // ブログデータ取得関数
 function GetBlogData(){
@@ -112,11 +114,12 @@ function GetParam(myjson){
   totalCount = myjson.totalCount;
 
   for (var i=0; i<totalCount; i++){
-    if (myjson.contents[i].category == blogCategory[0])
+    var categories = myjson.contents[i].category;
+    if (categories == blogCategory[0])
       DayCount++;
-    if (myjson.contents[i].category == blogCategory[1])
+    if (categories == blogCategory[1])
       ProgramCount++;
-    if (myjson.contents[i].category == blogCategory[2])
+    if (categories == blogCategory[2])
       NoneCount++;
   }
 

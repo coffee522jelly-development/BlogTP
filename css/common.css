@@ -124,7 +124,11 @@ footer p {
 /*ダークモード*/
 @media (prefers-color-scheme: dark) {
 #header {
-  background-color: #889696 !important;
+  background-color: #1d2324 !important;
+}
+
+#header p {
+  color:white;
 }
 
 body {

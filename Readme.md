@@ -1,5 +1,7 @@
 ### BlogTPについて
-このリポジトリでは、microCMSを使用したブログテーマを作成します。
+html,javascript,cssのみで構成された個人ブログ用のテーマ開発です。(現在は自分用として開発中)
+バックエンドはmicroCMSの使用を想定しています。
+ページロード時にmicroCMSにGETリクエストを送信し、受信したjsonデータをDOMに展開していくイメージです。
 
 ### エンドポイント
 エンドポイント : http://○○.microcms.io/api/v1/blog

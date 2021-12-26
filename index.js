@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
   GetBlogData();
 });
 
-
 // ブログデータ取得関数
 function GetBlogData(){
 const parent = document.getElementById('main');

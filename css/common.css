@@ -119,13 +119,6 @@ footer p {
 
 /*スマートフォン*/
 @media screen and (max-width: 480px) { 
-#header p{
-    font-size: 100px;
-    } 
-#header {
-    background-color: #dddddd;
-    height: 100px;
-    }
 }
 
 /*ダークモード*/

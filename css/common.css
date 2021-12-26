@@ -55,6 +55,12 @@ p {
     margin: 10px;
 }
 
+#calendar{
+  font-size: 15px;
+  font-family: 'Bebas Neue', cursive;
+  margin: 10px;
+}
+
 #category {
   font-size: 8px;
   margin: 15px;
@@ -153,6 +159,16 @@ a {
 
 #title{
   border: 3px solid #d8ce97;
+  background-color: #1d2324 !important;
+}
+
+#calendar th{
+  color: white !important;
+  background-color: #1d2324 !important;
+}
+
+#calendar td{
+  color: white !important;
   background-color: #1d2324 !important;
 }
 

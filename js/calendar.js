@@ -115,21 +115,9 @@ function generate_month_calendar(year, month) {
     insertData += '<thead>';
     insertData += '<tr>';
     for (var i = 0; i < weekdayData.length; i++) {
-        if (i == 0){
-            insertData += '<th class="sun">';
-            insertData += weekdayData[i];
-            insertData += '</th>';
-        }
-        else if (i == 6){
-            insertData += '<th class="sat">';
-            insertData += weekdayData[i];
-            insertData += '</th>';
-        }
-        else{
-            insertData += '<th>';
-            insertData += weekdayData[i];
-            insertData += '</th>';
-        }
+        insertData += GetWeekId(i);
+        insertData += weekdayData[i];
+        insertData += '</th>';
     }
     insertData += '</tr>';
     insertData += '</thead>';
@@ -137,15 +125,16 @@ function generate_month_calendar(year, month) {
     // 日付部分の生成
     insertData += '<tbody>';
     for (var i = 0; i < calendarData.length; i++) {
-        if(calendarData[i]['weekday'] <= 0) {
+        var week = calendarData[i]['weekday'];
+        if(week <= 0) 
             insertData += '<tr>';
-        }
-        insertData += '<td>';
+
+        insertData += GetWeekId(week);
         insertData += calendarData[i]['day'];
         insertData += '</td>';
-        if(calendarData[i]['weekday'] >= 6) {
+
+        if(week >= 6)
             insertData += '</tr>';
-        }        
     }
     insertData += '</tbody>';
  
@@ -178,4 +167,22 @@ function get_month_calendar(year, month) {
         }
     }
     return calendarData;
+}
+
+
+// 曜日設定
+function GetWeekId(num){
+    var Data = '';
+    switch (num) {
+        case 0:
+            Data += '<td class="sun">';
+            break;
+        case 6:
+            Data += '<td class="sat">';
+            break;
+        default:
+            Data += '<td>';
+            break;
+    }
+    return Data;
 }

@@ -126,15 +126,17 @@ function generate_month_calendar(year, month) {
     insertData += '<tbody>';
     for (var i = 0; i < calendarData.length; i++) {
         var week = calendarData[i]['weekday'];
-        if(week <= 0) 
+        if(week <= 0) {
             insertData += '<tr>';
+        }
 
         insertData += GetWeekId(week);
         insertData += calendarData[i]['day'];
         insertData += '</td>';
 
-        if(week >= 6)
+        if(week >= 6) {
             insertData += '</tr>';
+        }        
     }
     insertData += '</tbody>';
  

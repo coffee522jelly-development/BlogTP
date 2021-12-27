@@ -35,9 +35,11 @@ function add_calendar(wrapper, year, month) {
  * @param {number} month   - 月の指定
  */
 function generate_calendar_header(wrapper, year, month) {
-    // 前月と翌月を取得
+    // 翌月
     var nextMonth = new Date(year, (month - 1));
     nextMonth.setMonth(nextMonth.getMonth() + 1);
+    
+    // 前月
     var prevMonth = new Date(year, (month - 1));
     prevMonth.setMonth(prevMonth.getMonth() - 1);
  
@@ -140,9 +142,23 @@ function generate_month_calendar(year, month) {
         if(calendarData[i]['weekday'] <= 0) {
             insertData += '<tr>';
         }
-        insertData += '<td>';
-        insertData += calendarData[i]['day'];
-        insertData += '</td>';
+        
+        if (i == 0){
+            insertData += '<td class="sun">';
+            insertData += weekdayData[i];
+            insertData += '</td>';
+        }
+        else if(i == 6){
+            insertData += '<td class="sat">';
+            insertData += weekdayData[i];
+            insertData += '</td>';
+        }
+        else{
+            insertData += '<td>';
+            insertData += calendarData[i]['day'];
+            insertData += '</td>';
+        }
+        
         if(calendarData[i]['weekday'] >= 6) {
             insertData += '</tr>';
         }        

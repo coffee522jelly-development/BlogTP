@@ -74,11 +74,11 @@ p {
 }
 
 .sun {
-  color:#ff7043;
+  color:#ff7043 !important;
 }
 
 .sat {
-  color:blue;
+  color:cornflowerblue !important;
 }
 
 #category {
@@ -183,12 +183,12 @@ a {
 }
 
 #calendar th{
-  color: white !important;
+  color: white;
   background-color: #1d2324 !important;
 }
 
 #calendar td{
-  color: white !important;
+  color: white;
   background-color: #1d2324 !important;
 }
 

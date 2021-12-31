@@ -6,6 +6,17 @@ var timer;
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
 
+// カウントダウン関数
+function countDown() {
+    settingTime--;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+
+    if (settingTime == 0){
+        sound("sine", 0.1);
+        Reset();
+    }   
+}
+
 // 通知音関数
 function sound(type, sec) {
 	const ctx = new AudioContext();
@@ -53,18 +64,7 @@ function set15min() {
 }
 
 //////////////////////////////////////////////////////////////////////////////////
-// 表示・フォーマッタ・カウンタ
-
-// カウントダウン関数
-function countDown() {
-    settingTime--;
-    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-
-    if (settingTime == 0){
-        sound("sine", 0.1);
-        Reset();
-    }   
-}
+// 表示・フォーマッタ
 
 // 分秒計算
 function calcMinSec(settingTime) {

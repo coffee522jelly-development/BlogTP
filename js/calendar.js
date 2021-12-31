@@ -1,20 +1,7 @@
-window.onload = function() {
-    // 現在の年月の取得
-    var current = new Date();
-    var year = current.getFullYear();
-    var month = current.getMonth() + 1;
- 
-    // カレンダーの表示
-    var wrapper = document.getElementById('calendar');
-    add_calendar(wrapper, year, month);
-}
- 
-/**
- * 指定した年月のカレンダーを表示する
- * @param {object} wrapper - カレンダーを追加する親要素
- * @param {number} year    - 年の指定
- * @param {number} month   - 月の指定
- */
+//////////////////////////////////////////////////////////////////////////////////
+// 処理
+
+// カレンダー追加
 function add_calendar(wrapper, year, month) {
     // 現在カレンダーが追加されている場合は一旦削除する
     wrapper.textContent = null;
@@ -28,12 +15,7 @@ function add_calendar(wrapper, year, month) {
     wrapper.appendChild(bodyData);
 }
  
-/**
- * 指定した年月のカレンダーのヘッダー要素を生成して返す
- * @param {object} wrapper - カレンダーを追加する親要素
- * @param {number} year    - 年の指定
- * @param {number} month   - 月の指定
- */
+// カレンダーヘッダ生成
 function generate_calendar_header(wrapper, year, month) {
     // 前月と翌月を取得
     var nextMonth = new Date(year, (month - 1));
@@ -76,12 +58,8 @@ function generate_calendar_header(wrapper, year, month) {
  
     return cHeader;
 }
- 
-/**
- * 指定した年月のカレンダー要素を生成して返す
- * @param {number} year  - 年の指定
- * @param {number} month - 月の指定
- */
+
+// 月別カレンダー生成
 function generate_month_calendar(year, month) {
     var weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     // カレンダーの情報を取得
@@ -143,12 +121,8 @@ function generate_month_calendar(year, month) {
     cTable.innerHTML = insertData;
     return cTable;
 }
- 
-/**
- * 指定した年月のカレンダー情報を返す
- * @param {number} year  - 年の指定
- * @param {number} month - 月の指定
- */
+
+// カレンダー取得
 function get_month_calendar(year, month) {
     var firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
     var lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
@@ -171,6 +145,8 @@ function get_month_calendar(year, month) {
     return calendarData;
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+// 表示・フォーマッタ
 
 // 曜日設定
 function GetWeekId(num){

@@ -1,28 +1,23 @@
+'use strict'
+// グローバル変数
 var settingTime = 1500;
 var timer;
 
-// X分X秒
-function calcMinSec(settingTime) {
-    var min = parseInt(settingTime / 60);
-    var sec = parseInt(settingTime % 60);
+//////////////////////////////////////////////////////////////////////////////////
+// 処理
 
-    // 1桁秒数には0をつける
-    if ((sec >= 0) && (9 >= sec)){
-        sec = '0' + sec;
-    }
-    return min + ":" + sec;
+// 通知音関数
+function sound(type, sec) {
+	const ctx = new AudioContext();
+	const osc = ctx.createOscillator();
+	osc.type = type;
+	osc.connect(ctx.destination);
+	osc.start();
+	osc.stop(sec);
 }
 
-// カウントダウン関数
-function countDown() {
-    settingTime--;
-    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-
-    if (settingTime == 0){
-        sound("sine", 0.1);
-        Reset();
-    }   
-}
+//////////////////////////////////////////////////////////////////////////////////
+// イベント
 
 // スタート
 function Start() {
@@ -57,12 +52,28 @@ function set15min() {
     clearInterval(timer);
 }
 
-// 通知音関数
-function sound(type, sec) {
-	const ctx = new AudioContext();
-	const osc = ctx.createOscillator();
-	osc.type = type;
-	osc.connect(ctx.destination);
-	osc.start();
-	osc.stop(sec);
+//////////////////////////////////////////////////////////////////////////////////
+// 表示・フォーマッタ・カウンタ
+
+// カウントダウン関数
+function countDown() {
+    settingTime--;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+
+    if (settingTime == 0){
+        sound("sine", 0.1);
+        Reset();
+    }   
+}
+
+// 分秒計算
+function calcMinSec(settingTime) {
+    var min = parseInt(settingTime / 60);
+    var sec = parseInt(settingTime % 60);
+
+    // 1桁秒数には0をつける
+    if ((sec >= 0) && (9 >= sec)){
+        sec = '0' + sec;
+    }
+    return min + ":" + sec;
 }

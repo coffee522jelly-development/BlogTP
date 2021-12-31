@@ -1,35 +1,38 @@
 'use strict'
 
+// グローバル変数
 const blogCategory = ['日常', 'プログラミング', 'なし'];
 const url = 'https://think-free.microcms.io/api/v1/blog';
 
-// すべての記事数
+// ブログオブジェクト
+var blogObj;
+
+// 記事数カウンタ
 var totalCount = 0;
 var DayCount = 0;
 var ProgramCount = 0;
 var NoneCount = 0;
 
-// jsonオブジェクト
-var blogObj;
-
+// ロード時
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
-  ResetTwitterColor();
+  // ブログデータ
   GetBlogData();
+
+  // カレンダー
+  var current = new Date();
+  var wrapper = document.getElementById('calendar');
+  add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
+  
+  // タイマー
+  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
+
+  // Twitterカラー
+  ResetTwitterColor();
+
 });
 
-
-// ツイッターカラーの初期値設定
-function ResetTwitterColor(){
-  const twitter = document.querySelector('.twitter-timeline');
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
-    twitter.setAttribute('data-theme', 'dark');
-  }
-  else{
-    twitter.setAttribute('data-theme', 'light');
-  }
-}
-
+//////////////////////////////////////////////////////////////////////////////////
+// 処理
 
 // ブログデータ取得関数
 function GetBlogData(){
@@ -51,6 +54,87 @@ const parent = document.getElementById('main');
   });
 }
 
+// ブログ記事数取得関数
+function GetParam(myjson){
+  totalCount = 0;
+  DayCount = 0;
+  ProgramCount = 0;
+  NoneCount = 0;
+  
+  totalCount = myjson.totalCount;
+
+  for (var i=0; i<totalCount; i++){
+    var categories = myjson.contents[i].category;
+    if (categories == blogCategory[0])
+      DayCount++;
+    if (categories == blogCategory[1])
+      ProgramCount++;
+    if (categories == blogCategory[2])
+      NoneCount++;
+  }
+
+  var All = document.getElementById('All');
+  All.innerHTML = totalCount;
+
+  var Day = document.getElementById('Day');
+  Day.innerHTML = DayCount;
+
+  var Program = document.getElementById('Program');
+  Program.innerHTML = ProgramCount;
+
+  var None = document.getElementById('None');
+  None.innerHTML = NoneCount;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+// イベント
+ 
+// すべて
+function OnAllClick(){
+  onlyCategoryzer(document.getElementById('main'), 'All');
+  scrollToTop();
+}
+
+// 日常
+function OnADayClick(){
+  onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
+  scrollToTop();
+}
+
+// プログラム
+function OnProgrammingClick(){
+  onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
+  scrollToTop();
+}
+
+// なし
+function OnNoneClick(){
+  onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
+  scrollToTop();
+}
+
+//スクロール量を取得
+function getScrolled() {
+  return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
+}
+
+// トップまでスクロール
+function scrollToTop() {
+    var scrolled = getScrolled();
+    window.scrollTo( 0, Math.floor( scrolled / 2 ) );
+    if ( scrolled > 0 ) {
+      window.setTimeout( scrollToTop, 30 );
+    }
+};
+
+//////////////////////////////////////////////////////////////////////////////////
+// 表示・フォーマッタ
+
+// 選択カテゴリのみ表示
+function onlyCategoryzer(parent, category){
+  parent.innerHTML = '';
+  parseBlogs(parent, blogObj, totalCount, category);
+}
 
 // ブログ描画関数
 function parseBlogs(parent, json, Size, paperCategory){
@@ -99,86 +183,19 @@ function parseBlogs(parent, json, Size, paperCategory){
   } 
 }
 
-
 // 日時表示関数
 function formatDate(current_datetime){
   let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
   return formatted_date;
 }
 
-
-// ブログ記事数取得関数
-function GetParam(myjson){
-  totalCount = 0;
-  DayCount = 0;
-  ProgramCount = 0;
-  NoneCount = 0;
-  
-  totalCount = myjson.totalCount;
-
-  for (var i=0; i<totalCount; i++){
-    var categories = myjson.contents[i].category;
-    if (categories == blogCategory[0])
-      DayCount++;
-    if (categories == blogCategory[1])
-      ProgramCount++;
-    if (categories == blogCategory[2])
-      NoneCount++;
+// ツイッターカラーの初期値設定
+function ResetTwitterColor(){
+  const twitter = document.querySelector('.twitter-timeline');
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
+    twitter.setAttribute('data-theme', 'dark');
   }
-
-  var All = document.getElementById('All');
-  All.innerHTML = totalCount;
-
-  var Day = document.getElementById('Day');
-  Day.innerHTML = DayCount;
-
-  var Program = document.getElementById('Program');
-  Program.innerHTML = ProgramCount;
-
-  var None = document.getElementById('None');
-  None.innerHTML = NoneCount;
-}
-
-// 選択カテゴリのみ表示
-function onlyCategoryzer(parent, category){
-  parent.innerHTML = '';
-  parseBlogs(parent, blogObj, totalCount, category);
-}
- 
-// すべて
-function OnAllClick(){
-  onlyCategoryzer(document.getElementById('main'), 'All');
-  scrollToTop();
-}
-
-// 日常
-function OnADayClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
-  scrollToTop();
-}
-
-// プログラム
-function OnProgrammingClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
-  scrollToTop();
-}
-
-// なし
-function OnNoneClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
-  scrollToTop();
-}
-
-//スクロール量を取得
-function getScrolled() {
-  return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
-}
-
-// トップまでスクロール
-function scrollToTop() {
-  var scrolled = getScrolled();
-  window.scrollTo( 0, Math.floor( scrolled / 2 ) );
-  if ( scrolled > 0 ) {
-    window.setTimeout( scrollToTop, 30 );
+  else{
+    twitter.setAttribute('data-theme', 'light');
   }
-};
+}

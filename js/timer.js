@@ -69,11 +69,7 @@ function set15min() {
 // 分秒計算
 function calcMinSec(settingTime) {
     var min = parseInt(settingTime / 60);
-    var sec = parseInt(settingTime % 60);
-
-    // 1桁秒数には0をつける
-    if ((sec >= 0) && (9 >= sec)){
-        sec = '0' + sec;
-    }
+    var sec = addZero(parseInt(settingTime % 60));
+    
     return min + ":" + sec;
 }

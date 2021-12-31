@@ -148,6 +148,13 @@ footer p {
     border-radius: 10px;
 }
 
+#clock {
+  font-size: 136px;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: #34558b;
+}
+
 #TimerDisplay {
   font-size: 136px;
   font-family: 'Bebas Neue', cursive;
@@ -181,6 +188,10 @@ footer p {
 #Timer {
   border: 3px solid #d8ce97;
   border-radius: 10px;
+}
+
+#clock {
+  color:white;
 }
 
 #TimerDisplay {

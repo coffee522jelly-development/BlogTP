@@ -15,20 +15,10 @@ var NoneCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
-  // ブログデータ
   GetBlogData();
-
-  // カレンダー
-  var current = new Date();
-  var wrapper = document.getElementById('calendar');
-  add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
-  
-  // タイマー
-  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
-
-  // Twitterカラー
+  GetCalendar();
+  GetTimer();
   ResetTwitterColor();
-
 });
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +74,18 @@ function GetParam(myjson){
 
   var None = document.getElementById('None');
   None.innerHTML = NoneCount;
+}
+
+// カレンダー取得
+function GetCalendar(){
+  var current = new Date();
+  var wrapper = document.getElementById('calendar');
+  add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
+}
+
+// タイマー取得
+function GetTimer(){
+  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
 }
 
 //////////////////////////////////////////////////////////////////////////////////

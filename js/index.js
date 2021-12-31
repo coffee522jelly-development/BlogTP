@@ -102,7 +102,7 @@ function parseBlogs(parent, json, Size, paperCategory){
 
 // 日時表示関数
 function formatDate(current_datetime){
-  let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "-" + current_datetime.getMinutes() + "";
+  let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
   return formatted_date;
 }
 

@@ -2,16 +2,17 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8" >
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	      <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/calendar.js"></script>
+        <script type="text/javascript" src="js/timer.js"></script>
         <link rel="stylesheet" type="text/css" href="css/common.css"/>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-	    
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
         <!-- twitter カード設定 -->
         <meta name="twitter:card" content="summary" /> <!--①-->
         <meta name="twitter:site" content="@lack_of_sleeep" /> <!--②-->
@@ -42,15 +43,27 @@
                     </div>
                   </div>
                   <div id="sidebar" class="col-sm-4">
-                     <!-- カレンダー -->
+                    <!-- カレンダー -->
                     <h1>Calendar.</h1>
                     <hr>
                     <ul class="list-group">
                       <div id="calendar"></div>
                     </ul>
+                    <!-- ポモドーロタイマー -->
+                    <h1>Pomodoro-Timer.</h1>
+                    <hr>
+                    <div id="TimerDisplay"></div>
+                    <div id="Panel">
+                      <p class="ex">※音が出ます。音量にご注意ください。</p>
+                      <button id="start" class="btn btn-success" onclick="Start()">Start</button>
+                      <button id="stop" class="btn btn-danger" onclick="Stop()">Stop</button>
+                      <button id="reset" class="btn btn-light" onclick="Reset()">Reset</button>
+                      <button id="5min" class="btn btn-light" onclick="set5min()">5min.</button>
+                      <button id="15min" class="btn btn-light" onclick="set15min()">15min.</button>
+                    </div>
+                    <!-- カテゴリ設定 -->
                     <h1>Category.</h1>
                     <hr>
-                    <!-- カテゴリ設定 -->
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a href="#All" onclick="OnAllClick()";>すべて</a>
@@ -69,9 +82,9 @@
                           <span id="None" class="badge bg-primary rounded-pill"></span>
                         </li>
                     </ul>
+                    <!-- リンクの設定 -->
                     <h1>Link.</h1>
                     <hr>
-                    <!-- リンクの設定 -->
                     <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
@@ -92,16 +105,16 @@
                         <a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">diagrams.net</a>
                       </li>
                     </ul>
+                    <!-- Twitter Publish設定-->
                     <h1>Twitter.</h1>
                     <hr>
-                    <!-- Twitter Publish設定-->
                     <ul class="list-group">
                       <a class="twitter-timeline" data-lang="en" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw">Tweets by lack_of_sleeep</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </ul>
-                  </div>
-                </div>
-              </div>
-        </div>
+                  </div><!-- sidebar -->
+                </div><!-- row -->
+              </div><!-- container -->
+            </div><!-- main wrapper -->
         </body>
     <footer>
         <p>© All rights reserved by microBlog.</p>

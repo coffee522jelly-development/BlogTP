@@ -1,3 +1,5 @@
+'use strict'
+
 const blogCategory = ['日常', 'プログラミング', 'なし'];
 const url = 'https://think-free.microcms.io/api/v1/blog';
 
@@ -11,6 +13,7 @@ var NoneCount = 0;
 var blogObj;
 
 window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
   ResetTwitterColor();
   GetBlogData();
 });

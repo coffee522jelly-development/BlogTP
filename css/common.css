@@ -14,6 +14,7 @@
 }
 
 body {
+    caret-color: transparent;   /* デフォルトの点滅カーソルを非表示 */
     border-radius: 10px;
     z-index: 1;
     margin: 15px;
@@ -147,6 +148,22 @@ footer p {
     border-radius: 10px;
 }
 
+#TimerDisplay {
+  font-size: 136px;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: #34558b;
+}
+
+.ex {
+  font-size: 10px;
+  color:#888888;
+}
+
+#Panel {
+  text-align: center;
+}
+
 /*スマートフォン*/
 @media screen and (max-width: 480px) { 
 }
@@ -158,6 +175,10 @@ footer p {
 }
 
 #header p {
+  color:white;
+}
+
+#TimerDisplay {
   color:white;
 }
 

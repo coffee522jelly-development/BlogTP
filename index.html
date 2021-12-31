@@ -7,6 +7,7 @@
         <script type="text/javascript" src="js/calendar.js"></script>
         <script type="text/javascript" src="js/timer.js"></script>
         <script type="text/javascript" src="js/clock.js"></script>
+        <script type="text/javascript" src="js/load.js"></script>
         <link rel="stylesheet" type="text/css" href="css/common.css"/>
         <!-- Bootstrap5 -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -34,6 +35,9 @@
         <body>
           <div id="wrapper">
             <div class="container">
+              <div class="loading active" id="loading">
+                <div class="loading-txt">Loading...</div>
+              </div>
                 <div class="row">
                   <div id="blog" class="col-sm-8">
                     <h1>Blog.</h1>
@@ -53,7 +57,7 @@
                     <!-- カレンダー -->
                     <h1>Calendar.</h1>
                     <hr>
-                      <div id="calendar"></div>
+                    <div id="calendar"></div>
                     <!-- ポモドーロタイマー -->
                     <h1>Pomodoro-Timer.</h1>
                     <hr>
@@ -116,7 +120,7 @@
                     <h1>Twitter.</h1>
                     <hr>
                     <ul class="list-group">
-                      <a class="twitter-timeline" data-lang="en" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw">Tweets by lack_of_sleeep</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                      <a class="twitter-timeline" data-lang="us" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </ul>
                   </div><!-- sidebar -->
                 </div><!-- row -->

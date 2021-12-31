@@ -57,17 +57,16 @@ p {
 #calendar {
   font-size: 15px;
   font-family: 'Bebas Neue', cursive;
-  margin: 10px;
 }
 
 #calendar th{
-  font-size: 13px;
+  font-size: 20px;
   font-family: 'Bebas Neue', cursive;
   margin: 10px;
 }
 
 #calendar td{
-  font-size: 15px;
+  font-size: 20px;
   font-family: 'Bebas Neue', cursive;
   margin: 10px;
 }
@@ -119,6 +118,7 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #34558b !important;
 }
+
 /* #main {
 
 } */
@@ -171,6 +171,41 @@ footer p {
   text-align: center;
 }
 
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+ 
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+ }
+ 
+ .loading.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+ }
+ 
+ /* ローディングアニメーション例 */
+ 
+ @keyframes flashing {
+  50% {
+    opacity: .3;
+  }
+ }
+ 
+ .loading-txt {
+  animation: .5s flashing infinite;
+ }​
+
 /*スマートフォン*/
 @media screen and (max-width: 480px) { 
 }
@@ -192,6 +227,8 @@ footer p {
 
 #clock {
   color:white;
+  border: 3px solid #d8ce97;
+  border-radius: 10px;
 }
 
 #TimerDisplay {
@@ -215,6 +252,11 @@ a {
 #title{
   border: 3px solid #d8ce97;
   background-color: #1d2324 !important;
+}
+
+#calendar {
+  border: 3px solid #d8ce97;
+  border-radius: 10px;
 }
 
 #calendar th{

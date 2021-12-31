@@ -1,7 +1,12 @@
 ### BlogTPについて
-html,javascript,css,Bootstrap5のみで構成された個人ブログ用のテーマ開発です。(現在は自分用として開発中)
-バックエンドはmicroCMSの使用を想定しています。
-ページロード時にmicroCMSにGETリクエストを送信し、受信したjsonデータをDOMに展開していくイメージです。
+BlogTPは個人用のブログテーマです。
+自分の学習用日記を目指して作成しており、
+ブログ機能はもちろん、ポモドーロタイマー等を盛り込んでいます。
+
+### BlogTPの構造
+BlogTPは、HTML/CSS/JavascriptとBootStrap5を使用しています。
+ブログコンテンツの管理はmicroCMSの使用を想定しています。
+microCMSのAPIからブログデータを取得し表示します。
 
 ### エンドポイント
 エンドポイント : http://○○.microcms.io/api/v1/blog

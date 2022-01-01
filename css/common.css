@@ -1,7 +1,12 @@
+:root {
+  --light-accent-color: #000046;
+  --dark-accent-color: #1CB5E0;
+}
+
 #header {
 	z-index: -1;
 	color: white;
-	background-color: #34558b;
+	background-color: var(--light-accent-color);
 	height: 12px;
 }
 
@@ -16,10 +21,10 @@
 #header-animation {
   text-align: center;
   height: 150px;
-  background: linear-gradient(222deg, #020069, #02d0b6);
+  background: linear-gradient(222deg, var(--dark-accent-color), var(--light-accent-color));
   background-size: 400% 400%;
 
-  animation: HeaderGradient 30s linear infinite;
+  animation: HeaderGradient 10s ease infinite;
 }
 
 @keyframes HeaderGradient {
@@ -51,7 +56,7 @@ body {
 #title {
 	font-size: 18px;
 	margin: 5px;
-	background-color: #34558b;
+	background-color: var(--light-accent-color);
 	border-radius: 10px;
 	padding: 10px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -72,6 +77,10 @@ p {
 	margin: 15px;
 }
 
+#wrapper img {
+  border-radius: 10px;
+}
+
 .img-wrapper {
 	text-align: center;
 	margin: 10px;
@@ -80,18 +89,17 @@ p {
 #calendar {
 	font-size: 15px;
 	font-family: 'Bebas Neue', cursive;
+  padding: 15px;
 }
 
 #calendar th {
 	font-size: 20px;
 	font-family: 'Bebas Neue', cursive;
-	margin: 10px;
 }
 
 #calendar td {
 	font-size: 20px;
 	font-family: 'Bebas Neue', cursive;
-	margin: 10px;
 }
 
 .sun {
@@ -139,7 +147,7 @@ p {
 #sidebar span {
 	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: #34558b !important;
+	background-color: var(--light-accent-color) !important;
 }
 
 
@@ -176,14 +184,14 @@ footer p {
 	font-size: 136px;
 	font-family: 'Bebas Neue', cursive;
 	text-align: center;
-	color: #34558b;
+	color: var(--light-accent-color);
 }
 
 #TimerDisplay {
 	font-size: 136px;
 	font-family: 'Bebas Neue', cursive;
 	text-align: center;
-	color: #34558b;
+	color: var(--light-accent-color);
 }
 
 .ex {
@@ -202,7 +210,7 @@ footer p {
 	width: 100%;
 	height: 100%;
 	background-color: #fff;
-	color: #34558b;
+	color: var(--light-accent-color);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -248,12 +256,12 @@ footer p {
 		color: white;
 	}
 	#Timer {
-		border: 3px solid #d8ce97;
+		border: 3px solid var(--dark-accent-color);
 		border-radius: 10px;
 	}
 	#clock {
 		color: white;
-		border: 3px solid #d8ce97;
+		border: 3px solid var(--dark-accent-color);
 		border-radius: 10px;
 	}
 	#TimerDisplay {
@@ -264,7 +272,7 @@ footer p {
 		color: #e4e4e4 !important;
 	}
 	a {
-		color: #d8ce97 !important;
+		color: var(--dark-accent-color) !important;
 	}
 	#wrapper img {
 		filter: grayscale(30%);
@@ -272,11 +280,11 @@ footer p {
 		border-radius: 10px;
 	}
 	#title {
-		border: 3px solid #d8ce97;
+		border: 3px solid var(--dark-accent-color);
 		background-color: #1d2324 !important;
 	}
 	#calendar {
-		border: 3px solid #d8ce97;
+		border: 3px solid var(--dark-accent-color);
 		border-radius: 10px;
 	}
 	#calendar th {
@@ -288,13 +296,13 @@ footer p {
 		background-color: #1d2324 !important;
 	}
 	#sidebar ul {
-		border: 3px solid #d8ce97;
+		border: 3px solid var(--dark-accent-color);
 	}
 	#sidebar li {
 		background-color: #1d2324 !important;
 	}
 	#sidebar span {
-		background-color: #d8ce97 !important;
+		background-color: var(--dark-accent-color) !important;
 		color: #000000;
 	}
 	footer {

@@ -1,6 +1,7 @@
 :root {
   --light-accent-color: #000046;
   --dark-accent-color: #1CB5E0;
+  --radius-size: 5px;
 }
 
 #header {
@@ -43,7 +44,7 @@
 body {
 	caret-color: transparent;
 	/* デフォルトの点滅カーソルを非表示 */
-	border-radius: 10px;
+	border-radius: var(--radius-size);
 	z-index: 1;
 	margin: 15px;
 }
@@ -57,7 +58,7 @@ body {
 	font-size: 18px;
 	margin: 5px;
 	background-color: var(--light-accent-color);
-	border-radius: 10px;
+	border-radius: var(--radius-size);
 	padding: 10px;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
@@ -78,7 +79,7 @@ p {
 }
 
 #wrapper img {
-  border-radius: 10px;
+  border-radius: var(--radius-size);
 }
 
 .img-wrapper {
@@ -124,12 +125,12 @@ p {
 }
 
 #sidebar {
-	border-radius: 10px;
+	border-radius: var(--radius-size);
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #sidebar ul {
-	border-radius: 10px;
+	border-radius: var(--radius-size);
 }
 
 #sidebar a {
@@ -177,7 +178,7 @@ footer p {
 	margin-top: 10px;
 	font-size: 18px;
 	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 10px;
+	border-radius: var(--radius-size);
 }
 
 #clock {
@@ -257,12 +258,12 @@ footer p {
 	}
 	#Timer {
 		border: 3px solid var(--dark-accent-color);
-		border-radius: 10px;
+		border-radius: var(--radius-size);
 	}
 	#clock {
 		color: white;
 		border: 3px solid var(--dark-accent-color);
-		border-radius: 10px;
+		border-radius: var(--radius-size);
 	}
 	#TimerDisplay {
 		color: white;
@@ -277,7 +278,7 @@ footer p {
 	#wrapper img {
 		filter: grayscale(30%);
 		background-color: white;
-		border-radius: 10px;
+		border-radius: var(--radius-size);
 	}
 	#title {
 		border: 3px solid var(--dark-accent-color);
@@ -285,7 +286,7 @@ footer p {
 	}
 	#calendar {
 		border: 3px solid var(--dark-accent-color);
-		border-radius: 10px;
+		border-radius: var(--radius-size);
 	}
 	#calendar th {
 		color: white;

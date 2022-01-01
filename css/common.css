@@ -26,7 +26,7 @@ body {
 }
 
 #title {
-  font-size:20px;
+  font-size:18px;
   margin: 5px;
   background-color: #34558b;
   border-radius: 10px;
@@ -49,9 +49,9 @@ p {
     margin: 15px;
 }
 
-#wrapper img {
-    border-radius: 10px;
-    margin: 10px;
+.img-wrapper{
+  text-align: center;
+  margin: 10px;
 }
 
 #calendar {
@@ -198,15 +198,15 @@ footer p {
  
  /* ローディングアニメーション例 */
  
- @keyframes flashing {
-  50% {
-    opacity: .4;
-  }
- }
+@keyframes flashing {
+50% {
+  opacity: .4;
+}
+}
  
- .loading-txt {
-  animation: 1.0s flashing infinite;
- }​
+.loading-txt {
+animation: 1.0s flashing infinite;
+}​
 
 /*スマートフォン*/
 @media screen and (max-width: 480px) { 
@@ -247,8 +247,9 @@ a {
 }
 
 #wrapper img {
-  border: 3px solid #d8ce97;
   filter: grayscale(30%);
+  background-color:white;
+  border-radius: 10px;
 }
 
 #title{

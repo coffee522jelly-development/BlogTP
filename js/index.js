@@ -161,11 +161,13 @@ function parseBlogs(parent, json, Size, paperCategory){
     parent.appendChild(category);
  
     // img要素を作成
+    var wrapper = document.createElement('div');
+    wrapper.className = 'img-wrapper';
     var img = document.createElement('img');
     img.src = obj.photos.url; // 画像パス
-    img.width = 320; // 横サイズ（px）
-    img.height = 320; // 縦サイズ（px）
-    parent.appendChild(img);
+    img.setAttribute('class', 'img-fluid');
+    wrapper.appendChild(img);
+    parent.appendChild(wrapper);
  
     // コンテンツ作成
     var contents = document.createElement('div');

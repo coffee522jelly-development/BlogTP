@@ -39,7 +39,7 @@ const parent = document.getElementById('main');
     GetParam(blogjson);
     parseBlogs(parent, blogjson, totalCount, 'All');
     blogObj = blogjson;
-    console.log(blogObj);
+    //console.log(blogObj);
   }).catch(function (error) {
     console.log(error);
   });

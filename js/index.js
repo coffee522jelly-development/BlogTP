@@ -22,6 +22,11 @@ window.addEventListener('DOMContentLoaded', () => {
   ResetTwitterColor();
 });
 
+// ページ読み込み後
+window.onload = function () {
+
+}
+
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
 
@@ -136,7 +141,7 @@ function scrollToTop() {
 // 選択カテゴリのみ表示
 function onlyCategoryzer(parent, category){
   parent.innerHTML = '';
-  parseBlogs(parent, blogObj, totalCount, category);
+  parseBlogs(parent, blogObj, totalCount, category);  
 }
 
 // ブログ描画関数
@@ -147,18 +152,22 @@ function parseBlogs(parent, json, Size, paperCategory){
     if (paperCategory != 'All'){
       if (obj.category != paperCategory)  continue;
     }
+
+    // 記事単位のdiv生成
+    var paper = document.createElement('div');
+    paper.id = obj.id;
  
     // タイトル作成
     var title = document.createElement('div');
     title.id = 'title';
     title.innerHTML = obj.title;
-    parent.appendChild(title);
+    paper.appendChild(title);
  
     // カテゴリ作成
     var category = document.createElement('div');
     category.id = 'category';
     category.innerHTML = "category : " + obj.category;
-    parent.appendChild(category);
+    paper.appendChild(category);
  
     // img要素を作成
     var wrapper = document.createElement('div');
@@ -167,24 +176,35 @@ function parseBlogs(parent, json, Size, paperCategory){
     img.src = obj.photos.url; // 画像パス
     img.setAttribute('class', 'img-fluid');
     wrapper.appendChild(img);
-    parent.appendChild(wrapper);
+    paper.appendChild(wrapper);
  
     // コンテンツ作成
     var contents = document.createElement('div');
     contents.id = 'contents';
     contents.innerHTML = obj.contents;
-    parent.appendChild(contents);
+
+    // Twitterシェアボタン
+    var share = document.createElement('div');
+    share.id = 'tweet';
+    var tag = document.createElement('a');
+    tag.text = 'tweet';
+    tag.setAttribute('href','https://twitter.com/share?url={{' + location.href + '}}&text={{' + obj.title +'}}&hashtags={{' + obj.category + '}}');
+    share.appendChild(tag);
+    contents.appendChild(share);
+    paper.appendChild(contents);
  
     // 作成日時
     var date = new Date(obj.createdAt);
     var createdAt = document.createElement('div');
     createdAt.id = 'createdAt';
     createdAt.innerHTML = "created-At ： " + formatDate(date);
-    parent.appendChild(createdAt);
+    paper.appendChild(createdAt);
  
     // パーティション
     var part = document.createElement('hr');
-    parent.appendChild(part);
+    paper.appendChild(part);
+
+    parent.appendChild(paper);
   } 
 }
 

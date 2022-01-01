@@ -1,296 +1,285 @@
 #header {
-    z-index: -1;
-    color:white;
-    background-color: #34558b;
-    height:12px;
+	z-index: -1;
+	color: white;
+	background-color: #34558b;
+	height: 12px;
 }
 
 #header p {
-    font-size: 8px;
-    color:white;
-    text-align: left;
-    z-index: 0;
-    font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: white;
+	text-align: left;
+	z-index: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    caret-color: transparent;   /* デフォルトの点滅カーソルを非表示 */
-    border-radius: 10px;
-    z-index: 1;
-    margin: 15px;
+	caret-color: transparent;
+	/* デフォルトの点滅カーソルを非表示 */
+	border-radius: 10px;
+	z-index: 1;
+	margin: 15px;
 }
 
 #wrapper {
-    width:100%;
-    overflow-x: hidden !important;
+	width: 100%;
+	overflow-x: hidden !important;
 }
 
 #title {
-  font-size:18px;
-  margin: 5px;
-  background-color: #34558b;
-  border-radius: 10px;
-  padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  color:white;
+	font-size: 18px;
+	margin: 5px;
+	background-color: #34558b;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
 }
 
 h1 {
-    padding-top: 21px;
-    padding-bottom: 10px;
-    color: #aaaaaa;
-    margin: 5px;
-    font-family: 'Bebas Neue', cursive;
+	padding-top: 21px;
+	padding-bottom: 10px;
+	color: #aaaaaa;
+	margin: 5px;
+	font-family: 'Bebas Neue', cursive;
 }
 
 p {
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 15px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 15px;
 }
 
-.img-wrapper{
-  text-align: center;
-  margin: 10px;
+.img-wrapper {
+	text-align: center;
+	margin: 10px;
 }
 
 #calendar {
-  font-size: 15px;
-  font-family: 'Bebas Neue', cursive;
+	font-size: 15px;
+	font-family: 'Bebas Neue', cursive;
 }
 
-#calendar th{
-  font-size: 20px;
-  font-family: 'Bebas Neue', cursive;
-  margin: 10px;
+#calendar th {
+	font-size: 20px;
+	font-family: 'Bebas Neue', cursive;
+	margin: 10px;
 }
 
-#calendar td{
-  font-size: 20px;
-  font-family: 'Bebas Neue', cursive;
-  margin: 10px;
+#calendar td {
+	font-size: 20px;
+	font-family: 'Bebas Neue', cursive;
+	margin: 10px;
 }
 
 .sun {
-  color:#ff7043 !important;
+	color: #ff7043 !important;
 }
 
 .sat {
-  color:cornflowerblue !important;
+	color: cornflowerblue !important;
 }
 
 #category {
-  font-size: 8px;
-  margin: 15px;
-  font-family: 'Bebas Neue', cursive;
+	font-size: 8px;
+	margin: 15px;
+	font-family: 'Bebas Neue', cursive;
 }
 
 #createdAt {
-  font-size: 8px;
-  margin-bottom: 20px;
-  margin: 15px;
-  font-family: 'Bebas Neue', cursive;
+	font-size: 8px;
+	margin-bottom: 20px;
+	margin: 15px;
+	font-family: 'Bebas Neue', cursive;
 }
 
 #sidebar {
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+	border-radius: 10px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #sidebar ul {
-    border-radius: 10px;
+	border-radius: 10px;
 }
 
 #sidebar a {
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 10px;
-    transition: color 0.3s;
-    text-decoration-line: none;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px;
+	transition: color 0.3s;
+	text-decoration-line: none;
 }
 
 #sidebar a:hover {
-    color : #ff7043;
+	color: #ff7043;
 }
 
 #sidebar span {
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #34558b !important;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #34558b !important;
 }
+
 
 /* #main {
 
 } */
 
 footer {
-    width: 100%;
-    height: 120px; 
-    text-align: center;
-    padding: 50px 0;
-    margin-top: 20px;
-    background-color: #cccccc;
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	padding: 50px 0;
+	margin-top: 20px;
+	background-color: #cccccc;
 }
 
 footer p {
-    color: #fff;
-    font-size: 10.5px;
-    font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+	font-size: 10.5px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .ft-area {
-    height: 300px;
-    background-color: #1d2324;
-    margin: 10px;
-    margin-top: 10px;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
+	height: 300px;
+	background-color: #1d2324;
+	margin: 10px;
+	margin-top: 10px;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 10px;
 }
 
 #clock {
-  font-size: 136px;
-  font-family: 'Bebas Neue', cursive;
-  text-align: center;
-  color: #34558b;
+	font-size: 136px;
+	font-family: 'Bebas Neue', cursive;
+	text-align: center;
+	color: #34558b;
 }
 
 #TimerDisplay {
-  font-size: 136px;
-  font-family: 'Bebas Neue', cursive;
-  text-align: center;
-  color: #34558b;
+	font-size: 136px;
+	font-family: 'Bebas Neue', cursive;
+	text-align: center;
+	color: #34558b;
 }
 
 .ex {
-  font-size: 10px;
-  color:#888888;
+	font-size: 10px;
+	color: #888888;
 }
 
 #Panel {
-  text-align: center;
+	text-align: center;
 }
 
 .loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  color:#34558b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-  font-family: 'Bebas Neue', cursive;
- 
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
- }
- 
- .loading.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
- }
- 
- /* ローディングアニメーション例 */
- 
-@keyframes flashing {
-50% {
-  opacity: .4;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	color: #34558b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 100px;
+	font-family: 'Bebas Neue', cursive;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
 }
-}
- 
-.loading-txt {
-animation: 1.0s flashing infinite;
-}​
 
-/*スマートフォン*/
-@media screen and (max-width: 480px) { 
+.loading.active {
+	opacity: 1;
+	visibility: visible;
+	z-index: 1;
 }
+
+
+/* ローディングアニメーション */
+
+@keyframes flashing {
+	50% {
+		opacity: .4;
+	}
+}
+
+.loading-txt {
+	animation: 1.0s flashing infinite;
+}
+
+​
+/*スマートフォン*/
+
+@media screen and (max-width: 480px) {}
+
 
 /*ダークモード*/
+
 @media (prefers-color-scheme: dark) {
-#header {
-  background-color: #1d2324 !important;
-}
-
-#header p {
-  color:white;
-}
-
-#Timer {
-  border: 3px solid #d8ce97;
-  border-radius: 10px;
-}
-
-#clock {
-  color:white;
-  border: 3px solid #d8ce97;
-  border-radius: 10px;
-}
-
-#TimerDisplay {
-  color:white;
-}
-
-body {
-  background-color: #000000 !important;
-  color: #e4e4e4 !important;
-}
-
-a {
-  color: #d8ce97 !important;
-}
-
-#wrapper img {
-  filter: grayscale(30%);
-  background-color:white;
-  border-radius: 10px;
-}
-
-#title{
-  border: 3px solid #d8ce97;
-  background-color: #1d2324 !important;
-}
-
-#calendar {
-  border: 3px solid #d8ce97;
-  border-radius: 10px;
-}
-
-#calendar th{
-  color: white;
-  background-color: #1d2324 !important;
-}
-
-#calendar td{
-  color: white;
-  background-color: #1d2324 !important;
-}
-
-#sidebar ul {
-  border: 3px solid #d8ce97;
-}
-
-#sidebar li {
-  background-color: #1d2324 !important;
-}
-
-#sidebar span{
-  background-color: #d8ce97 !important;
-  color: #000000;
-}
-
-footer {
-  background-color: #000000 !important;
-}
-
-.loading {
-  color:white;
-  background-color: #000;
-}
+	#header {
+		background-color: #1d2324 !important;
+	}
+	#header p {
+		color: white;
+	}
+	#Timer {
+		border: 3px solid #d8ce97;
+		border-radius: 10px;
+	}
+	#clock {
+		color: white;
+		border: 3px solid #d8ce97;
+		border-radius: 10px;
+	}
+	#TimerDisplay {
+		color: white;
+	}
+	body {
+		background-color: #000000 !important;
+		color: #e4e4e4 !important;
+	}
+	a {
+		color: #d8ce97 !important;
+	}
+	#wrapper img {
+		filter: grayscale(30%);
+		background-color: white;
+		border-radius: 10px;
+	}
+	#title {
+		border: 3px solid #d8ce97;
+		background-color: #1d2324 !important;
+	}
+	#calendar {
+		border: 3px solid #d8ce97;
+		border-radius: 10px;
+	}
+	#calendar th {
+		color: white;
+		background-color: #1d2324 !important;
+	}
+	#calendar td {
+		color: white;
+		background-color: #1d2324 !important;
+	}
+	#sidebar ul {
+		border: 3px solid #d8ce97;
+	}
+	#sidebar li {
+		background-color: #1d2324 !important;
+	}
+	#sidebar span {
+		background-color: #d8ce97 !important;
+		color: #000000;
+	}
+	footer {
+		background-color: #000000 !important;
+	}
+	.loading {
+		color: white;
+		background-color: #000;
+	}
 }

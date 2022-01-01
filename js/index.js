@@ -188,7 +188,7 @@ function parseBlogs(parent, json, Size, paperCategory){
     share.id = 'tweet';
     var tag = document.createElement('a');
     tag.text = 'tweet';
-    tag.setAttribute('href','https://twitter.com/share?url={{' + location.href + '}}&text={{' + obj.title +'}}&hashtags={{' + obj.category + '}}');
+    tag.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '/' + '&text=' + obj.title +'&hashtags=' + obj.category);
     share.appendChild(tag);
     contents.appendChild(share);
     paper.appendChild(contents);

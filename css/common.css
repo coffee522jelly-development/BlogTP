@@ -2,7 +2,8 @@
 :root {
   --light-accent-color: #000046;
 /*  --light-main-color: #fff;*/
-  --dark-main-color: #1d2324;
+  --dark-main-color: #000000;
+  --dark-sub-color: #1d2324;
   --dark-accent-color: #1CB5E0;
   --radius-size: 7.5px;
   --main-font: 'Bebas Neue', cursive;
@@ -249,21 +250,23 @@ footer p {
 ​
 /*スマートフォン*/
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+
+}
 
 
 /*ダークモード*/
 
 @media (prefers-color-scheme: dark) {
 	#header {
-		background-color: var(--dark-main-color) !important;
+		background-color: var(--dark-sub-color) !important;
 	}
 	#header p {
 		color: white;
 	}
 	#title {
 		border: 3px solid var(--dark-accent-color);
-		background-color: var(--dark-main-color) !important;
+		background-color: var(--dark-sub-color) !important;
 	}
 	#Timer {
 		border: 3px solid var(--dark-accent-color);
@@ -278,7 +281,7 @@ footer p {
 		color: white;
 	}
 	body {
-		background-color: #000000 !important;
+		background-color: var(--dark-main-color) !important;
 		color: #e4e4e4 !important;
 	}
 	a {
@@ -295,27 +298,27 @@ footer p {
 	}
 	#calendar th {
 		color: white;
-		background-color: var(--dark-main-color) !important;
+		background-color: var(--dark-sub-color) !important;
 	}
 	#calendar td {
 		color: white;
-		background-color: var(--dark-main-color) !important;
+		background-color: var(--dark-sub-color) !important;
 	}
 	#sidebar ul {
 		border: 3px solid var(--dark-accent-color);
 	}
 	#sidebar li {
-		background-color: var(--dark-main-color) !important;
+		background-color: var(--dark-sub-color) !important;
 	}
 	#sidebar span {
 		background-color: var(--dark-accent-color) !important;
 		color: white;
 	}
 	footer {
-		background-color: #000000 !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	.loading {
 		color: white;
-		background-color: #000;
+		background-color: var(--dark-main-color);
 	}
 }

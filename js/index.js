@@ -15,17 +15,21 @@ var NoneCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
-  GetBlogData();
+  var blogObj = GetBlogData();
   setInterval('GetClock()', 1000);
   GetCalendar();
   GetTimer();
   ResetTwitterColor();
 });
 
-// ページ読み込み後
-window.onload = function () {
+// window.addEventListener('load', function() {
 
-}
+// });
+
+// // ページ読み込み後
+// window.onload = function () {
+
+// }
 
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
@@ -41,10 +45,14 @@ const parent = document.getElementById('main');
   }).then(function (response) {
     return response.json();
   }).then(function (blogjson) { 
+    var url = decodeURIComponent(location.search);
+    var string = GetQueryString(url);
     GetParam(blogjson);
-    parseBlogs(parent, blogjson, totalCount, 'All');
+    var param;
+    if (string != null) param = string.contents_id;
+    parseBlogs(parent, blogjson, totalCount, 'All', param);
     blogObj = blogjson;
-    //console.log(blogObj);
+    console.log(blogObj);
   }).catch(function (error) {
     console.log(error);
   });
@@ -141,16 +149,20 @@ function scrollToTop() {
 // 選択カテゴリのみ表示
 function onlyCategoryzer(parent, category){
   parent.innerHTML = '';
-  parseBlogs(parent, blogObj, totalCount, category);  
+  parseBlogs(parent, blogObj, totalCount, category, null);  
 }
 
 // ブログ描画関数
-function parseBlogs(parent, json, Size, paperCategory){
+function parseBlogs(parent, json, Size, paperCategory, id){
   for (var i=0; i < Size; i++){
     var obj = json.contents[i];
 
     if (paperCategory != 'All'){
       if (obj.category != paperCategory)  continue;
+    }
+
+    if (id != null){
+      if (id != obj.id) continue;
     }
 
     // 記事単位のdiv生成
@@ -188,7 +200,7 @@ function parseBlogs(parent, json, Size, paperCategory){
     share.id = 'tweet';
     var tag = document.createElement('a');
     tag.text = 'tweet';
-    tag.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '/' + '&text=' + obj.title +'&hashtags=' + obj.category);
+    tag.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
     share.appendChild(tag);
     contents.appendChild(share);
     paper.appendChild(contents);
@@ -223,4 +235,24 @@ function ResetTwitterColor(){
   else{
     twitter.setAttribute('data-theme', 'light');
   }
+}
+
+// パラメータ読み出し
+function GetQueryString() {
+  if (1 < document.location.search.length) {
+      var query = document.location.search.substring(1);
+      var parameters = query.split('&');
+
+      var result = new Object();
+      for (var i = 0; i < parameters.length; i++) {
+          var element = parameters[i].split('=');
+
+          var paramName = decodeURIComponent(element[0]);
+          var paramValue = decodeURIComponent(element[1]);
+
+          result[paramName] = decodeURIComponent(paramValue);
+      }
+      return result;
+  }
+  return null;
 }

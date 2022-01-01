@@ -1,7 +1,10 @@
+/*グローバル変数*/
 :root {
   --light-accent-color: #000046;
+/*  --light-main-color: #fff;*/
+  --dark-main-color: #1d2324;
   --dark-accent-color: #1CB5E0;
-  --radius-size: 5px;
+  --radius-size: 7.5px;
   --main-font: 'Bebas Neue', cursive;
   --sub-font: Arial, Helvetica, sans-serif;
 }
@@ -67,7 +70,7 @@ body {
 }
 
 h1 {
-	padding-top: 21px;
+	padding-top: 22px;
 	padding-bottom: 10px;
 	color: #aaaaaa;
 	margin: 5px;
@@ -128,7 +131,7 @@ p {
 
 #sidebar {
 	border-radius: var(--radius-size);
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
 }
 
 #sidebar ul {
@@ -137,7 +140,7 @@ p {
 
 #sidebar a {
 	font-size: 15px;
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
 	margin: 10px;
 	transition: color 0.3s;
 	text-decoration-line: none;
@@ -149,7 +152,7 @@ p {
 
 #sidebar span {
 	font-size: 12px;
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
 	background-color: var(--light-accent-color) !important;
 }
 
@@ -253,10 +256,14 @@ footer p {
 
 @media (prefers-color-scheme: dark) {
 	#header {
-		background-color: #1d2324 !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	#header p {
 		color: white;
+	}
+	#title {
+		border: 3px solid var(--dark-accent-color);
+		background-color: var(--dark-main-color) !important;
 	}
 	#Timer {
 		border: 3px solid var(--dark-accent-color);
@@ -282,27 +289,23 @@ footer p {
 		background-color: white;
 		border-radius: var(--radius-size);
 	}
-	#title {
-		border: 3px solid var(--dark-accent-color);
-		background-color: #1d2324 !important;
-	}
 	#calendar {
 		border: 3px solid var(--dark-accent-color);
 		border-radius: var(--radius-size);
 	}
 	#calendar th {
 		color: white;
-		background-color: #1d2324 !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	#calendar td {
 		color: white;
-		background-color: #1d2324 !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	#sidebar ul {
 		border: 3px solid var(--dark-accent-color);
 	}
 	#sidebar li {
-		background-color: #1d2324 !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	#sidebar span {
 		background-color: var(--dark-accent-color) !important;

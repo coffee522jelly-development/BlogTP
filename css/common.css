@@ -13,6 +13,28 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+#header-animation {
+  text-align: center;
+  height: 150px;
+  background: linear-gradient(222deg, #020069, #02d0b6);
+  background-size: 400% 400%;
+
+  animation: HeaderGradient 30s linear infinite;
+}
+
+@keyframes HeaderGradient {
+  0%{background-position:90% 0%}
+  50%{background-position:11% 100%}
+  100%{background-position:90% 0%}
+}
+
+#header-animation p {
+  line-height: 150px;
+  font-size: 50px;
+  color:white;
+  font-family: 'Bebas Neue', cursive;
+}
+
 body {
 	caret-color: transparent;
 	/* デフォルトの点滅カーソルを非表示 */

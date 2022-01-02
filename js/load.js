@@ -1,3 +1,4 @@
+// ローディング関数
 function loaded() {
     document.getElementById("loading").classList.remove("active");
    }

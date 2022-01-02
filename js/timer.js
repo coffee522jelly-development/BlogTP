@@ -6,7 +6,7 @@ var timer;
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
 
-// カウントダウン関数
+// カウントダウン
 function countDown() {
     settingTime--;
     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);

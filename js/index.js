@@ -15,21 +15,13 @@ var NoneCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
-  var blogObj = GetBlogData();
+  GetBlogData();
   setInterval('GetClock()', 1000);
   GetCalendar();
   GetTimer();
   ResetTwitterColor();
 });
 
-// window.addEventListener('load', function() {
-
-// });
-
-// // ページ読み込み後
-// window.onload = function () {
-
-// }
 
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
@@ -47,9 +39,12 @@ const parent = document.getElementById('main');
   }).then(function (blogjson) { 
     var url = decodeURIComponent(location.search);
     var string = GetQueryString(url);
+    
     GetParam(blogjson);
+
     var param;
     if (string != null) param = string.contents_id;
+    
     parseBlogs(parent, blogjson, totalCount, 'All', param);
     blogObj = blogjson;
     console.log(blogObj);

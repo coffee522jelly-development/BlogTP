@@ -1,4 +1,5 @@
 'use strict'
+
 // 現在時刻取得
 function GetClock(){
   var nowTime = new Date(); //  現在日時を得る

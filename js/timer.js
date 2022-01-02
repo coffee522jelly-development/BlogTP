@@ -1,4 +1,5 @@
 'use strict'
+
 // グローバル変数
 var settingTime = 1500;
 var timer;

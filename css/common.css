@@ -396,4 +396,13 @@ footer p {
 		color: white;
 		background-color: var(--dark-main-color);
 	}
+	#tweet a {
+		color:white !important;
+	}
+	#facebook a {
+		color:white !important;
+	}
+	#Line a {
+		color:white !important;
+	}
 }

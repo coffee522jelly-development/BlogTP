@@ -190,13 +190,42 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     contents.id = 'contents';
     contents.innerHTML = obj.contents;
 
-    // Twitterシェアボタン
+    // シェア部分のヘッダ
     var share = document.createElement('div');
-    share.id = 'tweet';
-    var tag = document.createElement('a');
-    tag.text = 'tweet';
-    tag.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
-    share.appendChild(tag);
+    share.setAttribute('class', 'row');
+    share.id = 'share';
+
+    // Twitterシェアボタン
+    var twitter = document.createElement('div');
+    twitter.setAttribute('class', 'col');
+    twitter.id = 'tweet';
+    var ctweet = document.createElement('a');
+    ctweet.text = 'tweet.';
+    ctweet.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
+    twitter.appendChild(ctweet);
+    share.appendChild(twitter);
+
+    // facebookシェアボタン
+    var facebook = document.createElement('div');
+    facebook.setAttribute('class', 'col');
+    facebook.id = 'facebook';
+    var cfacebook = document.createElement('a');
+    cfacebook.text = 'facebook.';
+    cfacebook.setAttribute('href','https://www.facebook.com/share.php?u='+ location.href);
+    facebook.appendChild(cfacebook);
+    share.appendChild(facebook);
+
+    // Lineシェアボタン
+    var Line = document.createElement('div');
+    Line.setAttribute('class', 'col');
+    Line.id = 'Line';
+    var cLine = document.createElement('a');
+    cLine.text = 'Line.';
+    cLine.setAttribute('href','https://social-plugins.line.me/lineit/share?url='+ location.href);
+    Line.appendChild(cLine);
+    share.appendChild(Line);
+
+    // シェアボタンの記事への追加
     contents.appendChild(share);
     paper.appendChild(contents);
  

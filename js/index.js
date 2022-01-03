@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval('GetClock()', 1000);
   GetCalendar();
   GetTimer();
-  ResetTwitterColor();
+  // ResetTwitterColor();
 });
 
 

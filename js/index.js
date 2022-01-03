@@ -163,6 +163,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     // 記事単位のdiv生成
     var paper = document.createElement('div');
     paper.id = obj.id;
+    paper.className = 'paper';
  
     // タイトル作成
     var title = document.createElement('div');

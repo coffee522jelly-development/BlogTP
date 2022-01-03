@@ -6,14 +6,6 @@
 	font-display: swap;
 }
 
-@font-face {
-    font-family: 'KosugiMaru';
-    src: url('../fonts/KosugiMaru/KosugiMaru-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-	font-display: swap;
-}
-
 /*グローバル変数*/
 :root {
   --light-accent-color: #000046;
@@ -23,7 +15,7 @@
   --dark-accent-color: #1CB5E0;
   --radius-size: 7.5px;
   --main-font: Bebas Neue, cursive;
-  --sub-font: KosugiMaru;
+  --sub-font:  'Kosugi Maru', sans-serif;
   --letter-space: 1px;
 }
 
@@ -78,6 +70,10 @@ body {
 #wrapper {
 	width: 100%;
 	overflow-x: hidden !important;
+}
+
+.paper {
+	padding-top: 10px;
 }
 
 /*タイトル*/

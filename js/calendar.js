@@ -1,167 +1,167 @@
-//////////////////////////////////////////////////////////////////////////////////
-// 処理
+// //////////////////////////////////////////////////////////////////////////////////
+// // 処理
 
-// カレンダー追加
-function add_calendar(wrapper, year, month) {
-    // 現在カレンダーが追加されている場合は一旦削除する
-    wrapper.textContent = null;
+// // カレンダー追加
+// function add_calendar(wrapper, year, month) {
+//     // 現在カレンダーが追加されている場合は一旦削除する
+//     wrapper.textContent = null;
  
-    // カレンダーに表示する内容を取得
-    var headData = generate_calendar_header(wrapper, year, month);
-    var bodyData = generate_month_calendar(year, month);
+//     // カレンダーに表示する内容を取得
+//     var headData = generate_calendar_header(wrapper, year, month);
+//     var bodyData = generate_month_calendar(year, month);
  
-    // カレンダーの要素を追加
-    wrapper.appendChild(headData);
-    wrapper.appendChild(bodyData);
-}
+//     // カレンダーの要素を追加
+//     wrapper.appendChild(headData);
+//     wrapper.appendChild(bodyData);
+// }
  
-// カレンダーヘッダ生成
-function generate_calendar_header(wrapper, year, month) {
-    // 前月と翌月を取得
-    var nextMonth = new Date(year, (month - 1));
-    nextMonth.setMonth(nextMonth.getMonth() + 1);
-    var prevMonth = new Date(year, (month - 1));
-    prevMonth.setMonth(prevMonth.getMonth() - 1);
+// // カレンダーヘッダ生成
+// function generate_calendar_header(wrapper, year, month) {
+//     // 前月と翌月を取得
+//     var nextMonth = new Date(year, (month - 1));
+//     nextMonth.setMonth(nextMonth.getMonth() + 1);
+//     var prevMonth = new Date(year, (month - 1));
+//     prevMonth.setMonth(prevMonth.getMonth() - 1);
  
-    // ヘッダー要素
-    var cHeader = document.createElement('div');
-    cHeader.className = 'calendar-header';
+//     // ヘッダー要素
+//     var cHeader = document.createElement('div');
+//     cHeader.className = 'calendar-header';
  
-    // 見出しの追加
-    var cTitle = document.createElement('div');
-    cTitle.className = 'calendar-header-title';
-    var cTitleText = document.createTextNode(year + '年' + month + '月');
-    cTitle.appendChild(cTitleText);
-    cHeader.appendChild(cTitle);
+//     // 見出しの追加
+//     var cTitle = document.createElement('div');
+//     cTitle.className = 'calendar-header-title';
+//     var cTitleText = document.createTextNode(year + '年' + month + '月');
+//     cTitle.appendChild(cTitleText);
+//     cHeader.appendChild(cTitle);
  
-    // 前月ボタンの追加
-    var cPrev = document.createElement('button');
-    cPrev.className = 'btn btn-light btn-lg calendar-prev';
-    var cPrevText = document.createTextNode('prev');
-    cPrev.appendChild(cPrevText);
-    // 前月ボタンをクリックした時のイベント設定
-    cPrev.addEventListener('click', function() {
-        add_calendar(wrapper, prevMonth.getFullYear(), (prevMonth.getMonth() + 1));
-    }, false);
-    cHeader.appendChild(cPrev);
+//     // 前月ボタンの追加
+//     var cPrev = document.createElement('button');
+//     cPrev.className = 'btn btn-light btn-lg calendar-prev';
+//     var cPrevText = document.createTextNode('prev');
+//     cPrev.appendChild(cPrevText);
+//     // 前月ボタンをクリックした時のイベント設定
+//     cPrev.addEventListener('click', function() {
+//         add_calendar(wrapper, prevMonth.getFullYear(), (prevMonth.getMonth() + 1));
+//     }, false);
+//     cHeader.appendChild(cPrev);
  
-    // 翌月ボタンの追加
-    var cNext = document.createElement('button');
-    cNext.className = 'btn btn-light btn-lg calendar-next';
-    var cNextText = document.createTextNode('next');
-    cNext.appendChild(cNextText);
-    // 翌月ボタンをクリックした時のイベント設定
-    cNext.addEventListener('click', function() {
-        add_calendar(wrapper, nextMonth.getFullYear(), (nextMonth.getMonth() + 1));
-    }, false);
-    cHeader.appendChild(cNext);
+//     // 翌月ボタンの追加
+//     var cNext = document.createElement('button');
+//     cNext.className = 'btn btn-light btn-lg calendar-next';
+//     var cNextText = document.createTextNode('next');
+//     cNext.appendChild(cNextText);
+//     // 翌月ボタンをクリックした時のイベント設定
+//     cNext.addEventListener('click', function() {
+//         add_calendar(wrapper, nextMonth.getFullYear(), (nextMonth.getMonth() + 1));
+//     }, false);
+//     cHeader.appendChild(cNext);
  
-    return cHeader;
-}
+//     return cHeader;
+// }
 
-// 月別カレンダー生成
-function generate_month_calendar(year, month) {
-    var weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    // カレンダーの情報を取得
-    var calendarData = get_month_calendar(year, month);
+// // 月別カレンダー生成
+// function generate_month_calendar(year, month) {
+//     var weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+//     // カレンダーの情報を取得
+//     var calendarData = get_month_calendar(year, month);
  
-    var i = calendarData[0]['weekday']; // 初日の曜日を取得
-    // カレンダー上の初日より前を埋める
-    while(i > 0) {
-        i--;
-        calendarData.unshift({
-            day: '',
-            weekday: i
-        });
-    }
-    var i = calendarData[calendarData.length - 1]['weekday']; // 末日の曜日を取得
-    // カレンダー上の末日より後を埋める
-    while(i < 6) {
-        i++;
-        calendarData.push({
-            day: '',
-            weekday: i
-        });
-    }
+//     var i = calendarData[0]['weekday']; // 初日の曜日を取得
+//     // カレンダー上の初日より前を埋める
+//     while(i > 0) {
+//         i--;
+//         calendarData.unshift({
+//             day: '',
+//             weekday: i
+//         });
+//     }
+//     var i = calendarData[calendarData.length - 1]['weekday']; // 末日の曜日を取得
+//     // カレンダー上の末日より後を埋める
+//     while(i < 6) {
+//         i++;
+//         calendarData.push({
+//             day: '',
+//             weekday: i
+//         });
+//     }
  
-    // カレンダーの要素を生成
-    var cTable = document.createElement('table');
-    cTable.className = 'table table-striped calendar-table';
+//     // カレンダーの要素を生成
+//     var cTable = document.createElement('table');
+//     cTable.className = 'table table-striped calendar-table';
  
-    var insertData = '';
-    // 曜日部分の生成
-    insertData += '<thead>';
-    insertData += '<tr>';
-    for (var i = 0; i < weekdayData.length; i++) {
-        insertData += GetWeekId(i);
-        insertData += weekdayData[i];
-        insertData += '</th>';
-    }
-    insertData += '</tr>';
-    insertData += '</thead>';
+//     var insertData = '';
+//     // 曜日部分の生成
+//     insertData += '<thead>';
+//     insertData += '<tr>';
+//     for (var i = 0; i < weekdayData.length; i++) {
+//         insertData += GetWeekId(i);
+//         insertData += weekdayData[i];
+//         insertData += '</th>';
+//     }
+//     insertData += '</tr>';
+//     insertData += '</thead>';
  
-    // 日付部分の生成
-    insertData += '<tbody>';
-    for (var i = 0; i < calendarData.length; i++) {
-        var week = calendarData[i]['weekday'];
-        if(week <= 0) {
-            insertData += '<tr>';
-        }
+//     // 日付部分の生成
+//     insertData += '<tbody>';
+//     for (var i = 0; i < calendarData.length; i++) {
+//         var week = calendarData[i]['weekday'];
+//         if(week <= 0) {
+//             insertData += '<tr>';
+//         }
 
-        insertData += GetWeekId(week);
-        insertData += calendarData[i]['day'];
-        insertData += '</td>';
+//         insertData += GetWeekId(week);
+//         insertData += calendarData[i]['day'];
+//         insertData += '</td>';
 
-        if(week >= 6) {
-            insertData += '</tr>';
-        }        
-    }
-    insertData += '</tbody>';
+//         if(week >= 6) {
+//             insertData += '</tr>';
+//         }        
+//     }
+//     insertData += '</tbody>';
  
-    cTable.innerHTML = insertData;
-    return cTable;
-}
+//     cTable.innerHTML = insertData;
+//     return cTable;
+// }
 
-// カレンダー取得
-function get_month_calendar(year, month) {
-    var firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
-    var lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
-    var weekday = firstDate.getDay(); // 指定した年月の初日の曜日
+// // カレンダー取得
+// function get_month_calendar(year, month) {
+//     var firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
+//     var lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
+//     var weekday = firstDate.getDay(); // 指定した年月の初日の曜日
  
-    var calendarData = []; // カレンダーの情報を格納
-    var weekdayCount = weekday; // 曜日のカウント用
-    for (var i = 0; i < lastDay; i++) {
-        calendarData[i] = {
-            day: i + 1,
-            weekday: weekdayCount
-        }
+//     var calendarData = []; // カレンダーの情報を格納
+//     var weekdayCount = weekday; // 曜日のカウント用
+//     for (var i = 0; i < lastDay; i++) {
+//         calendarData[i] = {
+//             day: i + 1,
+//             weekday: weekdayCount
+//         }
 
-        // 曜日のカウントが6(土曜日)まできたら0(日曜日)に戻す
-        if(weekdayCount >= 6) {
-            weekdayCount = 0;
-        } else {
-            weekdayCount++;
-        }
-    }
-    return calendarData;
-}
+//         // 曜日のカウントが6(土曜日)まできたら0(日曜日)に戻す
+//         if(weekdayCount >= 6) {
+//             weekdayCount = 0;
+//         } else {
+//             weekdayCount++;
+//         }
+//     }
+//     return calendarData;
+// }
 
-//////////////////////////////////////////////////////////////////////////////////
-// 表示・フォーマッタ
+// //////////////////////////////////////////////////////////////////////////////////
+// // 表示・フォーマッタ
 
-// 曜日設定
-function GetWeekId(num){
-    var Data = '';
-    switch (num) {
-        case 0:
-            Data += '<td class="sun">';
-            break;
-        case 6:
-            Data += '<td class="sat">';
-            break;
-        default:
-            Data += '<td>';
-            break;
-    }
-    return Data;
-}
+// // 曜日設定
+// function GetWeekId(num){
+//     var Data = '';
+//     switch (num) {
+//         case 0:
+//             Data += '<td class="sun">';
+//             break;
+//         case 6:
+//             Data += '<td class="sat">';
+//             break;
+//         default:
+//             Data += '<td>';
+//             break;
+//     }
+//     return Data;
+// }

@@ -16,10 +16,10 @@ var NoneCount = 0;
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
   GetBlogData();
-  setInterval('GetClock()', 1000);
-  GetCalendar();
-  GetTimer();
-  ResetTwitterColor();
+  // setInterval('GetClock()', 1000);
+  // GetCalendar();
+  // GetTimer();
+  // ResetTwitterColor();
 });
 
 

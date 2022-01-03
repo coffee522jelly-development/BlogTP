@@ -2,7 +2,7 @@
 
 // グローバル変数
 const blogCategory = ['日常', 'プログラミング', 'なし'];
-const url = 'https://think-free.microcms.io/api/v1/blog';
+const url = 'https://think-free.microcms.io/api/v1/blog?limit=50';
 
 // ブログオブジェクト
 var blogObj;

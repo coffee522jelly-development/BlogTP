@@ -96,6 +96,7 @@ body {
 	padding: 10px;
 	font-family: var(--sub-font);
 	color: white;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
 h1 {
@@ -109,7 +110,7 @@ h1 {
 
 p {
 	font-size: 12px;
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
 	margin: 15px;
 }
 

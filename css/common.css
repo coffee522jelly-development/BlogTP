@@ -1,12 +1,3 @@
-/* ローカルフォントの読込*/
-@font-face {
-    font-family: 'Noto Sans JP';
-    src: url('../fonts/NotoSansJP/NotoSansJP-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-	font-display: swap;
-}
-
 @font-face {
     font-family: 'Bebas Neue';
     src: url('../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
@@ -24,7 +15,7 @@
   --dark-accent-color: #1CB5E0;
   --radius-size: 7.5px;
   --main-font: Bebas Neue, cursive;
-  --sub-font: Noto Sans JP;
+  --sub-font: Bebas Neue;
   --letter-space: 1px;
 }
 

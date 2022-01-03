@@ -181,6 +181,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     wrapper.className = 'img-wrapper';
     var img = document.createElement('img');
     img.src = obj.photos.url; // 画像パス
+    img.setAttribute('loading', 'lazy');
     img.setAttribute('class', 'img-fluid');
     wrapper.appendChild(img);
     paper.appendChild(wrapper);

@@ -1,4 +1,4 @@
-/*ローカルフォントの読込*/
+/* ローカルフォントの読込*/
 @font-face {
     font-family: 'Noto Sans JP';
     src: url('../fonts/NotoSansJP/NotoSansJP-Regular.otf') format('opentype');

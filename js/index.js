@@ -50,6 +50,7 @@ const parent = document.getElementById('main');
     console.log(blogObj);
   }).catch(function (error) {
     console.log(error);
+    GetErrorMessage();
   });
 }
 
@@ -140,6 +141,15 @@ function scrollToTop() {
 
 //////////////////////////////////////////////////////////////////////////////////
 // 表示・フォーマッタ
+
+// エラーメッセージの表示
+function GetErrorMessage(){
+  var paper = document.getElementById('main');
+  var error = document.createElement('div');
+  error.id = 'error';
+  error.innerHTML = 'ページ読み込みエラー';
+  paper.appendChild(error);
+}
 
 // 選択カテゴリのみ表示
 function onlyCategoryzer(parent, category){

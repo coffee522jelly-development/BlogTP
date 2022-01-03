@@ -1,76 +1,76 @@
-// 'use strict'
+'use strict'
 
-// // グローバル変数
-// var settingTime = 1500;
-// var timer;
+// グローバル変数
+var settingTime = 1500;
+var timer;
 
-// //////////////////////////////////////////////////////////////////////////////////
-// // 処理
+//////////////////////////////////////////////////////////////////////////////////
+// 処理
 
-// // カウントダウン
-// function countDown() {
-//     settingTime--;
-//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+// カウントダウン
+function countDown() {
+    settingTime--;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
 
-//     if (settingTime == 0){
-//         sound("sine", 0.1);
-//         Reset();
-//     }   
-// }
+    if (settingTime == 0){
+        sound("sine", 0.1);
+        Reset();
+    }   
+}
 
-// // 通知音関数
-// function sound(type, sec) {
-// 	const ctx = new AudioContext();
-// 	const osc = ctx.createOscillator();
-// 	osc.type = type;
-// 	osc.connect(ctx.destination);
-// 	osc.start();
-// 	osc.stop(sec);
-// }
+// 通知音関数
+function sound(type, sec) {
+	const ctx = new AudioContext();
+	const osc = ctx.createOscillator();
+	osc.type = type;
+	osc.connect(ctx.destination);
+	osc.start();
+	osc.stop(sec);
+}
 
-// //////////////////////////////////////////////////////////////////////////////////
-// // イベント
+//////////////////////////////////////////////////////////////////////////////////
+// イベント
 
-// // スタート
-// function Start() {
-//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-//     timer = setInterval(countDown, 1000);   // 1秒に1度実行
-//     sound("sine", 0.1);
-// }
+// スタート
+function Start() {
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+    timer = setInterval(countDown, 1000);   // 1秒に1度実行
+    sound("sine", 0.1);
+}
 
-// // ストップ
-// function Stop() {
-//     clearInterval(timer);
-// }
+// ストップ
+function Stop() {
+    clearInterval(timer);
+}
 
-// // リセット
-// function Reset() {
-//     clearInterval(timer);
-//     settingTime = 1500;
-//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-// }
+// リセット
+function Reset() {
+    clearInterval(timer);
+    settingTime = 1500;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+}
 
-// // 5分セット
-// function set5min() {
-//     settingTime = 300;
-//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-//     clearInterval(timer);
-// }
+// 5分セット
+function set5min() {
+    settingTime = 300;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+    clearInterval(timer);
+}
 
-// // 15分セット
-// function set15min() {
-//     settingTime = 900;
-//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-//     clearInterval(timer);
-// }
+// 15分セット
+function set15min() {
+    settingTime = 900;
+    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+    clearInterval(timer);
+}
 
-// //////////////////////////////////////////////////////////////////////////////////
-// // 表示・フォーマッタ
+//////////////////////////////////////////////////////////////////////////////////
+// 表示・フォーマッタ
 
-// // 分秒計算
-// function calcMinSec(settingTime) {
-//     var min = parseInt(settingTime / 60);
-//     var sec = addZero(parseInt(settingTime % 60));
+// 分秒計算
+function calcMinSec(settingTime) {
+    var min = parseInt(settingTime / 60);
+    var sec = addZero(parseInt(settingTime % 60));
     
-//     return min + ":" + sec;
-// }
+    return min + ":" + sec;
+}

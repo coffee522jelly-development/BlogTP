@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" >
 	      <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/load.js"></script>
+        <script type="text/javascript" src="js/index.js" async></script>
         <!-- Twitter カード設定 -->
         <meta name="twitter:card" content="summary" /> <!--①-->
         <meta name="twitter:site" content="@lack_of_sleeep" /> <!--②-->
@@ -38,15 +39,15 @@
                   </div>
                   <div id="sidebar" class="col-sm-4">
                     <!-- 時計 -->
-                    <!-- <h1>Clock.</h1>
+                    <h1>Clock.</h1>
                     <hr>
-                    <div id="clock"></div> -->
+                    <div id="clock"></div>
                     <!-- カレンダー -->
-                    <!-- <h1>Calendar.</h1>
+                    <h1>Calendar.</h1>
                     <hr>
-                    <div id="calendar"></div> -->
+                    <div id="calendar"></div>
                     <!-- ポモドーロタイマー -->
-                    <!-- <h1>Pomodoro-Timer.</h1>
+                    <h1>Pomodoro-Timer.</h1>
                     <hr>
                     <div id="Timer">
                       <div id="TimerDisplay"></div>
@@ -58,7 +59,7 @@
                         <button id="5min" class="btn btn-light" onclick="set5min()">5min.</button>
                         <button id="15min" class="btn btn-light" onclick="set15min()">15min.</button>
                       </div>
-                    </div> -->
+                    </div>
                     <!-- カテゴリ設定 -->
                     <h1>Category.</h1>
                     <hr>
@@ -104,11 +105,11 @@
                       </li>
                     </ul>
                     <!-- Twitter Publish-->
-                    <!-- <h1>Twitter.</h1>
+                    <h1>Twitter.</h1>
                     <hr>
                     <ul class="list-group">
                       <a class="twitter-timeline" data-lang="us" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </ul> -->
+                    </ul>
                   </div><!-- sidebar -->
                 </div><!-- row -->
               </div><!-- container -->
@@ -119,10 +120,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <!-- Javascript -->
         <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="js/load.js"></script>
-        <!-- <script type="text/javascript" src="js/calendar.js"></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
         <script type="text/javascript" src="js/timer.js"></script>
-        <script type="text/javascript" src="js/clock.js"></script> -->
+        <script type="text/javascript" src="js/clock.js"></script>
     <footer>
         <p>© All rights reserved by microBlog.</p>
     </footer>

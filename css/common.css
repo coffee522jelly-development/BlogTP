@@ -12,7 +12,7 @@
 /*  --light-main-color: #fff;*/
   --dark-main-color: #000000;
   --dark-sub-color: #1d2324;
-  --dark-accent-color: #1CB5E0;
+  --dark-accent-color: #00BA7C;
   --radius-size: 7.5px;
   --main-font: Bebas Neue, cursive;
   --sub-font:  'Kosugi Maru', sans-serif;
@@ -118,6 +118,7 @@ p {
 	margin: 10px;
 }
 
+/*サムネイルは426×240*/
 .img-thumbnail {
 	width: 426px !important;
 	height: 240px !important;

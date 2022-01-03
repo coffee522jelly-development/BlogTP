@@ -109,19 +109,26 @@ p {
 
 /*画像*/
 #wrapper img {
-  border-radius: var(--radius-size);
+	border-radius: var(--radius-size);
+	max-width: 100%;
+	height: auto;
 }
 
-.img-wrapper {
-	text-align: center;
+#img-wrapper {
 	margin: 10px;
+}
+
+.img-thumbnail {
+	width: 426px !important;
+	height: 240px !important;
+	object-fit: cover !important;
 }
 
 /*カレンダー*/
 #calendar {
 	font-size: 15px;
 	font-family: var(--main-font);
-  padding: 15px;
+  	padding: 15px;
 }
 
 #calendar th {

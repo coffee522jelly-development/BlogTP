@@ -50,6 +50,7 @@ const parent = document.getElementById('main');
     console.log(blogObj);
   }).catch(function (error) {
     console.log(error);
+
     GetErrorMessage();
   });
 }
@@ -189,11 +190,11 @@ function parseBlogs(parent, json, Size, paperCategory, id){
  
     // img要素を作成
     var wrapper = document.createElement('div');
-    wrapper.className = 'img-wrapper';
+    wrapper.id = 'img-wrapper';
     var img = document.createElement('img');
-    img.src = obj.photos.url; // 画像パス
+    img.src = obj.photos.url;
     img.setAttribute('loading', 'lazy');
-    img.setAttribute('class', 'img-fluid');
+    img.setAttribute('class', 'img-thumbnail');
     wrapper.appendChild(img);
     paper.appendChild(wrapper);
  

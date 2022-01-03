@@ -1,3 +1,25 @@
+/*ローカルフォントの読込*/
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: url('../fonts/NotoSansJP/NotoSansJP-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MPlus1Code';
+    src: url('../fonts/MPlus1Code/static/MPLUS1Code-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
 /*グローバル変数*/
 :root {
   --light-accent-color: #000046;
@@ -6,8 +28,9 @@
   --dark-sub-color: #1d2324;
   --dark-accent-color: #1CB5E0;
   --radius-size: 7.5px;
-  --main-font: 'Bebas Neue', cursive;
-  --sub-font: Arial, Helvetica, sans-serif;
+  --main-font: Bebas Neue, cursive;
+  --sub-font: Noto Sans JP;
+  /* --sub-font: MPlus1Code; */
   --letter-space: 1px;
 }
 

@@ -13,13 +13,6 @@
     font-style: normal;
 }
 
-/* @font-face {
-    font-family: 'MPlus1Code';
-    src: url('../fonts/MPlus1Code/static/MPLUS1Code-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-} */
-
 /*グローバル変数*/
 :root {
   --light-accent-color: #000046;
@@ -30,7 +23,6 @@
   --radius-size: 7.5px;
   --main-font: Bebas Neue, cursive;
   --sub-font: Noto Sans JP;
-  /* --sub-font: MPlus1Code; */
   --letter-space: 1px;
 }
 
@@ -178,6 +170,7 @@ p {
 	border-radius: 5px;
 	text-align: center;
 	margin: 5px;
+	box-shadow: 0 0 8px gray;
 }
 #tweet:hover {
 	opacity: 0.6;
@@ -202,6 +195,7 @@ p {
 	border-radius: 5px;
 	text-align: center;
 	margin: 5px;
+	box-shadow: 0 0 8px gray;
 }
 #facebook:hover {
 	opacity: 0.6;
@@ -226,6 +220,7 @@ p {
 	border-radius: 5px;
 	text-align: center;
 	margin: 5px;
+	box-shadow: 0 0 8px gray;
 }
 #Line:hover {
 	opacity: 0.6;

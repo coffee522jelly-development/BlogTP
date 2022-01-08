@@ -69,8 +69,8 @@ function set15min() {
 
 // 分秒計算
 function calcMinSec(settingTime) {
-    let min = parseInt(settingTime / 60);
-    let sec = addZero(parseInt(settingTime % 60));
+    const min = parseInt(settingTime / 60);
+    const sec = addZero(parseInt(settingTime % 60));
     
     return min + ":" + sec;
 }

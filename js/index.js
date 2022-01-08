@@ -37,8 +37,8 @@ const parent = document.getElementById('main');
   }).then(function (response) {
     return response.json();
   }).then(function (blogjson) { 
-    let url = decodeURIComponent(location.search);
-    let string = GetQueryString(url);
+    const url = decodeURIComponent(location.search);
+    const string = GetQueryString(url);
     
     GetParam(blogjson);
 
@@ -65,7 +65,7 @@ function GetParam(myjson){
   totalCount = myjson.totalCount;
 
   for (let i=0; i<totalCount; i++){
-    let categories = myjson.contents[i].category;
+    const categories = myjson.contents[i].category;
     if (categories == blogCategory[0])
       DayCount++;
     if (categories == blogCategory[1])
@@ -89,8 +89,8 @@ function GetParam(myjson){
 
 // カレンダー取得
 function GetCalendar(){
-  let current = new Date();
-  let wrapper = document.getElementById('calendar');
+  const current = new Date();
+  const wrapper = document.getElementById('calendar');
   add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
 }
 
@@ -133,7 +133,7 @@ function getScrolled() {
 
 // トップまでスクロール
 function scrollToTop() {
-    let scrolled = getScrolled();
+    const scrolled = getScrolled();
     window.scrollTo( 0, Math.floor( scrolled / 2 ) );
     if ( scrolled > 0 ) {
       window.setTimeout( scrollToTop, 30 );
@@ -284,8 +284,8 @@ function GetQueryString() {
       for (let i = 0; i < parameters.length; i++) {
           let element = parameters[i].split('=');
 
-          let paramName = decodeURIComponent(element[0]);
-          let paramValue = decodeURIComponent(element[1]);
+          const paramName = decodeURIComponent(element[0]);
+          const paramValue = decodeURIComponent(element[1]);
 
           result[paramName] = decodeURIComponent(paramValue);
       }

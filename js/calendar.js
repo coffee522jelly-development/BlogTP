@@ -7,8 +7,8 @@ function add_calendar(wrapper, year, month) {
     wrapper.textContent = null;
  
     // カレンダーに表示する内容を取得
-    let headData = generate_calendar_header(wrapper, year, month);
-    let bodyData = generate_month_calendar(year, month);
+    const headData = generate_calendar_header(wrapper, year, month);
+    const bodyData = generate_month_calendar(year, month);
  
     // カレンダーの要素を追加
     wrapper.appendChild(headData);
@@ -61,7 +61,7 @@ function generate_calendar_header(wrapper, year, month) {
 
 // 月別カレンダー生成
 function generate_month_calendar(year, month) {
-    let weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     // カレンダーの情報を取得
     let calendarData = get_month_calendar(year, month);
  
@@ -124,9 +124,9 @@ function generate_month_calendar(year, month) {
 
 // カレンダー取得
 function get_month_calendar(year, month) {
-    let firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
-    let lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
-    let weekday = firstDate.getDay(); // 指定した年月の初日の曜日
+    const firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
+    const lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
+    const weekday = firstDate.getDay(); // 指定した年月の初日の曜日
  
     let calendarData = []; // カレンダーの情報を格納
     let weekdayCount = weekday; // 曜日のカウント用

@@ -1,8 +1,8 @@
 'use strict'
 
 // グローバル変数
-var settingTime = 1500;
-var timer;
+let settingTime = 1500;
+let timer;
 
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
@@ -69,8 +69,8 @@ function set15min() {
 
 // 分秒計算
 function calcMinSec(settingTime) {
-    var min = parseInt(settingTime / 60);
-    var sec = addZero(parseInt(settingTime % 60));
+    let min = parseInt(settingTime / 60);
+    let sec = addZero(parseInt(settingTime % 60));
     
     return min + ":" + sec;
 }

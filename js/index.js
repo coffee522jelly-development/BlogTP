@@ -5,13 +5,13 @@ const blogCategory = ['日常', 'プログラミング', 'なし'];
 const url = 'https://think-free.microcms.io/api/v1/blog?limit=50';
 
 // ブログオブジェクト
-var blogObj;
+let blogObj;
 
 // 記事数カウンタ
-var totalCount = 0;
-var DayCount = 0;
-var ProgramCount = 0;
-var NoneCount = 0;
+let totalCount = 0;
+let DayCount = 0;
+let ProgramCount = 0;
+let NoneCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
@@ -37,12 +37,12 @@ const parent = document.getElementById('main');
   }).then(function (response) {
     return response.json();
   }).then(function (blogjson) { 
-    var url = decodeURIComponent(location.search);
-    var string = GetQueryString(url);
+    let url = decodeURIComponent(location.search);
+    let string = GetQueryString(url);
     
     GetParam(blogjson);
 
-    var param;
+    let param;
     if (string != null) param = string.contents_id;
     
     parseBlogs(parent, blogjson, totalCount, 'All', param);
@@ -64,8 +64,8 @@ function GetParam(myjson){
   
   totalCount = myjson.totalCount;
 
-  for (var i=0; i<totalCount; i++){
-    var categories = myjson.contents[i].category;
+  for (let i=0; i<totalCount; i++){
+    let categories = myjson.contents[i].category;
     if (categories == blogCategory[0])
       DayCount++;
     if (categories == blogCategory[1])
@@ -74,23 +74,23 @@ function GetParam(myjson){
       NoneCount++;
   }
 
-  var All = document.getElementById('All');
+  let All = document.getElementById('All');
   All.innerHTML = totalCount;
 
-  var Day = document.getElementById('Day');
+  let Day = document.getElementById('Day');
   Day.innerHTML = DayCount;
 
-  var Program = document.getElementById('Program');
+  let Program = document.getElementById('Program');
   Program.innerHTML = ProgramCount;
 
-  var None = document.getElementById('None');
+  let None = document.getElementById('None');
   None.innerHTML = NoneCount;
 }
 
 // カレンダー取得
 function GetCalendar(){
-  var current = new Date();
-  var wrapper = document.getElementById('calendar');
+  let current = new Date();
+  let wrapper = document.getElementById('calendar');
   add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
 }
 
@@ -133,7 +133,7 @@ function getScrolled() {
 
 // トップまでスクロール
 function scrollToTop() {
-    var scrolled = getScrolled();
+    let scrolled = getScrolled();
     window.scrollTo( 0, Math.floor( scrolled / 2 ) );
     if ( scrolled > 0 ) {
       window.setTimeout( scrollToTop, 30 );
@@ -145,8 +145,8 @@ function scrollToTop() {
 
 // エラーメッセージの表示
 function GetErrorMessage(){
-  var paper = document.getElementById('main');
-  var error = document.createElement('div');
+  let paper = document.getElementById('main');
+  let error = document.createElement('div');
   error.id = 'error';
   error.innerHTML = 'ページ読み込みエラー';
   paper.appendChild(error);
@@ -160,8 +160,8 @@ function onlyCategoryzer(parent, category){
 
 // ブログ描画関数
 function parseBlogs(parent, json, Size, paperCategory, id){
-  for (var i=0; i < Size; i++){
-    var obj = json.contents[i];
+  for (let i=0; i < Size; i++){
+    let obj = json.contents[i];
 
     if (paperCategory != 'All'){
       if (obj.category != paperCategory)  continue;
@@ -172,26 +172,26 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     }
 
     // 記事単位のdiv生成
-    var paper = document.createElement('div');
+    let paper = document.createElement('div');
     paper.id = obj.id;
     paper.className = 'paper';
  
     // タイトル作成
-    var title = document.createElement('div');
+    let title = document.createElement('div');
     title.id = 'title';
     title.innerHTML = obj.title;
     paper.appendChild(title);
  
     // カテゴリ作成
-    var category = document.createElement('div');
+    let category = document.createElement('div');
     category.id = 'category';
     category.innerHTML = "category : " + obj.category;
     paper.appendChild(category);
  
     // img要素を作成
-    var wrapper = document.createElement('div');
+    let wrapper = document.createElement('div');
     wrapper.id = 'img-wrapper';
-    var img = document.createElement('img');
+    let img = document.createElement('img');
     img.src = obj.photos.url;
     img.setAttribute('loading', 'lazy');
     img.setAttribute('class', 'img-thumbnail');
@@ -199,40 +199,40 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     paper.appendChild(wrapper);
  
     // コンテンツ作成
-    var contents = document.createElement('div');
+    let contents = document.createElement('div');
     contents.id = 'contents';
     contents.innerHTML = obj.contents;
 
     // シェア部分のヘッダ
-    var share = document.createElement('div');
+    let share = document.createElement('div');
     share.setAttribute('class', 'row');
     share.id = 'share';
 
     // Twitterシェアボタン
-    var twitter = document.createElement('div');
+    let twitter = document.createElement('div');
     twitter.setAttribute('class', 'col');
     twitter.id = 'tweet';
-    var ctweet = document.createElement('a');
-    ctweet.text = 'tweet.';
+    let ctweet = document.createElement('a');
+    ctweet.text = 'twitter.';
     ctweet.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
     twitter.appendChild(ctweet);
     share.appendChild(twitter);
 
     // facebookシェアボタン
-    var facebook = document.createElement('div');
+    let facebook = document.createElement('div');
     facebook.setAttribute('class', 'col');
     facebook.id = 'facebook';
-    var cfacebook = document.createElement('a');
+    let cfacebook = document.createElement('a');
     cfacebook.text = 'facebook.';
     cfacebook.setAttribute('href','https://www.facebook.com/share.php?u='+ location.href);
     facebook.appendChild(cfacebook);
     share.appendChild(facebook);
 
     // Lineシェアボタン
-    var Line = document.createElement('div');
+    let Line = document.createElement('div');
     Line.setAttribute('class', 'col');
     Line.id = 'Line';
-    var cLine = document.createElement('a');
+    let cLine = document.createElement('a');
     cLine.text = 'Line.';
     cLine.setAttribute('href','https://social-plugins.line.me/lineit/share?url='+ location.href);
     Line.appendChild(cLine);
@@ -243,14 +243,14 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     paper.appendChild(contents);
  
     // 作成日時
-    var date = new Date(obj.createdAt);
-    var createdAt = document.createElement('div');
+    let date = new Date(obj.createdAt);
+    let createdAt = document.createElement('div');
     createdAt.id = 'createdAt';
     createdAt.innerHTML = "created-At ： " + formatDate(date);
     paper.appendChild(createdAt);
  
     // パーティション
-    var part = document.createElement('hr');
+    let part = document.createElement('hr');
     paper.appendChild(part);
 
     parent.appendChild(paper);
@@ -277,15 +277,15 @@ function ResetTwitterColor(){
 // パラメータ読み出し
 function GetQueryString() {
   if (1 < document.location.search.length) {
-      var query = document.location.search.substring(1);
-      var parameters = query.split('&');
+      let query = document.location.search.substring(1);
+      let parameters = query.split('&');
 
-      var result = new Object();
-      for (var i = 0; i < parameters.length; i++) {
-          var element = parameters[i].split('=');
+      let result = new Object();
+      for (let i = 0; i < parameters.length; i++) {
+          let element = parameters[i].split('=');
 
-          var paramName = decodeURIComponent(element[0]);
-          var paramValue = decodeURIComponent(element[1]);
+          let paramName = decodeURIComponent(element[0]);
+          let paramValue = decodeURIComponent(element[1]);
 
           result[paramName] = decodeURIComponent(paramValue);
       }

@@ -1,14 +1,16 @@
 'use strict'
 
 // グローバル変数
+const limit = 50;
+const url = 'https://think-free.microcms.io/api/v1/blog?limit='+ limit;
 const blogCategory = ['日常', 'プログラミング', 'なし'];
-const url = 'https://think-free.microcms.io/api/v1/blog?limit=50';
 
 // ブログオブジェクト
 let blogObj;
 
 // 記事数カウンタ
 let totalCount, DayCount, ProgramCount, NoneCount = 0;
+let categoryCount = [];
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {

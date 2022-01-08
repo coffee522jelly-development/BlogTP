@@ -2,9 +2,9 @@
 
 // 現在時刻取得
 function GetClock(){
-  const nowTime = new Date(); //  現在日時を得る
-  const nowHour = addZero(parseInt(nowTime.getHours())); // 時を抜き出す
-  const nowMin  = addZero(parseInt(nowTime.getMinutes())); // 分を抜き出す
+  const nowTime = new Date();
+  const nowHour = addZero(parseInt(nowTime.getHours()));
+  const nowMin  = addZero(parseInt(nowTime.getMinutes()));
   const msg = nowHour + ":" + nowMin;
 
   document.getElementById("clock").innerHTML = msg;

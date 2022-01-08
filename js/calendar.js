@@ -63,7 +63,7 @@ function generate_calendar_header(wrapper, year, month) {
 function generate_month_calendar(year, month) {
     const weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     // カレンダーの情報を取得
-    let calendarData = get_month_calendar(year, month);
+    const calendarData = get_month_calendar(year, month);
  
     let i = calendarData[0]['weekday']; // 初日の曜日を取得
     // カレンダー上の初日より前を埋める
@@ -74,13 +74,13 @@ function generate_month_calendar(year, month) {
             weekday: i
         });
     }
-    let i = calendarData[calendarData.length - 1]['weekday']; // 末日の曜日を取得
+    let j = calendarData[calendarData.length - 1]['weekday']; // 末日の曜日を取得
     // カレンダー上の末日より後を埋める
-    while(i < 6) {
-        i++;
+    while(j  < 6) {
+        j++;
         calendarData.push({
             day: '',
-            weekday: i
+            weekday: j 
         });
     }
  
@@ -104,7 +104,7 @@ function generate_month_calendar(year, month) {
     insertData += '<tbody>';
     for (let i = 0; i < calendarData.length; i++) {
         let week = calendarData[i]['weekday'];
-        if(week <= 0) {
+        if (week <= 0) {
             insertData += '<tr>';
         }
 
@@ -112,7 +112,7 @@ function generate_month_calendar(year, month) {
         insertData += calendarData[i]['day'];
         insertData += '</td>';
 
-        if(week >= 6) {
+        if (week >= 6) {
             insertData += '</tr>';
         }        
     }
@@ -137,7 +137,7 @@ function get_month_calendar(year, month) {
         }
 
         // 曜日のカウントが6(土曜日)まできたら0(日曜日)に戻す
-        if(weekdayCount >= 6) {
+        if (weekdayCount >= 6) {
             weekdayCount = 0;
         } else {
             weekdayCount++;

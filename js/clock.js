@@ -12,8 +12,8 @@ function GetClock(){
 
 // 1桁に0を付与
 function addZero(Item){
-    if ((Item >= 0) && (9 >= Item))
-        return Item = '0' + Item;
-    else
-        return Item;
+  if ((Item >= 0) && (9 >= Item))
+      return Item = '0' + Item;
+  else
+      return Item;
 }

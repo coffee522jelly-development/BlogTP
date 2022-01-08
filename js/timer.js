@@ -20,7 +20,7 @@ function countDown() {
 
 // 通知音関数
 function sound(type, sec) {
-	const ctx = new AudioContext();
+    const ctx = new AudioContext();
 	const osc = ctx.createOscillator();
 	osc.type = type;
 	osc.connect(ctx.destination);
@@ -71,6 +71,6 @@ function set15min() {
 function calcMinSec(settingTime) {
     const min = parseInt(settingTime / 60);
     const sec = addZero(parseInt(settingTime % 60));
-    
+
     return min + ":" + sec;
 }

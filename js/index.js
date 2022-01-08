@@ -8,10 +8,7 @@ const url = 'https://think-free.microcms.io/api/v1/blog?limit=50';
 let blogObj;
 
 // 記事数カウンタ
-let totalCount = 0;
-let DayCount = 0;
-let ProgramCount = 0;
-let NoneCount = 0;
+let totalCount, DayCount, ProgramCount, NoneCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
@@ -28,41 +25,39 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // ブログデータ取得関数
 function GetBlogData(){
-const parent = document.getElementById('main');
- fetch(url, {
-  headers: {
-    "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
-    "Content-Type": "application/json"
-  }
-  }).then(function (response) {
-    return response.json();
-  }).then(function (blogjson) { 
-    const url = decodeURIComponent(location.search);
-    const string = GetQueryString(url);
-    
-    GetParam(blogjson);
+  const parent = document.getElementById('main');
+  fetch(url, {
+    headers: {
+      "X-MICROCMS-API-KEY": "09fdf236-e540-414d-927a-70f425e43a3e",   // 個人のAPIキー
+      "Content-Type": "application/json"
+    }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (blogjson) { 
+      const url = decodeURIComponent(location.search);
+      const string = GetQueryString(url);
+      
+      GetParam(blogjson);
 
-    let param;
-    if (string != null) param = string.contents_id;
-    
-    parseBlogs(parent, blogjson, totalCount, 'All', param);
-    blogObj = blogjson;
-    console.log(blogObj);
-  }).catch(function (error) {
-    console.log(error);
+      let param;
+      if (string != null) param = string.contents_id;
+      
+      parseBlogs(parent, blogjson, totalCount, 'All', param);
+      blogObj = blogjson;
+      console.log(blogObj);
+    }).catch(function (error) {
+      console.log(error);
 
-    GetErrorMessage();
-  });
+      GetErrorMessage();
+    });
 }
 
 // ブログ記事数取得関数
 function GetParam(myjson){
-  totalCount = 0;
+  totalCount = myjson.totalCount;
   DayCount = 0;
   ProgramCount = 0;
   NoneCount = 0;
-  
-  totalCount = myjson.totalCount;
 
   for (let i=0; i<totalCount; i++){
     const categories = myjson.contents[i].category;
@@ -133,11 +128,11 @@ function getScrolled() {
 
 // トップまでスクロール
 function scrollToTop() {
-    const scrolled = getScrolled();
-    window.scrollTo( 0, Math.floor( scrolled / 2 ) );
-    if ( scrolled > 0 ) {
-      window.setTimeout( scrollToTop, 30 );
-    }
+  const scrolled = getScrolled();
+  window.scrollTo( 0, Math.floor( scrolled / 2 ) );
+  if ( scrolled > 0 ) {
+    window.setTimeout( scrollToTop, 30 );
+  }
 };
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -259,7 +254,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
 
 // 日時表示関数
 function formatDate(current_datetime){
-  let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
+  const formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
   return formatted_date;
 }
 

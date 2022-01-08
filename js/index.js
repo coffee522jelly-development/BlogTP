@@ -3,14 +3,16 @@
 // グローバル変数
 const limit = 50;
 const url = 'https://think-free.microcms.io/api/v1/blog?limit='+ limit;
+
+// ①カテゴリ追加時は以下に手代入
 const blogCategory = ['日常', 'プログラミング', 'なし'];
 
 // ブログオブジェクト
 let blogObj;
 
 // 記事数カウンタ
-let totalCount, DayCount, ProgramCount, NoneCount = 0;
-let categoryCount = [];
+let totalCount = 0;
+let categoryCount = 0;
 
 // ロード時
 window.addEventListener('DOMContentLoaded', () => {
@@ -57,31 +59,30 @@ function GetBlogData(){
 // ブログ記事数取得関数
 function GetParam(myjson){
   totalCount = myjson.totalCount;
-  DayCount = 0;
-  ProgramCount = 0;
-  NoneCount = 0;
+  categoryCount = new Array(blogCategory.length);
+  categoryCount.fill(0);
 
   for (let i=0; i<totalCount; i++){
     const categories = myjson.contents[i].category;
-    if (categories == blogCategory[0])
-      DayCount++;
-    if (categories == blogCategory[1])
-      ProgramCount++;
-    if (categories == blogCategory[2])
-      NoneCount++;
+      for (let j=0; j<categoryCount.length; j++){
+        if (categories == blogCategory[j])
+        categoryCount[j]++;
+      }
   }
 
   let All = document.getElementById('All');
   All.innerHTML = totalCount;
 
   let Day = document.getElementById('Day');
-  Day.innerHTML = DayCount;
+  Day.innerHTML = categoryCount[0];
 
   let Program = document.getElementById('Program');
-  Program.innerHTML = ProgramCount;
+  Program.innerHTML = categoryCount[1];
 
   let None = document.getElementById('None');
-  None.innerHTML = NoneCount;
+  None.innerHTML = categoryCount[2];
+
+  // ②カテゴリ追加時は以下に処理を追加
 }
 
 // カレンダー取得
@@ -122,6 +123,8 @@ function OnNoneClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
   scrollToTop();
 }
+
+// ③カテゴリ追加時は、こちらに関数を追加
 
 //スクロール量を取得
 function getScrolled() {

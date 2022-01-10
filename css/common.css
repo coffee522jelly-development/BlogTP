@@ -165,21 +165,26 @@ p {
 	font-family: var(--main-font);
 }
 
+/* シェアボタン外形*/
 #share{
-	margin: 15px;
+	font-weight: bold;
+	padding: .8em 1.6em;
+	text-align: left;
+	border-style: none;
+}
+
+/* シェアアイコン*/
+.share{
+	color:white;
 }
 
 /*Tweetボタン*/
 #tweet {
-	font-weight: bold;
-	padding: .8em 1.6em;
 	background-color: #00acee;
-	text-decoration: none;
-	border-style: none;
 	border-radius: 5px;
-	text-align: center;
 	margin: 5px;
 	box-shadow: 0 0 8px gray;
+	padding: 10px;
 }
 #tweet:hover {
 	opacity: 0.6;
@@ -188,7 +193,6 @@ p {
 #tweet a {
 	display: block;
 	color:white;
-	text-decoration: none;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
@@ -196,15 +200,11 @@ p {
 
 /*facebookボタン*/
 #facebook {
-	font-weight: bold;
-	padding: .8em 1.6em;
 	background-color: #222222;
-	text-decoration: none;
-	border-style: none;
 	border-radius: 5px;
-	text-align: center;
 	margin: 5px;
 	box-shadow: 0 0 8px gray;
+	padding: 10px;
 }
 #facebook:hover {
 	opacity: 0.6;
@@ -213,7 +213,6 @@ p {
 #facebook a {
 	display: block;
 	color:white;
-	text-decoration: none;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
@@ -221,15 +220,11 @@ p {
 
 /*Lineボタン*/
 #Line {
-	font-weight: bold;
-	padding: .8em 1.6em;
 	background-color: #06c755;
-	text-decoration: none;
-	border-style: none;
 	border-radius: 5px;
-	text-align: center;
 	margin: 5px;
 	box-shadow: 0 0 8px gray;
+	padding: 10px;
 }
 #Line:hover {
 	opacity: 0.6;
@@ -238,7 +233,6 @@ p {
 #Line a {
 	display: block;
 	color:white;
-	text-decoration: none;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);

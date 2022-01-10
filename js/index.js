@@ -44,7 +44,8 @@ function GetBlogData(){
       GetParam(blogjson);
 
       let param;
-      if (string != null) param = string.contents_id;
+      if (string != null) 
+        param = string.contents_id;
       
       parseBlogs(parent, blogjson, totalCount, 'All', param);
       blogObj = blogjson;
@@ -125,8 +126,7 @@ function OnNoneClick(){
 }
 
 // ③カテゴリ追加時は、こちらに関数を追加
-
-//スクロール量を取得
+//スクロール量
 function getScrolled() {
   return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
 }
@@ -212,6 +212,9 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     let twitter = document.createElement('div');
     twitter.setAttribute('class', 'col');
     twitter.id = 'tweet';
+    let itwicon = document.createElement('i');
+    itwicon.setAttribute('class', 'fab fa-2x fa-twitter-square share');
+    twitter.appendChild(itwicon);
     let ctweet = document.createElement('a');
     ctweet.text = 'twitter.';
     ctweet.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
@@ -222,6 +225,9 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     let facebook = document.createElement('div');
     facebook.setAttribute('class', 'col');
     facebook.id = 'facebook';
+    let facebookicon = document.createElement('i');
+    facebookicon.setAttribute('class', 'fab fa-2x fa-facebook-square share');
+    facebook.appendChild(facebookicon);
     let cfacebook = document.createElement('a');
     cfacebook.text = 'facebook.';
     cfacebook.setAttribute('href','https://www.facebook.com/share.php?u='+ location.href);
@@ -232,6 +238,9 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     let Line = document.createElement('div');
     Line.setAttribute('class', 'col');
     Line.id = 'Line';
+    let lineicon = document.createElement('i');
+    lineicon.setAttribute('class', 'fab fa-2x fa-line share');
+    Line.appendChild(lineicon);
     let cLine = document.createElement('a');
     cLine.text = 'Line.';
     cLine.setAttribute('href','https://social-plugins.line.me/lineit/share?url='+ location.href);

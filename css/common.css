@@ -8,11 +8,11 @@
 
 /*グローバル変数*/
 :root {
-  --light-accent-color: #000046;
+  --light-accent-color: #737880;
 /*  --light-main-color: #fff;*/
   --dark-main-color: #000000;
   --dark-sub-color: #1d2324;
-  --dark-accent-color: #00BA7C;
+  --dark-accent-color: #94e0fd;
   --radius-size: 7.5px;
   --main-font: Bebas Neue, cursive;
   --sub-font:  'Kosugi Maru', sans-serif;

@@ -13,7 +13,7 @@
   --dark-main-color: #000000;
   --dark-sub-color: #1d2324;
   --dark-accent-color: #94e0fd;
-  --radius-size: 7.5px;
+  --radius-size: 12px;
   --main-font: Bebas Neue, cursive;
   --sub-font:  'Kosugi Maru', sans-serif;
   --letter-space: 1px;
@@ -89,7 +89,6 @@ body {
 	padding: 15px;
 	font-family: var(--sub-font);
 	color: white;
-	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
 h1 {
@@ -181,9 +180,8 @@ p {
 /*Tweetボタン*/
 #tweet {
 	background-color: #00acee;
-	border-radius: 5px;
+	border-radius: var(--radius-size);
 	margin: 5px;
-	box-shadow: 0 0 8px gray;
 	padding: 10px;
 }
 #tweet:hover {
@@ -201,9 +199,8 @@ p {
 /*facebookボタン*/
 #facebook {
 	background-color: #222222;
-	border-radius: 5px;
+	border-radius: var(--radius-size);
 	margin: 5px;
-	box-shadow: 0 0 8px gray;
 	padding: 10px;
 }
 #facebook:hover {
@@ -221,9 +218,8 @@ p {
 /*Lineボタン*/
 #Line {
 	background-color: #06c755;
-	border-radius: 5px;
+	border-radius: var(--radius-size);
 	margin: 5px;
-	box-shadow: 0 0 8px gray;
 	padding: 10px;
 }
 #Line:hover {

@@ -186,7 +186,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
  
     // タイトル作成
     let title = document.createElement('div');
-    title.id = 'title';
+    title.className = 'title';
     title.innerHTML = obj.title;
     paper.appendChild(title);
  

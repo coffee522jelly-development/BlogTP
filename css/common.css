@@ -17,6 +17,7 @@
   --main-font: Bebas Neue, cursive;
   --sub-font:  'Kosugi Maru', sans-serif;
   --letter-space: 1px;
+  --shadow : rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 #error {
@@ -81,7 +82,7 @@ body {
 }
 
 /*タイトル*/
-#title {
+.title {
 	font-size: 24px;
 	margin: 5px;
 	background-color: var(--light-accent-color);
@@ -89,6 +90,7 @@ body {
 	padding: 15px;
 	font-family: var(--sub-font);
 	color: white;
+	box-shadow: var(--shadow);
 }
 
 h1 {
@@ -104,6 +106,13 @@ p {
 	font-size: 14px;
 	font-family: var(--sub-font);
 	margin: 15px;
+}
+
+li {
+	font-size: 14px;
+	font-family: var(--sub-font);
+	list-style-type:decimal-leading-zero;
+	margin-left: 28px;
 }
 
 /*画像*/
@@ -122,6 +131,7 @@ p {
 	width: 426px !important;
 	height: 240px !important;
 	object-fit: cover !important;
+	box-shadow: var(--shadow);
 }
 
 /*カレンダー*/
@@ -183,6 +193,7 @@ p {
 	border-radius: var(--radius-size);
 	margin: 5px;
 	padding: 10px;
+	box-shadow: var(--shadow);
 }
 #tweet:hover {
 	opacity: 0.6;
@@ -202,6 +213,7 @@ p {
 	border-radius: var(--radius-size);
 	margin: 5px;
 	padding: 10px;
+	box-shadow: var(--shadow);
 }
 #facebook:hover {
 	opacity: 0.6;
@@ -221,6 +233,7 @@ p {
 	border-radius: var(--radius-size);
 	margin: 5px;
 	padding: 10px;
+	box-shadow: var(--shadow);
 }
 #Line:hover {
 	opacity: 0.6;
@@ -260,6 +273,15 @@ p {
 	font-size: 12px;
 	font-family: var(--sub-font);
 	background-color: var(--light-accent-color) !important;
+}
+
+#Profile img {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border-radius: 50%;
+    width:  180px;
+    height: 180px;
+	box-shadow: var(--shadow);
 }
 
 /*フッター*/
@@ -376,7 +398,7 @@ hr {
 	#header p {
 		color: white;
 	}
-	#title {
+	.title {
 		border: 3px solid var(--dark-accent-color);
 		background-color: var(--dark-sub-color) !important;
 	}

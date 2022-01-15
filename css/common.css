@@ -8,11 +8,11 @@
 
 /*グローバル変数*/
 :root {
-  --light-accent-color: #737880;
+  --light-accent-color: #95B0B4;
 /*  --light-main-color: #fff;*/
   --dark-main-color: #000000;
   --dark-sub-color: #1d2324;
-  --dark-accent-color: #94e0fd;
+  --dark-accent-color: #E6F4F1;
   --radius-size: 12px;
   --main-font: Bebas Neue, cursive;
   --sub-font:  'Kosugi Maru', sans-serif;
@@ -94,7 +94,7 @@ body {
 h1 {
 	padding-top: 22px;
 	padding-bottom: 10px;
-	color: #aaaaaa;
+	color: var(--light-accent-color);
 	margin: 5px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
@@ -343,10 +343,29 @@ footer p {
 	letter-spacing: var(--letter-space);
 }
 
+hr {
+	height: 4px !important;
+	border-radius: var(--radius-size);
+	background-color: var(--light-accent-color) !important;
+}
+
 @keyframes flashing {
 	50% {
 		opacity: .4;
 	}
+}
+
+/* スクロールバー*/
+::-webkit-scrollbar {
+	width: 5px;
+}
+  ::-webkit-scrollbar-track {
+	background: linear-gradient(var(--dark-accent-color), var(--light-accent-color));
+	border-radius: var(--radius-size);
+}
+  ::-webkit-scrollbar-thumb {
+	background: var(--light-accent-color);
+	border-radius: var(--radius-size);
 }
 
 /*ダークモード*/

@@ -1,8 +1,9 @@
 'use strict'
 
-// グローバル変数
+// 記事取得時設定
 const limit = 50;
-const url = 'https://think-free.microcms.io/api/v1/blog?limit='+ limit;
+const offset = 0;
+const url = 'https://think-free.microcms.io/api/v1/blog?limit=' + limit + '&offset=' + offset;
 
 // ①カテゴリ追加時は以下に手代入
 const blogCategory = ['日常', 'プログラミング', 'なし'];
@@ -14,15 +15,8 @@ let blogObj;
 let totalCount = 0;
 let categoryCount = 0;
 
-// ロード時
-window.addEventListener('DOMContentLoaded', () => {
-  GetBlogData();
-  setInterval('GetClock()', 1000);
-  GetCalendar();
-  GetTimer();
-  // ResetTwitterColor();
-});
-
+// ページ表示数制限値(最新：最大10件)
+const pageRestrict = 10;
 
 //////////////////////////////////////////////////////////////////////////////////
 // 処理
@@ -49,10 +43,14 @@ function GetBlogData(){
       
       parseBlogs(parent, blogjson, totalCount, 'All', param);
       blogObj = blogjson;
+
+      // デバッグ用
       console.log(blogObj);
+
     }).catch(function (error) {
       console.log(error);
 
+      // 記事取得失敗
       GetErrorMessage();
     });
 }
@@ -100,6 +98,15 @@ function GetTimer(){
 
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
+
+// ロード
+window.addEventListener('DOMContentLoaded', () => {
+  GetBlogData();
+  setInterval('GetClock()', 1000);
+  GetCalendar();
+  GetTimer();
+  // ResetTwitterColor();
+});
  
 // すべて
 function OnAllClick(){
@@ -140,6 +147,7 @@ function scrollToTop() {
   }
 };
 
+
 //////////////////////////////////////////////////////////////////////////////////
 // 表示・フォーマッタ
 
@@ -155,7 +163,7 @@ function GetErrorMessage(){
 // 選択カテゴリのみ表示
 function onlyCategoryzer(parent, category){
   parent.innerHTML = '';
-  parseBlogs(parent, blogObj, totalCount, category, null);  
+  parseBlogs(parent, blogObj, totalCount, category, null);
 }
 
 // ブログ描画関数
@@ -263,7 +271,10 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     paper.appendChild(part);
 
     parent.appendChild(paper);
-  } 
+  }
+
+  // ページネーション
+  //pageNation();
 }
 
 // 日時表示関数
@@ -271,6 +282,53 @@ function formatDate(current_datetime){
   const formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
   return formatted_date;
 }
+
+// ページネーション表示関数
+function pageNation(){
+  let Pagination = document.getElementById('Pagination');
+
+  let nav = document.createElement('nav');
+  nav.ariaLabel = 'Pagenation';
+  let ulist = document.createElement('ul');
+  ulist.className = 'pagination pagination-lg justify-content-center';
+  
+  // 前
+  let prevlist = document.createElement('li');
+  prevlist.className = 'page-item';
+  let prev = document.createElement('a');
+  prev.id = 'prev';
+  prev.className = 'page-link';
+  prev.innerHTML = '<';
+  prev.href = 'javascript:OnPrevClick()';
+  prevlist.appendChild(prev);
+  ulist.appendChild(prevlist);
+
+  // カウンタ
+  let buttonSize = totalCount % pageRestrict;
+  for (let i = 1; i <= buttonSize; i++){
+    let countlist = document.createElement('li');
+    countlist.className = 'page-item';
+    let count = document.createElement('a');
+    count.className = 'page-link';
+    count.innerHTML = i;
+    countlist.appendChild(count);
+    ulist.appendChild(countlist);
+  }
+
+  // 次
+  let nextlist = document.createElement('li');
+  nextlist.className = 'page-item';
+  let next = document.createElement('a');
+  next.id = 'next';
+  next.className = 'page-link';
+  next.innerHTML = '>';
+  next.href = 'javascript:OnNextClick()';
+  nextlist.appendChild(next);
+  ulist.appendChild(nextlist);
+
+  nav.appendChild(ulist);
+  Pagination.appendChild(nav);
+} 
 
 // ツイッターカラーの初期値設定
 function ResetTwitterColor(){

@@ -7,17 +7,20 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
         <meta name="description" content="当サイト『microBlog』は、個人用ブログテーマの開発兼ポートフォリオです。" />
         <meta name="google-site-verification" content="f5B-I8qpXqi5Tzoh35LOmqwryXshUIB2-jUO7lJ-rSk" />
+
         <!-- js読み込み -->
         <script type="text/javascript" src="js/load.js"　defer></script>
         <script type="text/javascript" src="js/index.js" defer></script>
+
         <!-- Google -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-K02YHKRR6N"></script>
-        <script type="text/javascript" src="js/Google.js"></script>
+        <script type="text/javascript" src="js/google.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/5cd463e365.js" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary" /> <!--①-->
         <meta name="twitter:site" content="@lack_of_sleeep" /> <!--②-->
@@ -25,15 +28,19 @@
         <meta property="og:title" content="microBlog" /> <!--④-->
         <meta property="og:description" content="microCMSの使用を想定した個人向けブログテーマ" /> <!--⑤-->
         <meta property="og:image" content="https://coffee522jelly-development.github.io/BlogTP/img/sumbnail.jpg" /> <!--⑥-->
-        <!-- サイトアイコン準備中 -->
-        <!-- <link rel="icon" href="画像URL" sizes="32x32" type="image/png" /> -->
+
+        <!-- サイトアイコン -->
+        <link rel="icon" href="img/siteicon.png" sizes="32x32" type="image/png" />
+        
         <!-- スマホアイコン準備中 -->
-        <!-- <link rel="apple-touch-icon-precomposed" href="画像のURL" /> -->
+        <link rel="apple-touch-icon-precomposed" href="img/iOSicon.png" type="image/png" />
+
         <!-- WindowsTile準備中 -->
         <!-- <meta name="msapplication-TileImage" content="画像のURL" />
         <meta name="msapplication-TileColor" content="カラーコード"/> -->
         <!-- RSSFeed -->
         <!-- <link rel="alternate" type="application/rss+xml" title="フィード" href="フィードページのURL" /> -->
+
         <title>microBlog</title>
     </head>
     <header>
@@ -41,10 +48,12 @@
       <div id ="header">
           <p>microBlog.</p>
       </div>
+
       <!-- ヘッダーアニメーション -->
       <div id ="header-animation">
         <p>microBlog.</p>
       </div>
+
     </header>
         <body>
           <div id="wrapper">
@@ -59,22 +68,25 @@
                     <div id="main"></div>
                     <!-- <div id="Pagination"></div> -->
                   </div>
-                  <div id="sidebar" class="col-sm-4">
+                  <!-- サイドバー -->
+                  <div id="Sidebar" class="col-sm-4">
                     <!-- 著者/管理人-->
                     <h1>Author.</h1>
                     <hr>
-                      <div class="profile">
+                      <div>
                         <div id="Profile">
-                          <img alt="アイコン" src="img/profile.png" class="d-block mx-auto">
+                          <img alt="profile icon" src="img/profile.jpg" class="d-block mx-auto">
                         </div>
+                        <div class="profExplain">Coffee☕</div>
                         <h1>Profile.</h1>
                         <hr>
                         <p>福岡市内で働くプログラマー。</p>
                         <p>Web系の情報発信を目的として趣味開発をしています。</p>
-                        <ul>
+                        <ul id="profList">
                           <li>年齢：25</li>
                           <li>出身地：佐賀</li>
                           <li>趣味：ラテアート、プログラミング、レザークラフト</li>
+                          <li>Github：<a href="https://github.com/coffee522jelly-development/BlogTP">coffee522jelly-development</a></li>
                           <li>Twitter：<a href= "https://twitter.com/lack_of_sleeep">@lack_of_sleeep</a></li>
                           <li>欲しいもの：<a href= "https://www.amazon.jp/hz/wishlist/ls/2JRHTJ4WLSYEM?ref_=wl_share">マイリスト</a>
                         </ul>
@@ -82,47 +94,52 @@
                     <!-- 時計 -->
                     <h1>Clock.</h1>
                     <hr>
-                    <div id="clock"></div>
+                    <div id="Clock"></div>
+
                     <!-- カレンダー -->
                     <h1>Calendar.</h1>
                     <hr>
-                    <div id="calendar"></div>
+                    <div id="Calendar"></div>
+
                     <!-- ポモドーロタイマー -->
                     <h1>Pomodoro-Timer.</h1>
                     <hr>
                     <div id="Timer">
                       <div id="TimerDisplay"></div>
-                      <div id="Panel">
-                        <p class="ex">※音が出ます。音量にご注意ください。</p>
-                        <button id="start" class="btn btn-success" onclick="Start()">Start</button>
-                        <button id="stop" class="btn btn-danger" onclick="Stop()">Stop</button>
-                        <button id="reset" class="btn btn-light" onclick="Reset()">Reset</button>
-                        <button id="5min" class="btn btn-light" onclick="set5min()">5min.</button>
-                        <button id="15min" class="btn btn-light" onclick="set15min()">15min.</button>
+                      <div id="TimerPanel">
+                        <p class="Explain">※音が出ます。音量にご注意ください。</p>
+                        <button id="start" class="btn btn-success">Start</button>
+                        <button id="stop" class="btn btn-danger">Stop</button>
+                        <button id="reset" class="btn btn-light">Reset</button>
+                        <button id="5min" class="btn btn-light">5min.</button>
+                        <button id="15min" class="btn btn-light">15min.</button>
                       </div>
                     </div>
+                    
+                    <div id="SideList">
                     <!-- カテゴリ設定 -->
                     <h1>Category.</h1>
                     <hr>
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="#All" onclick="OnAllClick()";>すべて</a>
-                          <span id="All" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="#Day" onclick="OnADayClick()";>日常</a>
-                          <span id="Day" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="#Programming" onclick="OnProgrammingClick();">プログラミング</a>
-                          <span id="Program" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="#None" onclick="OnNoneClick();">なし</a>
-                          <span id="None" class="badge bg-primary rounded-pill"></span>
-                        </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a id="All" href="#All">すべて</a>
+                        <span id="cAll" class="badge bg-primary rounded-pill"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a id="Day" href="#Day">日常</a>
+                        <span id="cDay" class="badge bg-primary rounded-pill"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a id="Programming" href="#Programming">プログラミング</a>
+                        <span id="cProgram" class="badge bg-primary rounded-pill"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a id="None" href="#None">なし</a>
+                        <span id="cNone" class="badge bg-primary rounded-pill"></span>
+                      </li>
                         <!-- ④こちらに追加するカテゴリ分のHTMLを追加 -->
                     </ul>
+
                     <!-- リンクの設定 -->
                     <h1>Link.</h1>
                     <hr>
@@ -149,12 +166,14 @@
                         <a href="https://coffee522jelly-development.github.io/b5-md/" target="_blank" rel="noopener noreferrer">b5-md</a>
                       </li>
                     </ul>
+                    </div>
                     <!-- Twitter Publish-->
                     <!-- <h1>Twitter.</h1>
                     <hr>
                     <ul class="list-group">
                       <a class="twitter-timeline" data-lang="us" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </ul> -->
+
                   </div><!-- sidebar -->
                 </div><!-- row -->
               </div><!-- container -->

@@ -13,13 +13,13 @@ function countDown() {
     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
 
     if (settingTime == 0){
-        sound("sine", 0.1);
-        Reset();
+        soundBeep("sine", 0.1);
+        resetTimer();
     }   
 }
 
 // 通知音関数
-function sound(type, sec) {
+function soundBeep(type, sec) {
     const ctx = new AudioContext();
 	const osc = ctx.createOscillator();
 	osc.type = type;
@@ -31,20 +31,36 @@ function sound(type, sec) {
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
 
+// イベント登録
+let start = document.getElementById('start');
+start.addEventListener('click', startTimer);
+
+let stop = document.getElementById('stop');
+stop.addEventListener('click', stopTimer);
+
+let reset = document.getElementById('reset');
+reset.addEventListener('click', resetTimer);
+
+let min5 = document.getElementById('5min');
+min5.addEventListener('click', set5min);
+
+let min15 = document.getElementById('15min');
+min15.addEventListener('click', set15min);
+
 // スタート
-function Start() {
+function startTimer() {
     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
     timer = setInterval(countDown, 1000);   // 1秒に1度実行
-    sound("sine", 0.1);
+    soundBeep("sine", 0.1);
 }
 
 // ストップ
-function Stop() {
+function stopTimer() {
     clearInterval(timer);
 }
 
 // リセット
-function Reset() {
+function resetTimer() {
     clearInterval(timer);
     settingTime = 1500;
     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);

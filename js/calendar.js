@@ -2,19 +2,18 @@
 // 処理
 
 // カレンダー追加
-function add_calendar(wrapper, year, month) {
+function addCalendar(wrapper, year, month) {
     wrapper.textContent = null;
 
-    const headData = generate_calendar_header(wrapper, year, month);
-    const bodyData = generate_month_calendar(year, month);
+    const headData = generateCalendarHeader(wrapper, year, month);
+    const bodyData = generateMonthCalendar(year, month);
 
     wrapper.appendChild(headData);
     wrapper.appendChild(bodyData);
 }
  
 // カレンダーヘッダ生成
-function generate_calendar_header(wrapper, year, month) {
-
+function generateCalendarHeader(wrapper, year, month) {
     let nextMonth = new Date(year, (month - 1));
     nextMonth.setMonth(nextMonth.getMonth() + 1);
     let prevMonth = new Date(year, (month - 1));
@@ -35,7 +34,7 @@ function generate_calendar_header(wrapper, year, month) {
     cPrev.appendChild(cPrevText);
 
     cPrev.addEventListener('click', function() {
-        add_calendar(wrapper, prevMonth.getFullYear(), (prevMonth.getMonth() + 1));
+        addCalendar(wrapper, prevMonth.getFullYear(), (prevMonth.getMonth() + 1));
     }, false);
     cHeader.appendChild(cPrev);
  
@@ -45,7 +44,7 @@ function generate_calendar_header(wrapper, year, month) {
     cNext.appendChild(cNextText);
 
     cNext.addEventListener('click', function() {
-        add_calendar(wrapper, nextMonth.getFullYear(), (nextMonth.getMonth() + 1));
+        addCalendar(wrapper, nextMonth.getFullYear(), (nextMonth.getMonth() + 1));
     }, false);
     cHeader.appendChild(cNext);
  
@@ -53,9 +52,9 @@ function generate_calendar_header(wrapper, year, month) {
 }
 
 // 月別カレンダー生成
-function generate_month_calendar(year, month) {
+function generateMonthCalendar(year, month) {
     const weekdayData = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const calendarData = get_month_calendar(year, month);
+    const calendarData = getMonthCalendar(year, month);
  
     let i = calendarData[0]['weekday']; // 初日の曜日を取得
     while(i > 0) {
@@ -81,7 +80,7 @@ function generate_month_calendar(year, month) {
     insertData += '<thead>';
     insertData += '<tr>';
     for (let i = 0; i < weekdayData.length; i++) {
-        insertData += GetWeekId(i);
+        insertData += getWeekId(i);
         insertData += weekdayData[i];
         insertData += '</th>';
     }
@@ -95,7 +94,7 @@ function generate_month_calendar(year, month) {
             insertData += '<tr>';
         }
 
-        insertData += GetWeekId(week);
+        insertData += getWeekId(week);
         insertData += calendarData[i]['day'];
         insertData += '</td>';
 
@@ -110,7 +109,7 @@ function generate_month_calendar(year, month) {
 }
 
 // カレンダー取得
-function get_month_calendar(year, month) {
+function getMonthCalendar(year, month) {
     const firstDate = new Date(year, (month - 1), 1);
     const lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate();
     const weekday = firstDate.getDay();
@@ -136,7 +135,7 @@ function get_month_calendar(year, month) {
 // 表示・フォーマッタ
 
 // 曜日設定
-function GetWeekId(num){
+function getWeekId(num){
     let Data = '';
     switch (num) {
         case 0:

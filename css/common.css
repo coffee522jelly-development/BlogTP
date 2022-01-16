@@ -1,28 +1,35 @@
+/*フォント設定*/
 @font-face {
-    font-family: 'Bebas Neue';
-    src: url('../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+	font-family: 'Bebas Neue';
+	src: url('../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
 	font-display: swap;
 }
 
+
 /*グローバル変数*/
 :root {
-  --light-accent-color: #95B0B4;
-/*  --light-main-color: #fff;*/
-  --dark-main-color: #000000;
-  --dark-sub-color: #1d2324;
-  --dark-accent-color: #E6F4F1;
-  --radius-size: 12px;
-  --main-font: Bebas Neue, cursive;
-  --sub-font:  'Kosugi Maru', sans-serif;
-  --letter-space: 1px;
-  --shadow : rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+	/*  --light-main-color: #fff;*/
+	--light-accent-color: #95B0B4;
+	--light-link-color: #06c755;
+	--dark-main-color: #000000;
+	--dark-sub-color: #1d2324;
+	--dark-accent-color: #E6F4F1;
+	--dark-link-color: #00ffb3;
+	--radius-size: 12px;
+	--main-font: Bebas Neue, cursive;
+	--sub-font: 'Kosugi Maru', sans-serif;
+	--letter-space: 1px;
+	--shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
+
+/*ページ読み込みエラー*/
 #error {
 	font-size: 24px;
 }
+
 
 /*ヘッダー*/
 #header {
@@ -32,6 +39,8 @@
 	height: 12px;
 }
 
+
+/*ヘッダ文字*/
 #header p {
 	font-size: 8px;
 	color: white;
@@ -40,29 +49,40 @@
 	font-family: var(--sub-font);
 }
 
+
 /*ヘッダー(背景描画)*/
 #header-animation {
-  text-align: center;
-  height: 150px;
-  background: linear-gradient(222deg, var(--dark-accent-color), var(--light-accent-color));
-  background-size: 400% 400%;
-
-  animation: HeaderGradient 10s ease infinite;
+	text-align: center;
+	height: 150px;
+	background: linear-gradient(222deg, var(--dark-accent-color), var(--light-accent-color));
+	background-size: 400% 400%;
+	animation: headerGradient 10s ease infinite;
 }
 
+
+/*ヘッダー(背景文字)*/
 #header-animation p {
 	line-height: 150px;
 	font-size: 50px;
-	color:white;
+	color: white;
 	font-family: var(--main-font);
 	letter-spacing: var(--letter-space);
-  }
-
-@keyframes HeaderGradient {
-  0%{background-position:90% 0%}
-  50%{background-position:11% 100%}
-  100%{background-position:90% 0%}
 }
+
+
+/*ヘッダー(背景アニメーション)*/
+@keyframes headerGradient {
+	0% {
+		background-position: 90% 0%
+	}
+	50% {
+		background-position: 11% 100%
+	}
+	100% {
+		background-position: 90% 0%
+	}
+}
+
 
 /*本文*/
 body {
@@ -72,16 +92,21 @@ body {
 	margin: 15px;
 }
 
+
+/*ラッパー*/
 #wrapper {
 	width: 100%;
 	overflow-x: hidden !important;
 }
 
+
+/*記事*/
 .paper {
 	padding-top: 10px;
 }
 
-/*タイトル*/
+
+/*記事タイトル*/
 .title {
 	font-size: 24px;
 	margin: 5px;
@@ -93,6 +118,8 @@ body {
 	box-shadow: var(--shadow);
 }
 
+
+/*文字タイトル*/
 h1 {
 	padding-top: 22px;
 	padding-bottom: 10px;
@@ -102,30 +129,48 @@ h1 {
 	font-family: var(--main-font);
 }
 
+
+/*本文*/
 p {
-	font-size: 14px;
+	font-size: 12px;
 	font-family: var(--sub-font);
 	margin: 15px;
 }
 
-li {
-	font-size: 14px;
-	font-family: var(--sub-font);
-	list-style-type:decimal-leading-zero;
+a {
+	color: var(--light-link-color) !important;
 }
 
-/*画像*/
+
+/*説明書き*/
+.Explain {
+	font-size: 10px;
+	color: #888888;
+}
+
+
+/*記事画像のラッパー*/
+#img-wrapper {
+	margin: 10px;
+}
+
+
+/*記事画像*/
 #wrapper img {
 	border-radius: var(--radius-size);
 	max-width: 100%;
 	height: auto;
 }
 
-#img-wrapper {
-	margin: 10px;
+
+/*記事本文の余白*/
+#contents {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-/*サムネイルは426×240*/
+
+/*サムネイル*/
 .img-thumbnail {
 	width: 426px !important;
 	height: 240px !important;
@@ -133,19 +178,20 @@ li {
 	box-shadow: var(--shadow);
 }
 
+
 /*カレンダー*/
-#calendar {
+#Calendar {
 	font-size: 15px;
 	font-family: var(--main-font);
-  	padding: 15px;
+	padding: 15px;
 }
 
-#calendar th {
+#Calendar th {
 	font-size: 20px;
 	font-family: var(--main-font);
 }
 
-#calendar td {
+#Calendar td {
 	font-size: 20px;
 	font-family: var(--main-font);
 }
@@ -158,12 +204,14 @@ li {
 	color: cornflowerblue !important;
 }
 
+
 /*カテゴリ*/
 #category {
 	font-size: 10px;
 	margin: 15px;
 	font-family: var(--sub-font);
 }
+
 
 /*作成日時*/
 #createdAt {
@@ -173,58 +221,71 @@ li {
 	font-family: var(--main-font);
 }
 
-/* シェアボタン外形*/
-#share{
+
+/*シェアボタン*/
+#share {
 	font-weight: bold;
 	padding: .8em 1.6em;
 	text-align: left;
 	border-style: none;
 }
 
-/* シェアアイコン*/
-.share{
-	color:white;
+#share a {
+	color: white !important;
 }
 
+
+/* シェアアイコン*/
+.share {
+	color: white;
+}
+
+
 /*Tweetボタン*/
-#tweet {
+#Twitter {
 	background-color: #00acee;
 	border-radius: var(--radius-size);
 	margin: 5px;
 	padding: 10px;
 	box-shadow: var(--shadow);
 }
-#tweet:hover {
+
+#Twitter:hover {
 	opacity: 0.6;
 	transition: 1.0s;
 }
-#tweet a {
+
+#Twitter a {
 	display: block;
-	color:white;
+	color: white;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
 }
 
+
 /*facebookボタン*/
-#facebook {
+#Facebook {
 	background-color: #222222;
 	border-radius: var(--radius-size);
 	margin: 5px;
 	padding: 10px;
 	box-shadow: var(--shadow);
 }
-#facebook:hover {
+
+#Facebook:hover {
 	opacity: 0.6;
 	transition: 1.0s;
 }
-#facebook a {
+
+#Facebook a {
 	display: block;
-	color:white;
+	color: white;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
 }
+
 
 /*Lineボタン*/
 #Line {
@@ -234,29 +295,32 @@ li {
 	padding: 10px;
 	box-shadow: var(--shadow);
 }
+
 #Line:hover {
 	opacity: 0.6;
 	transition: 1.0s;
 }
+
 #Line a {
 	display: block;
-	color:white;
+	color: white;
 	font-size: 14px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
 }
 
+
 /*サイドバー*/
-#sidebar {
+#SideList {
 	border-radius: var(--radius-size);
 	font-family: var(--sub-font);
 }
 
-#sidebar ul {
+#SideList ul {
 	border-radius: var(--radius-size);
 }
 
-#sidebar a {
+#SideList a {
 	font-size: 15px;
 	font-family: var(--sub-font);
 	margin: 10px;
@@ -264,24 +328,39 @@ li {
 	text-decoration-line: none;
 }
 
-#sidebar a:hover {
-	color: #ff7043;
-}
-
-#sidebar span {
+#SideList span {
 	font-size: 12px;
 	font-family: var(--sub-font);
-	background-color: var(--light-accent-color) !important;
+	background-color: var(--light-link-color) !important;
 }
 
+
+/*プロフィール画像*/
 #Profile img {
 	margin-top: 40px;
 	margin-bottom: 40px;
 	border-radius: 50%;
-    width:  180px;
-    height: 180px;
+	width: 180px;
+	height: 180px;
 	box-shadow: var(--shadow);
 }
+
+
+/*プロフィールの説明書き*/
+.profExplain {
+	text-align: center;
+	font-size: 15px;
+}
+
+
+/*プロフィールのリスト*/
+#profList li {
+	margin-left: 28px;
+	font-size: 14px;
+	font-family: var(--sub-font);
+	list-style-type: decimal-leading-zero;
+}
+
 
 /*フッター*/
 footer {
@@ -296,7 +375,8 @@ footer {
 footer p {
 	color: #fff;
 	font-size: 10.5px;
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
+	;
 }
 
 .ft-area {
@@ -305,17 +385,19 @@ footer p {
 	margin: 10px;
 	margin-top: 10px;
 	font-size: 18px;
-	font-family: var(--sub-font);;
+	font-family: var(--sub-font);
 	border-radius: var(--radius-size);
 }
 
+
 /*時計*/
-#clock {
+#Clock {
 	font-size: 136px;
 	font-family: var(--main-font);
 	text-align: center;
 	color: var(--light-accent-color);
 }
+
 
 /*ポモドーロタイマー*/
 #TimerDisplay {
@@ -325,14 +407,10 @@ footer p {
 	color: var(--light-accent-color);
 }
 
-#Panel {
+#TimerPanel {
 	text-align: center;
 }
 
-.ex {
-	font-size: 10px;
-	color: #888888;
-}
 
 /*ローディングアニメーション*/
 .loading {
@@ -364,33 +442,53 @@ footer p {
 	letter-spacing: var(--letter-space);
 }
 
-hr {
-	height: 4px !important;
-	border-radius: var(--radius-size);
-	background-color: var(--light-accent-color) !important;
-}
-
 @keyframes flashing {
 	50% {
 		opacity: .4;
 	}
 }
 
+
+/*セパレータ*/
+hr {
+	height: 4px !important;
+	border-radius: var(--radius-size);
+	background-color: var(--light-accent-color) !important;
+}
+
+
 /* スクロールバー*/
 ::-webkit-scrollbar {
 	width: 5px;
 }
-  ::-webkit-scrollbar-track {
+
+ ::-webkit-scrollbar-track {
 	background: linear-gradient(var(--dark-accent-color), var(--light-accent-color));
 	border-radius: var(--radius-size);
 }
-  ::-webkit-scrollbar-thumb {
+
+ ::-webkit-scrollbar-thumb {
 	background: var(--light-accent-color);
 	border-radius: var(--radius-size);
 }
 
+
 /*ダークモード*/
 @media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--dark-main-color) !important;
+		color: #e4e4e4 !important;
+	}
+	a {
+		color: var(--dark-link-color) !important;
+	}
+	/*記事内画像*/
+	#wrapper img {
+		filter: grayscale(30%);
+		background-color: white;
+		border-radius: var(--radius-size);
+	}
+	/*ヘッダー*/
 	#header {
 		background-color: var(--dark-sub-color) !important;
 	}
@@ -401,60 +499,62 @@ hr {
 		border: 3px solid var(--dark-accent-color);
 		background-color: var(--dark-sub-color) !important;
 	}
+	/*ポモドーロタイマー*/
 	#Timer {
-		border: 3px solid var(--dark-accent-color);
 		border-radius: var(--radius-size);
 	}
-	#clock {
+	/*時計*/
+	#Clock {
 		color: white;
-		border: 3px solid var(--dark-accent-color);
 		border-radius: var(--radius-size);
 	}
 	#TimerDisplay {
 		color: white;
 	}
-	body {
-		background-color: var(--dark-main-color) !important;
-		color: #e4e4e4 !important;
-	}
-	a {
-		color: var(--dark-accent-color) !important;
-	}
-	#wrapper img {
-		filter: grayscale(30%);
-		background-color: white;
+	/*カレンダー*/
+	#Calendar {
 		border-radius: var(--radius-size);
 	}
-	#calendar {
-		border: 3px solid var(--dark-accent-color);
-		border-radius: var(--radius-size);
-	}
-	#calendar th {
+	#Calendar th {
 		color: white;
-		background-color: var(--dark-sub-color) !important;
 	}
-	#calendar td {
+	#Calendar td {
 		color: white;
-		background-color: var(--dark-sub-color) !important;
 	}
-	#sidebar ul {
+	/*サイドバー*/
+	#SideList ul {
 		border: 3px solid var(--dark-accent-color);
 	}
-	#sidebar li {
+	#SideList li {
 		background-color: var(--dark-sub-color) !important;
 	}
-	#sidebar span {
-		background-color: var(--dark-accent-color) !important;
+	#SideList span {
+		background-color: var(--dark-link-color) !important;
 		color: white;
 	}
+	#SideList p {
+		color: black;
+	}
+	/*フッター*/
 	footer {
 		background-color: var(--dark-main-color) !important;
 	}
+	/*ローディング文字*/
 	.loading {
 		color: white;
 		background-color: var(--dark-main-color);
 	}
+	/*シェアボタン文字*/
 	#share a {
-		color:white !important;
+		color: white !important;
+	}
+	/*プロフィール画像*/
+	#Profile img {
+		margin-top: 40px;
+		margin-bottom: 40px;
+		border-radius: 50%;
+		width: 180px;
+		height: 180px;
+		box-shadow: var(--shadow);
 	}
 }

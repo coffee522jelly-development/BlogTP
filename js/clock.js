@@ -1,13 +1,13 @@
 'use strict'
 
 // 現在時刻取得
-function GetClock(){
+function getClock(){
   const nowTime = new Date();
   const nowHour = addZero(parseInt(nowTime.getHours()));
   const nowMin  = addZero(parseInt(nowTime.getMinutes()));
   const msg = nowHour + ":" + nowMin;
 
-  document.getElementById("clock").innerHTML = msg;
+  document.getElementById("Clock").innerHTML = msg;
 }
 
 // 1桁に0を付与

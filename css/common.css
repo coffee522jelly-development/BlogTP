@@ -356,7 +356,7 @@ a {
 /*プロフィールのリスト*/
 #profList li {
 	margin-left: 28px;
-	font-size: 14px;
+	font-size: 12px;
 	font-family: var(--sub-font);
 	list-style-type: decimal-leading-zero;
 }

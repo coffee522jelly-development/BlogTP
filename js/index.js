@@ -22,7 +22,7 @@ const pageRestrict = 10;
 // 処理
 
 // ブログデータ取得関数
-function GetBlogData(){
+function getBlogData(){
   const parent = document.getElementById('main');
   fetch(url, {
     headers: {
@@ -33,9 +33,9 @@ function GetBlogData(){
       return response.json();
     }).then(function (blogjson) { 
       const url = decodeURIComponent(location.search);
-      const string = GetQueryString(url);
+      const string = getQueryString(url);
       
-      GetParam(blogjson);
+      getParam(blogjson);
 
       let param;
       if (string != null) 
@@ -51,12 +51,12 @@ function GetBlogData(){
       console.log(error);
 
       // 記事取得失敗
-      GetErrorMessage();
+      getErrorMessage();
     });
 }
 
 // ブログ記事数取得関数
-function GetParam(myjson){
+function getParam(myjson){
   totalCount = myjson.totalCount;
   categoryCount = new Array(blogCategory.length);
   categoryCount.fill(0);
@@ -69,30 +69,30 @@ function GetParam(myjson){
       }
   }
 
-  let All = document.getElementById('All');
-  All.innerHTML = totalCount;
+  let cAll = document.getElementById('cAll');
+  cAll.innerHTML = totalCount;
 
-  let Day = document.getElementById('Day');
-  Day.innerHTML = categoryCount[0];
+  let cDay = document.getElementById('cDay');
+  cDay.innerHTML = categoryCount[0];
 
-  let Program = document.getElementById('Program');
-  Program.innerHTML = categoryCount[1];
+  let cProgram = document.getElementById('cProgram');
+  cProgram.innerHTML = categoryCount[1];
 
-  let None = document.getElementById('None');
-  None.innerHTML = categoryCount[2];
+  let cNone = document.getElementById('cNone');
+  cNone.innerHTML = categoryCount[2];
 
   // ②カテゴリ追加時は以下に処理を追加
 }
 
 // カレンダー取得
-function GetCalendar(){
+function getCalendar(){
   const current = new Date();
-  const wrapper = document.getElementById('calendar');
-  add_calendar(wrapper, current.getFullYear(), current.getMonth() + 1);
+  const wrapper = document.getElementById('Calendar');
+  addCalendar(wrapper, current.getFullYear(), current.getMonth() + 1);
 }
 
 // タイマー取得
-function GetTimer(){
+function getTimer(){
   document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
 }
 
@@ -101,33 +101,46 @@ function GetTimer(){
 
 // ロード
 window.addEventListener('DOMContentLoaded', () => {
-  GetBlogData();
-  setInterval('GetClock()', 1000);
-  GetCalendar();
-  GetTimer();
-  // ResetTwitterColor();
+  getBlogData();
+  setInterval('getClock()', 1000);
+  getCalendar();
+  getTimer();
+  // resetTwitterColor();
 });
- 
+
+// イベント登録
+let All = document.getElementById('All');
+All.addEventListener('click', onAllClick);
+
+let Day = document.getElementById('Day');
+Day.addEventListener('click', onADayClick);
+
+let Program = document.getElementById('Programming');
+Program.addEventListener('click', onProgrammingClick);
+
+let None = document.getElementById('None');
+None.addEventListener('click', onNoneClick);
+
 // すべて
-function OnAllClick(){
+function onAllClick(){
   onlyCategoryzer(document.getElementById('main'), 'All');
   scrollToTop();
 }
 
 // 日常
-function OnADayClick(){
+function onADayClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
   scrollToTop();
 }
 
 // プログラム
-function OnProgrammingClick(){
+function onProgrammingClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
   scrollToTop();
 }
 
 // なし
-function OnNoneClick(){
+function onNoneClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
   scrollToTop();
 }
@@ -152,7 +165,7 @@ function scrollToTop() {
 // 表示・フォーマッタ
 
 // エラーメッセージの表示
-function GetErrorMessage(){
+function getErrorMessage(){
   let paper = document.getElementById('main');
   let error = document.createElement('div');
   error.id = 'error';
@@ -216,46 +229,20 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     share.setAttribute('class', 'row');
     share.id = 'share';
 
+    // シェアボタンの生成
+    const lohref = location.href;
     // Twitterシェアボタン
-    let twitter = document.createElement('div');
-    twitter.setAttribute('class', 'col');
-    twitter.id = 'tweet';
-    let itwicon = document.createElement('i');
-    itwicon.setAttribute('class', 'fab fa-2x fa-twitter-square share');
-    twitter.appendChild(itwicon);
-    let ctweet = document.createElement('a');
-    ctweet.text = 'twitter.';
-    ctweet.setAttribute('href','https://twitter.com/share?url=' + location.href + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category);
-    twitter.appendChild(ctweet);
-    share.appendChild(twitter);
-
+    const twiurl = 'https://twitter.com/share?url=' + lohref + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category;
+    generateShareButton(share, 'Twitter', twiurl, 'fa-twitter-square');
+   
     // facebookシェアボタン
-    let facebook = document.createElement('div');
-    facebook.setAttribute('class', 'col');
-    facebook.id = 'facebook';
-    let facebookicon = document.createElement('i');
-    facebookicon.setAttribute('class', 'fab fa-2x fa-facebook-square share');
-    facebook.appendChild(facebookicon);
-    let cfacebook = document.createElement('a');
-    cfacebook.text = 'facebook.';
-    cfacebook.setAttribute('href','https://www.facebook.com/share.php?u='+ location.href);
-    facebook.appendChild(cfacebook);
-    share.appendChild(facebook);
-
+    const faceurl = 'https://www.facebook.com/share.php?u='+ lohref; 
+    generateShareButton(share, 'Facebook', faceurl, 'fa-facebook-square');
+    
     // Lineシェアボタン
-    let Line = document.createElement('div');
-    Line.setAttribute('class', 'col');
-    Line.id = 'Line';
-    let lineicon = document.createElement('i');
-    lineicon.setAttribute('class', 'fab fa-2x fa-line share');
-    Line.appendChild(lineicon);
-    let cLine = document.createElement('a');
-    cLine.text = 'Line.';
-    cLine.setAttribute('href','https://social-plugins.line.me/lineit/share?url='+ location.href);
-    Line.appendChild(cLine);
-    share.appendChild(Line);
+    const lineurl = 'https://social-plugins.line.me/lineit/share?url='+ lohref;
+    generateShareButton(share, 'Line', lineurl, 'fa-line');
 
-    // シェアボタンの記事への追加
     contents.appendChild(share);
     paper.appendChild(contents);
  
@@ -283,6 +270,25 @@ function formatDate(current_datetime){
   return formatted_date;
 }
 
+// シェアボタン生成関数
+// 引数：親要素
+// 引数：ボタン名称
+// 引数：URL文字列
+// 引数：FontAwesome指定文字列
+function generateShareButton(parent, buttonName, url, faString){
+  let button = document.createElement('div');
+  button.setAttribute('class', 'col');
+  button.id = buttonName;
+  let icon = document.createElement('i');
+  icon.setAttribute('class', 'fab fa-2x ' + faString + ' share');
+  button.appendChild(icon);
+  let buttonLink = document.createElement('a');
+  buttonLink.text = buttonName + '.';
+  buttonLink.setAttribute('href', url);
+  button.appendChild(buttonLink);
+  parent.appendChild(button);
+}
+
 // ページネーション表示関数
 function pageNation(){
   let Pagination = document.getElementById('Pagination');
@@ -296,7 +302,7 @@ function pageNation(){
   let prevlist = document.createElement('li');
   prevlist.className = 'page-item';
   let prev = document.createElement('a');
-  prev.id = 'prev';
+  prev.id = 'prev'; 
   prev.className = 'page-link';
   prev.innerHTML = '<';
   prev.href = 'javascript:OnPrevClick()';
@@ -331,7 +337,7 @@ function pageNation(){
 } 
 
 // ツイッターカラーの初期値設定
-function ResetTwitterColor(){
+function resetTwitterColor(){
   const twitter = document.querySelector('.twitter-timeline');
   if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
     twitter.setAttribute('data-theme', 'dark');
@@ -342,7 +348,7 @@ function ResetTwitterColor(){
 }
 
 // パラメータ読み出し
-function GetQueryString() {
+function getQueryString() {
   if (1 < document.location.search.length) {
       let query = document.location.search.substring(1);
       let parameters = query.split('&');

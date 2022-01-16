@@ -472,6 +472,19 @@ hr {
 	border-radius: var(--radius-size);
 }
 
+/*コード*/
+pre {
+	color:white;
+	background-color: var(--dark-main-color);
+	border-radius: var(--radius-size);
+	margin: 15px;
+	padding: 15px;
+}
+
+pre code {
+	font-size: 16px !important;
+}
+
 
 /*ダークモード*/
 @media (prefers-color-scheme: dark) {

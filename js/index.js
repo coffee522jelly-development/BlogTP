@@ -279,9 +279,11 @@ function generateShareButton(parent, buttonName, url, faString){
   let button = document.createElement('div');
   button.setAttribute('class', 'col');
   button.id = buttonName;
+
   let icon = document.createElement('i');
   icon.setAttribute('class', 'fab fa-2x ' + faString + ' share');
   button.appendChild(icon);
+  
   let buttonLink = document.createElement('a');
   buttonLink.text = buttonName + '.';
   buttonLink.setAttribute('href', url);

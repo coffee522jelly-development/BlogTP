@@ -475,7 +475,7 @@ hr {
 /*コード*/
 pre {
 	color:white;
-	background-color: var(--dark-main-color);
+	background-color: var(--light-accent-color);
 	border-radius: var(--radius-size);
 	margin: 15px;
 	padding: 15px;

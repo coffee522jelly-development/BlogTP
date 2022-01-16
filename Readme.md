@@ -9,6 +9,13 @@ BlogTPは、HTML/CSS/JavascriptとBootStrap5を使用しています。
 ブログコンテンツの管理はmicroCMSの使用を想定しています。
 microCMSのAPIからブログデータを取得し表示します。
 
+### BlogTPの使い方
+このリポジトリをフォークしてGithubPagesでカスタムドメイン設定を行います。
+また、microCMSで下記のエンドポイント、APIスキーマを作り、このリポジトリのjavascriptのURL設定部分を書き換えると、
+microCMSからブログデータの取得ができるようになります。
+その他は各自改変するなどしてお使いください。
+商用利用はできません。
+
 ### エンドポイント
 エンドポイント : http://○○.microcms.io/api/v1/blog
 ご自身で都合のよいエンドポイントを設定ください。

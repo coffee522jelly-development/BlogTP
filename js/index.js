@@ -209,7 +209,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     category.innerHTML = "category : " + obj.category;
     paper.appendChild(category);
  
-    // img要素を作成
+    // サムネイルを作成
     let wrapper = document.createElement('div');
     wrapper.id = 'img-wrapper';
     let img = document.createElement('img');

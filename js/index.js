@@ -106,28 +106,33 @@ window.addEventListener('DOMContentLoaded', () => {
   getCalendar();
   getTimer();
   // resetTwitterColor();
+
+  InitEvent();
 });
 
 // イベント登録
-let hm = document.getElementById('navbtn');
-hm.addEventListener('click', onHamburgerclick);
+function InitEvent(){
+  let hm = document.getElementById('navbtn');
+  hm.addEventListener('click', onHamburgerclick);
 
-let All = document.getElementById('All');
-All.addEventListener('click', onAllClick);
+  let All = document.getElementById('All');
+  All.addEventListener('click', onAllClick);
 
-let Day = document.getElementById('Day');
-Day.addEventListener('click', onADayClick);
+  let Day = document.getElementById('Day');
+  Day.addEventListener('click', onADayClick);
 
-let Program = document.getElementById('Programming');
-Program.addEventListener('click', onProgrammingClick);
+  let Program = document.getElementById('Programming');
+  Program.addEventListener('click', onProgrammingClick);
 
-let None = document.getElementById('None');
-None.addEventListener('click', onNoneClick);
+  let None = document.getElementById('None');
+  None.addEventListener('click', onNoneClick);
 
-let hmItem = document.getElementsByClassName('hm');
-for (let i=0; i<hmItem.length; i++){
-  hmItem[i].addEventListener('click', onRemoveOpen);
+  let hmItem = document.getElementsByClassName('hm');
+  for (let i=0; i<hmItem.length; i++){
+    hmItem[i].addEventListener('click', onRemoveOpen);
+  }
 }
+
 
 // ハンバーガーメニュー
 function onHamburgerclick(){

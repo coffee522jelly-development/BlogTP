@@ -31,21 +31,28 @@ function soundBeep(type, sec) {
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
 
+// ロード
+window.addEventListener('DOMContentLoaded', () => {
+    InitTimerEvent();
+});
+  
 // イベント登録
-let start = document.getElementById('start');
-start.addEventListener('click', startTimer);
-
-let stop = document.getElementById('stop');
-stop.addEventListener('click', stopTimer);
-
-let reset = document.getElementById('reset');
-reset.addEventListener('click', resetTimer);
-
-let min5 = document.getElementById('5min');
-min5.addEventListener('click', set5min);
-
-let min15 = document.getElementById('15min');
-min15.addEventListener('click', set15min);
+function InitTimerEvent(){
+    let start = document.getElementById('start');
+    start.addEventListener('click', startTimer);
+    
+    let stop = document.getElementById('stop');
+    stop.addEventListener('click', stopTimer);
+    
+    let reset = document.getElementById('reset');
+    reset.addEventListener('click', resetTimer);
+    
+    let min5 = document.getElementById('5min');
+    min5.addEventListener('click', set5min);
+    
+    let min15 = document.getElementById('15min');
+    min15.addEventListener('click', set15min);
+}
 
 // スタート
 function startTimer() {

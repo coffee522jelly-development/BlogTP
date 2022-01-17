@@ -231,7 +231,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     wrapper.id = 'img-wrapper';
     let img = document.createElement('img');
     img.src = obj.photos.url;
-    // img.setAttribute('loading', 'lazy');
+    img.setAttribute('loading', 'lazy');
     img.setAttribute('class', 'img-thumbnail');
     wrapper.appendChild(img);
     paper.appendChild(wrapper);

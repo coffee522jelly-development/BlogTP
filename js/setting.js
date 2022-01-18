@@ -66,7 +66,7 @@ particlesJS('particle',{
           "speed":1, //シェイプの動くスピード
           "straight":false, //個々のシェイプの動きを止めるか否か
           "direction":"bottom-left", //エリア全体の動き(none、top、top-right、right、bottom-right、bottom、bottom-left、left、top-leftより選択)
-          "out_mode":"put" //エリア外に出たシェイプの動き(out、bounceより選択)
+          "out_mode":"out" //エリア外に出たシェイプの動き(out、bounceより選択)
         }
   //--------------------
   
@@ -85,7 +85,7 @@ particlesJS('particle',{
   
   //--クリック時の処理----------
           "onclick":{
-            "enable":true, //クリックが有効か否か
+            "enable":false, //クリックが有効か否か
             "mode":"push" //クリック時に発動する動き(下記modes内のgrab、repulse、bubble、push、removeより選択)
           },
   //--------------------

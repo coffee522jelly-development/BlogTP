@@ -54,15 +54,25 @@
 	font-size: 8px;
 	color: white;
 	text-align: left;
-	z-index: 0;
+	z-index: 12;
 	font-family: var(--sub-font);
+}
+
+
+#particle {
+	height: 200px;
+}
+
+.particles-js-canvas-el {
+	z-index: -2;
+	filter: opacity(50%);
 }
 
 
 /*ヘッダー(背景描画)*/
 #header-animation {
 	text-align: center;
-	height: 150px;
+	height: 200px;
 	background: linear-gradient(222deg, var(--dark-accent-color), var(--light-accent-color));
 	background-size: 400% 400%;
 	animation: headerGradient 10s ease infinite;
@@ -71,11 +81,12 @@
 
 /*ヘッダー(背景文字)*/
 #header-animation p {
-	line-height: 150px;
+	margin-top: -130px;
+	text-align: center;
 	font-size: 50px;
-	color: white;
 	font-family: var(--main-font);
 	letter-spacing: var(--letter-space);
+	color: white;
 }
 
 

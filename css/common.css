@@ -636,6 +636,7 @@ pre code {
 	width: 30px;
 	height: 20px;
 	cursor: pointer;
+	z-index: 1;
   }
   
   #navbtn::before,

@@ -13,7 +13,7 @@
         <meta name="twitter:site" content="@lack_of_sleeep" /> <!--②-->
         <meta property="og:url" content="https://noisette.ml" /> <!--③-->
         <meta property="og:title" content="microBlog" /> <!--④-->
-        <meta property="og:description" content="microCMSの使用を想定した個人向けブログテーマ" /> <!--⑤-->
+        <meta property="og:description" content="coffeeの趣味ブログ" /> <!--⑤-->
         <meta property="og:image" content="https://noisette.ml/img/sumbnail.jpg" /> <!--⑥-->
         
         <link rel="dns-prefetch" href="https://noisette.ml">
@@ -37,9 +37,6 @@
         <link rel="apple-touch-icon-precomposed" href="img/iOSicon.png" type="image/png" />
         <!-- <script src="https://kit.fontawesome.com/5cd463e365.js" crossorigin="anonymous"></script> -->
 
-        <!-- WindowsTile準備中 -->
-        <!-- <meta name="msapplication-TileImage" content="画像のURL" />
-        <meta name="msapplication-TileColor" content="カラーコード"/> -->
         <!-- RSSFeed -->
         <!-- <link rel="alternate" type="application/rss+xml" title="フィード" href="フィードページのURL" /> -->
 
@@ -85,36 +82,11 @@
                   </div>
                   <!-- サイドバー -->
                   <div id="Sidebar" class="col-sm-4">
-                    <!-- 著者/管理人-->
-                    <h1>Author.</h1>
-                    <hr>
-                      <div>
-                        <div id="Profile">
-                          <img alt="profile icon" src="img/profile.jpg" class="d-block mx-auto" loading="lazy">
-                        </div>
-                        <div class="profExplain">Coffee☕</div>
-                        <h1>Profile.</h1>
-                        <hr>
-                        <p>福岡市内で働くプログラマー。</p>
-                        <p>Web系の情報発信を目的として趣味開発をしています。</p>
-                        <ul id="profList">
-                          <li>年齢：25</li>
-                          <li>出身地：佐賀</li>
-                          <li>趣味：ラテアート、プログラミング、レザークラフト</li>
-                          <li>Github：<a href="https://github.com/coffee522jelly-development/BlogTP">coffee522jelly-development</a></li>
-                          <li>Twitter：<a href= "https://twitter.com/lack_of_sleeep">@lack_of_sleeep</a></li>
-                          <li>欲しいもの：<a href= "https://www.amazon.jp/hz/wishlist/ls/2JRHTJ4WLSYEM?ref_=wl_share">マイリスト</a>
-                        </ul>
-                      </div>
+
                     <!-- 時計 -->
                     <h1>Clock.</h1>
                     <hr>
                     <div id="Clock"></div>
-
-                    <!-- カレンダー -->
-                    <h1>Calendar.</h1>
-                    <hr>
-                    <div id="Calendar"></div>
 
                     <!-- ポモドーロタイマー -->
                     <h1>Pomodoro-Timer.</h1>
@@ -126,37 +98,36 @@
                         <button id="start" class="btn btn-success">Start</button>
                         <button id="stop" class="btn btn-danger">Stop</button>
                         <button id="reset" class="btn btn-light">Reset</button>
-                        <button id="5min" class="btn btn-light">5min.</button>
-                        <button id="15min" class="btn btn-light">15min.</button>
+                        <!-- <button id="5min" class="btn btn-light">5min.</button>
+                        <button id="15min" class="btn btn-light">15min.</button> -->
                       </div>
                     </div>
                     
                     <div id="SideList">
-                    <!-- カテゴリ設定 -->
-                    <h1 id="Category">Category.</h1>
-                    <hr>
-                    <ul class="list-group">
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a id="All" href="#All">すべて</a>
-                        <span id="cAll" class="badge bg-primary rounded-pill"></span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a id="Day" href="#Day">日常</a>
-                        <span id="cDay" class="badge bg-primary rounded-pill"></span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a id="Programming" href="#Programming">プログラミング</a>
-                        <span id="cProgram" class="badge bg-primary rounded-pill"></span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a id="None" href="#None">なし</a>
-                        <span id="cNone" class="badge bg-primary rounded-pill"></span>
-                      </li>
-                        <!-- ④こちらに追加するカテゴリ分のHTMLを追加 -->
-                    </ul>
+                      <!-- カテゴリ設定 -->
+                      <h1 id="Category">Category.</h1>
+                      <hr>
+                      <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a id="All" href="#All">すべて</a>
+                          <span id="cAll" class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a id="Day" href="#Day">日常</a>
+                          <span id="cDay" class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a id="Programming" href="#Programming">プログラミング</a>
+                          <span id="cProgram" class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a id="None" href="#None">なし</a>
+                          <span id="cNone" class="badge bg-primary rounded-pill"></span>
+                        </li>
+                      </ul>
 
-                      <!-- リンクの設定 -->
-                      <h1 id="Link">MyTools.</h1>
+                      <!-- マイツールの設定 -->
+                      <h1 id="MyTools">MyTools.</h1>
                       <hr>
                       <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -166,6 +137,8 @@
                           <a href="https://coffee522jelly-development.github.io/Thumbnail-Generator/" target="_blank" rel="noopener noreferrer">Thumbnail-Generator</a>
                         </li>
                       </ul>
+
+                      <!-- リンクの設定 -->
                       <h1 id="Link">Link.</h1>
                       <hr>
                       <ul class="list-group">
@@ -176,14 +149,12 @@
                           <a href="https://app.microcms.io/signin" target="_blank" rel="noopener noreferrer">microCMS</a>
                         </li>
                       </ul>
-                    </div>
-                    <!-- Twitter Publish-->
-                    <!-- <h1>Twitter.</h1>
-                    <hr>
-                    <ul class="list-group">
-                      <a class="twitter-timeline" data-lang="us" data-width="480" data-height="840" data-dnt="true" data-theme="dark" href="https://twitter.com/lack_of_sleeep?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </ul> -->
 
+                      <!-- カレンダー -->
+                      <h1>Calendar.</h1>
+                      <hr>
+                      <div id="Calendar"></div>
+                    </div>
                   </div><!-- sidebar -->
                 </div><!-- row -->
               </div><!-- container -->
@@ -195,7 +166,7 @@
             <script src="js/particles.min.js"></script>
             <script src="js/setting.js"></script>
         </body>
-    <footer>
-        <p>© All rights reserved by microBlog.</p>
-    </footer>
+      <footer>
+          <p>© All rights reserved by Team.A</p>
+      </footer>
 </html>

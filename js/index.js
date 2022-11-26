@@ -253,6 +253,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
 
     // シェアボタンの生成
     const lohref = location.href;
+
     // Twitterシェアボタン
     const twiurl = 'https://twitter.com/share?url=' + lohref + '?contents_id=' + paper.id + '&text=' + obj.title +'&hashtags=' + obj.category;
     generateShareButton(share, 'Twitter', twiurl, 'fa-twitter-square');
@@ -299,7 +300,7 @@ function formatDate(current_datetime){
 // 引数：FontAwesome指定文字列
 function generateShareButton(parent, buttonName, url, faString){
   let button = document.createElement('div');
-  button.setAttribute('class', 'col');
+  button.setAttribute('class', 'col share');
   button.id = buttonName;
 
   let icon = document.createElement('i');
@@ -312,6 +313,7 @@ function generateShareButton(parent, buttonName, url, faString){
   button.appendChild(buttonLink);
   parent.appendChild(button);
 }
+
 
 // ページネーション表示関数
 function pageNation(){

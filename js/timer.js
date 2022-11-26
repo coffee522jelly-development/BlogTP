@@ -47,11 +47,11 @@ function InitTimerEvent(){
     let reset = document.getElementById('reset');
     reset.addEventListener('click', resetTimer);
     
-    let min5 = document.getElementById('5min');
-    min5.addEventListener('click', set5min);
+    // let min5 = document.getElementById('5min');
+    // min5.addEventListener('click', set5min);
     
-    let min15 = document.getElementById('15min');
-    min15.addEventListener('click', set15min);
+    // let min15 = document.getElementById('15min');
+    // min15.addEventListener('click', set15min);
 }
 
 // スタート

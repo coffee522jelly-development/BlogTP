@@ -20,16 +20,16 @@
         <link rel="prerender" href="https://noisette.ml/">
 
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="css/common.css"/>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/Style.css"/>
+        <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css"/>
 
         <!-- Javascript -->
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/load.js"></script>
         <script type="text/javascript" src="js/timer.js"></script>
         <script type="text/javascript" src="js/clock.js"></script>
         <script type="text/javascript" src="js/calendar.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/blogGen.js"></script>
 
         <!-- サイトアイコン -->
         <link rel="icon" href="img/siteicon.png" sizes="32x32" type="image/png" />
@@ -87,6 +87,7 @@
                     <h1>Clock.</h1>
                     <hr>
                     <div id="Clock"></div>
+                    <!-- <button id="FsClock" class="btn btn-light">Fullscreen</button> -->
 
                     <!-- ポモドーロタイマー -->
                     <h1>Pomodoro-Timer.</h1>
@@ -98,6 +99,7 @@
                         <button id="start" class="btn btn-success">Start</button>
                         <button id="stop" class="btn btn-danger">Stop</button>
                         <button id="reset" class="btn btn-light">Reset</button>
+                        <button id="FsTimer" class="btn btn-light">Fullscreen</button>
                         <!-- <button id="5min" class="btn btn-light">5min.</button>
                         <button id="15min" class="btn btn-light">15min.</button> -->
                       </div>
@@ -109,19 +111,23 @@
                       <hr>
                       <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="All" href="#All">すべて</a>
+                          <a id="All" href="#All">All</a>
                           <span id="cAll" class="badge bg-primary rounded-pill"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="Day" href="#Day">日常</a>
+                          <a id="Day" href="#Day">Daily</a>
                           <span id="cDay" class="badge bg-primary rounded-pill"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="Programming" href="#Programming">プログラミング</a>
+                          <a id="Programming" href="#Programming">Programming</a>
                           <span id="cProgram" class="badge bg-primary rounded-pill"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="None" href="#None">なし</a>
+                          <a id="Music" href="#Music">Music</a>
+                          <span id="cMusic" class="badge bg-primary rounded-pill"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a id="None" href="#None">None</a>
                           <span id="cNone" class="badge bg-primary rounded-pill"></span>
                         </li>
                       </ul>
@@ -160,11 +166,10 @@
               </div><!-- container -->
             </div><!-- main wrapper -->
             <!-- Javascript -->
-            <script async type="text/javascript" src="js/all.min.js"></script>
-            <script async type="text/javascript" src="js/Google.js"></script>
+            <script async type="text/javascript" src="dist/js/Google.js"></script>
             <script src="https://www.googletagmanager.com/gtag/js?id=G-K02YHKRR6N"></script>
-            <script src="js/particles.min.js"></script>
-            <script src="js/setting.js"></script>
+            <script src="dist/js/particles.min.js"></script>
+            <script src="dist/js/setting.js"></script>
         </body>
       <footer>
           <p>© All rights reserved by Team.A</p>

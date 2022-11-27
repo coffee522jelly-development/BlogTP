@@ -6,7 +6,7 @@ const offset = 0;
 const url = 'https://think-free.microcms.io/api/v1/blog?limit=' + limit + '&offset=' + offset;
 
 // ①カテゴリ追加時は以下に手代入
-const blogCategory = ['日常', 'プログラミング', 'なし'];
+const blogCategory = ['Daily', 'Programming', 'Music','None'];
 
 // ブログオブジェクト
 let blogObj;
@@ -78,8 +78,11 @@ function getParam(myjson){
   let cProgram = document.getElementById('cProgram');
   cProgram.innerHTML = categoryCount[1];
 
+  let cMusic = document.getElementById('cMusic');
+  cMusic.innerHTML = categoryCount[2];
+
   let cNone = document.getElementById('cNone');
-  cNone.innerHTML = categoryCount[2];
+  cNone.innerHTML = categoryCount[3];
 
   // ②カテゴリ追加時は以下に処理を追加
 }
@@ -124,6 +127,9 @@ function InitEvent(){
   let Program = document.getElementById('Programming');
   Program.addEventListener('click', onProgrammingClick);
 
+  let Music= document.getElementById('Music');
+  Music.addEventListener('click', onMusicClick);
+
   let None = document.getElementById('None');
   None.addEventListener('click', onNoneClick);
 
@@ -143,27 +149,33 @@ function onRemoveOpen(){
   document.querySelector('html').classList.remove('open');
 }
 
-// すべて
+// All
 function onAllClick(){
   onlyCategoryzer(document.getElementById('main'), 'All');
   scrollToTop();
 }
 
-// 日常
+// Daily
 function onADayClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
   scrollToTop();
 }
 
-// プログラム
+// Programming
 function onProgrammingClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
   scrollToTop();
 }
 
-// なし
-function onNoneClick(){
+// Music
+function onMusicClick(){
   onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
+  scrollToTop();
+}
+
+// None
+function onNoneClick(){
+  onlyCategoryzer(document.getElementById('main'), blogCategory[3]);
   scrollToTop();
 }
 
@@ -289,7 +301,7 @@ function parseBlogs(parent, json, Size, paperCategory, id){
 
 // 日時表示関数
 function formatDate(current_datetime){
-  const formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + current_datetime.getHours() + "時" + current_datetime.getMinutes() + "分";
+  const formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + addZero(current_datetime.getHours()) + ":" + addZero(current_datetime.getMinutes()) + "";
   return formatted_date;
 }
 
@@ -303,9 +315,9 @@ function generateShareButton(parent, buttonName, url, faString){
   button.setAttribute('class', 'col share');
   button.id = buttonName;
 
-  let icon = document.createElement('i');
-  icon.setAttribute('class', 'fab fa-2x ' + faString + ' share');
-  button.appendChild(icon);
+  // let icon = document.createElement('i');
+  // icon.setAttribute('class', 'fab fa-2x ' + faString + ' share');
+  // button.appendChild(icon);
   
   let buttonLink = document.createElement('a');
   buttonLink.text = buttonName + '.';

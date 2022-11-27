@@ -1,5 +1,14 @@
 'use strict'
 
+window.addEventListener('DOMContentLoaded', () => {
+
+  // let clockFull = document.getElementById('FsClock');
+  // clockFull.addEventListener('click', function(){
+  // let clock = document.getElementById('Clock');
+  // clock.requestFullscreen();
+  // });
+});
+
 // 現在時刻取得
 function getClock(){
   const nowTime = new Date();
@@ -17,3 +26,11 @@ function addZero(Item){
   else
       return Item;
 }
+
+  //  // 作成日時
+  //  let date = new Date(obj.createdAt);
+  //  let createdAt = document.createElement('div');
+  //  createdAt.id = 'createdAt';
+  //  createdAt.innerHTML = "created-At ： " + formatDate(date);
+  //  paper.appendChild(createdAt);
+

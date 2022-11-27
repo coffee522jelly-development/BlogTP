@@ -46,6 +46,12 @@ function InitTimerEvent(){
     
     let reset = document.getElementById('reset');
     reset.addEventListener('click', resetTimer);
+
+    let timerFull = document.getElementById('FsTimer');
+    timerFull.addEventListener('click', function(){
+        let timer = document.getElementById('Timer');
+        timer.requestFullscreen();
+    });
     
     // let min5 = document.getElementById('5min');
     // min5.addEventListener('click', set5min);
@@ -73,19 +79,19 @@ function resetTimer() {
     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
 }
 
-// 5分セット
-function set5min() {
-    settingTime = 300;
-    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-    clearInterval(timer);
-}
+// // 5分セット
+// function set5min() {
+//     settingTime = 300;
+//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+//     clearInterval(timer);
+// }
 
-// 15分セット
-function set15min() {
-    settingTime = 900;
-    document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
-    clearInterval(timer);
-}
+// // 15分セット
+// function set15min() {
+//     settingTime = 900;
+//     document.getElementById("TimerDisplay").innerText = calcMinSec(settingTime);
+//     clearInterval(timer);
+// }
 
 //////////////////////////////////////////////////////////////////////////////////
 // 表示・フォーマッタ

@@ -5,6 +5,10 @@ const limit = 50;
 const offset = 0;
 const url = 'https://think-free.microcms.io/api/v1/blog?limit=' + limit + '&offset=' + offset;
 
+// ユニークカテゴリの作成
+let uniqueCategory = [];
+let Category = [];
+
 // ①カテゴリ追加時は以下に手代入
 const blogCategory = ['Daily', 'Programming', 'Music','None'];
 
@@ -35,10 +39,19 @@ function getBlogData(){
       const url = decodeURIComponent(location.search);
       const string = getQueryString(url);
       
+      // カテゴリを描画
+      totalCount = blogjson.totalCount;
+      for (let i=0; i<totalCount; i++){
+        Category.push(blogjson.contents[i].category);
+      }
+      uniqueCategory = new Set(Category);
+      parseCategories();
+
+      // ブログを描画
       getParam(blogjson);
 
       let param;
-      if (string != null) 
+      if (string != null)   
         param = string.contents_id;
       
       parseBlogs(parent, blogjson, totalCount, 'All', param);
@@ -58,33 +71,30 @@ function getBlogData(){
 // ブログ記事数取得関数
 function getParam(myjson){
   totalCount = myjson.totalCount;
-  categoryCount = new Array(blogCategory.length);
-  categoryCount.fill(0);
-
-  for (let i=0; i<totalCount; i++){
-    const categories = myjson.contents[i].category;
-      for (let j=0; j<categoryCount.length; j++){
-        if (categories == blogCategory[j])
-        categoryCount[j]++;
-      }
-  }
 
   let cAll = document.getElementById('cAll');
   cAll.innerHTML = totalCount;
 
-  let cDay = document.getElementById('cDay');
-  cDay.innerHTML = categoryCount[0];
+  // // const categoryCount = Array.from(uniqueCategory);
+  var myMap = new Map();
 
-  let cProgram = document.getElementById('cProgram');
-  cProgram.innerHTML = categoryCount[1];
+  // 初期化
+  for (let category of uniqueCategory){
+    myMap.set(category, 0);
+  }
 
-  let cMusic = document.getElementById('cMusic');
-  cMusic.innerHTML = categoryCount[2];
+  // 記事数カウンター
+  for (let i=0; i<totalCount; i++){
+    const pageCategory = myjson.contents[i].category;
+    const count = myMap.get(pageCategory);
+    myMap.set(pageCategory, count + 1);
+  }
 
-  let cNone = document.getElementById('cNone');
-  cNone.innerHTML = categoryCount[3];
-
-  // ②カテゴリ追加時は以下に処理を追加
+  // 結果を表示
+  for (let category of uniqueCategory){
+  let cItem = document.getElementById('c' + category);
+  cItem.innerHTML = myMap.get(category);
+  }
 }
 
 // カレンダー取得
@@ -102,36 +112,26 @@ function getTimer(){
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
 
-// ロード
+// ロード時イベント
 window.addEventListener('DOMContentLoaded', () => {
   getBlogData();
   setInterval('getClock()', 1000);
   getCalendar();
   getTimer();
-  // resetTwitterColor();
+
+  // /*警告対策*/
+  // const iframe = document.createElement('iframe');
+  // iframe.setAttribute('allowFullScreen', '');
+  // iframe.setAttribute('allow', 'fullscreen');
 
   InitEvent();
 });
 
-// イベント登録
+
+// 初期イベント登録
 function InitEvent(){
   let hm = document.getElementById('navbtn');
   hm.addEventListener('click', onHamburgerclick);
-
-  let All = document.getElementById('All');
-  All.addEventListener('click', onAllClick);
-
-  let Day = document.getElementById('Day');
-  Day.addEventListener('click', onADayClick);
-
-  let Program = document.getElementById('Programming');
-  Program.addEventListener('click', onProgrammingClick);
-
-  let Music= document.getElementById('Music');
-  Music.addEventListener('click', onMusicClick);
-
-  let None = document.getElementById('None');
-  None.addEventListener('click', onNoneClick);
 
   let hmItem = document.getElementsByClassName('hm');
   for (let i=0; i<hmItem.length; i++){
@@ -145,38 +145,9 @@ function onHamburgerclick(){
   document.querySelector('html').classList.toggle('open');
 }
 
+
 function onRemoveOpen(){
   document.querySelector('html').classList.remove('open');
-}
-
-// All
-function onAllClick(){
-  onlyCategoryzer(document.getElementById('main'), 'All');
-  scrollToTop();
-}
-
-// Daily
-function onADayClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[0]);
-  scrollToTop();
-}
-
-// Programming
-function onProgrammingClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[1]);
-  scrollToTop();
-}
-
-// Music
-function onMusicClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[2]);
-  scrollToTop();
-}
-
-// None
-function onNoneClick(){
-  onlyCategoryzer(document.getElementById('main'), blogCategory[3]);
-  scrollToTop();
 }
 
 // ③カテゴリ追加時は、こちらに関数を追加
@@ -207,13 +178,13 @@ function getErrorMessage(){
   paper.appendChild(error);
 }
 
-// 選択カテゴリのみ表示
+// 選択カテゴリの記事のみ表示
 function onlyCategoryzer(parent, category){
   parent.innerHTML = '';
   parseBlogs(parent, blogObj, totalCount, category, null);
 }
 
-// ブログ描画関数
+// ブログ記事作成関数
 function parseBlogs(parent, json, Size, paperCategory, id){
   for (let i=0; i < Size; i++){
     let obj = json.contents[i];
@@ -291,19 +262,57 @@ function parseBlogs(parent, json, Size, paperCategory, id){
     // パーティション
     let part = document.createElement('hr');
     paper.appendChild(part);
-
     parent.appendChild(paper);
   }
-
-  // ページネーション
-  //pageNation();
 }
+
+
+// カテゴリリスト作成関数
+function parseCategories(){
+  let categorylist = document.getElementById('categoryList');
+
+  for (let category of uniqueCategory){
+    let li = document.createElement('li');
+    li.id = category;
+    li.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+    // リンク
+    let ahref = document.createElement('a');
+    ahref.id = category;
+    ahref.innerHTML = '- '+category;
+    ahref.href = '#'+ category;
+    li.appendChild(ahref); 
+
+    // ページ数カウンタ
+    let span = document.createElement('span');
+    span.id = 'c'+ category;
+    span.className = 'badge bg-primary rounded-pill';
+    li.appendChild(span);
+
+    categorylist.appendChild(li);
+
+    // イベント登録(カテゴリのみ)
+    let all = document.getElementById('All');
+    all.addEventListener('click', function (){
+      onlyCategoryzer(document.getElementById('main'), 'All');
+      scrollToTop();
+    });
+
+    let item = document.getElementById(category);
+    item.addEventListener('click', function (){
+      onlyCategoryzer(document.getElementById('main'), category);
+      scrollToTop();
+    });
+  }
+}
+
 
 // 日時表示関数
 function formatDate(current_datetime){
   const formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + "　" + addZero(current_datetime.getHours()) + ":" + addZero(current_datetime.getMinutes()) + "";
   return formatted_date;
 }
+
 
 // シェアボタン生成関数
 // 引数：親要素

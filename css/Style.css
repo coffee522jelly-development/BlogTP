@@ -1,15 +1,27 @@
 /*フォント設定*/
+
+/*メインフォント*/
 @font-face {
-	font-family: 'inconsolata';
-	src: url('../fonts/inconsolata/inconsolata/static/Ligconsolata-Regular.ttf') format('truetype');
+	font-family: 'NotoSansJP';
+	src: url('../fonts/NotoSansJP/NotoSansJP-Regular.otf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
+/*サブフォント*/
 @font-face {
 	font-family: 'Bebas Neue';
 	src: url('../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/*プログラムフォント*/
+@font-face {
+	font-family: 'inconsolata';
+	src: url('../fonts/inconsolata/inconsolata/static/Ligconsolata-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -25,8 +37,9 @@
 	--dark-accent-color: #E6F4F1;
 	--dark-link-color: #00ffb3;
 	--radius-size: 7px;
-	--main-font: 'inconsolata', cursive;
+	--main-font: 'NotoSansJP', cursive;
 	--sub-font: 'Bebas Neue', sans-serif;
+	--program-font: 'inconsolata', cursive;
 	--letter-space: 1px;
 	--shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
@@ -54,7 +67,7 @@
 	color: white;
 	text-align: left;
 	z-index: 12;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 }
 
 
@@ -83,7 +96,7 @@
 	margin-top: -130px;
 	text-align: center;
 	font-size: 50px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 	letter-spacing: var(--letter-space);
 	color: var(--light-accent-color);
 }
@@ -150,6 +163,7 @@ p {
 	font-size: 12px;
 	font-family: var(--main-font);
 	margin: 15px;
+	line-height: 24px;
 }
 
 a {
@@ -210,22 +224,32 @@ footer p {
 	box-shadow: var(--shadow);
 }
 
+/*サムネイル*/
+iframe {
+	width: 97% !important;
+	height: 240px !important;
+	object-fit: cover !important;
+	box-shadow: var(--shadow);
+	margin: 10px;
+	border-radius: var(--radius-size);
+}
+
 
 /*カレンダー*/
 #Calendar {
 	font-size: 15px;
-	font-family: var(--main-font);
+	font-family: var(--sub-font);
 	padding: 15px;
 }
 
 #Calendar th {
 	font-size: 20px;
-	font-family: var(--main-font);
+	font-family: var(--sub-font);
 }
 
 #Calendar td {
 	font-size: 20px;
-	font-family: var(--main-font);
+	font-family: var(--sub-font);
 }
 
 .sun {
@@ -236,12 +260,11 @@ footer p {
 	color: cornflowerblue !important;
 }
 
-
 /*カテゴリ*/
 #category {
 	font-size: 10px;
 	margin: 15px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 }
 
 
@@ -250,7 +273,7 @@ footer p {
 	font-size: 10px;
 	margin-bottom: 20px;
 	margin: 15px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 }
 
 #share {
@@ -302,7 +325,7 @@ footer p {
 /*サイドバー*/
 #SideList {
 	border-radius: var(--radius-size);
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 }
 
 #SideList ul {
@@ -311,7 +334,7 @@ footer p {
 
 #SideList a {
 	font-size: 15px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 	margin: 10px;
 	transition: color 0.3s;
 	text-decoration-line: none;
@@ -319,7 +342,7 @@ footer p {
 
 #SideList span {
 	font-size: 12px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 	background-color: var(--light-link-color) !important;
 }
 
@@ -346,7 +369,7 @@ footer p {
 #profList li {
 	margin-left: 28px;
 	font-size: 12px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 	list-style-type: decimal-leading-zero;
 }
 
@@ -356,7 +379,7 @@ footer p {
 	margin: 10px;
 	margin-top: 10px;
 	font-size: 18px;
-	font-family: var(--main-font);
+	font-family: var(--program-font);
 	border-radius: var(--radius-size);
 }
 
@@ -446,14 +469,17 @@ hr {
 /*コード*/
 pre {
 	color:white;
-	background-color: var(--light-accent-color);
+	background-color: var(--dark-sub-color);
 	border-radius: var(--radius-size);
-	margin: 15px;
+	margin : 10px;
 	padding: 15px;
 }
 
-pre code {
-	font-size: 16px !important;
+code {
+	color: #00cb84 !important;
+	font-family: 'inconsolata' !important;
+	width: 100%;
+	font-size: 10.5px !important;
 }
 
 
@@ -474,7 +500,7 @@ pre code {
 	}
 	/*ヘッダー*/
 	#header {
-		background-color: var(--dark-sub-color) !important;
+		background-color: var(--dark-main-color) !important;
 	}
 	#header p {
 		color: var(--light-accent-color);
@@ -510,7 +536,7 @@ pre code {
 	}
 	#SideList span {
 		background-color: var(--dark-link-color) !important;
-		color: var(--light-accent-color);
+		color: black;
 	}
 	#SideList p {
 		color: black;
@@ -567,7 +593,7 @@ pre code {
 	.nav a{
 	  text-decoration: none;
 	  font-size: 30px;
-	  font-family: var(--main-font) !important;
+	  font-family: var(--program-font) !important;
 	  letter-spacing: 14px;
 	}
   }

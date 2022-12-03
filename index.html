@@ -82,53 +82,19 @@
                   </div>
                   <!-- サイドバー -->
                   <div id="Sidebar" class="col-sm-4">
-
                     <!-- 時計 -->
                     <h1>Clock.</h1>
                     <hr>
                     <div id="Clock"></div>
                     <!-- <button id="FsClock" class="btn btn-light">Fullscreen</button> -->
-
-                    <!-- ポモドーロタイマー -->
-                    <h1>Pomodoro-Timer.</h1>
-                    <hr>
-                    <div id="Timer">
-                      <div id="TimerDisplay"></div>
-                      <div id="TimerPanel">
-                        <p class="Explain">※音が出ます。音量にご注意ください。</p>
-                        <button id="start" class="btn btn-success">Start</button>
-                        <button id="stop" class="btn btn-danger">Stop</button>
-                        <button id="reset" class="btn btn-light">Reset</button>
-                        <button id="FsTimer" class="btn btn-light">Fullscreen</button>
-                        <!-- <button id="5min" class="btn btn-light">5min.</button>
-                        <button id="15min" class="btn btn-light">15min.</button> -->
-                      </div>
-                    </div>
-                    
                     <div id="SideList">
                       <!-- カテゴリ設定 -->
                       <h1 id="Category">Category.</h1>
                       <hr>
-                      <ul class="list-group">
+                      <ul id="categoryList" class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a id="All" href="#All">All</a>
                           <span id="cAll" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="Day" href="#Day">Daily</a>
-                          <span id="cDay" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="Programming" href="#Programming">Programming</a>
-                          <span id="cProgram" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="Music" href="#Music">Music</a>
-                          <span id="cMusic" class="badge bg-primary rounded-pill"></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a id="None" href="#None">None</a>
-                          <span id="cNone" class="badge bg-primary rounded-pill"></span>
                         </li>
                       </ul>
 
@@ -158,6 +124,22 @@
                           <a href="https://app.microcms.io/signin" target="_blank" rel="noopener noreferrer">microCMS</a>
                         </li>
                       </ul>
+
+                      <!-- ポモドーロタイマー -->
+                      <h1>Pomodoro-Timer.</h1>
+                      <hr>
+                      <div id="Timer">
+                        <div id="TimerDisplay"></div>
+                        <div id="TimerPanel">
+                          <p class="Explain">※音が出ます。音量にご注意ください。</p>
+                          <button id="start" class="btn btn-success">Start</button>
+                          <button id="stop" class="btn btn-danger">Stop</button>
+                          <button id="reset" class="btn btn-light">Reset</button>
+                          <button id="FsTimer" class="btn btn-light">Fullscreen</button>
+                          <!-- <button id="5min" class="btn btn-light">5min.</button>
+                          <button id="15min" class="btn btn-light">15min.</button> -->
+                        </div>
+                      </div>
 
                       <!-- カレンダー -->
                       <h1>Calendar.</h1>

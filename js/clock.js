@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // });
 });
 
+
 // 現在時刻取得
 function getClock(){
   const nowTime = new Date();

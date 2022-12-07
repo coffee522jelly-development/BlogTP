@@ -57,8 +57,8 @@ function getBlogData(){
       parseBlogs(parent, blogjson, totalCount, 'All', param);
       blogObj = blogjson;
 
-      // デバッグ用
-      console.log(blogObj);
+      // // デバッグ用
+      // console.log(blogObj);
 
     }).catch(function (error) {
       console.log(error);
@@ -97,17 +97,17 @@ function getParam(myjson){
   }
 }
 
-// カレンダー取得
-function getCalendar(){
-  const current = new Date();
-  const wrapper = document.getElementById('Calendar');
-  addCalendar(wrapper, current.getFullYear(), current.getMonth() + 1);
-}
+// // カレンダー取得
+// function getCalendar(){
+//   const current = new Date();
+//   const wrapper = document.getElementById('Calendar');
+//   addCalendar(wrapper, current.getFullYear(), current.getMonth() + 1);
+// }
 
 // タイマー取得
-function getTimer(){
-  document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
-}
+// function getTimer(){
+//   document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
+// }
 
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
@@ -116,8 +116,8 @@ function getTimer(){
 window.addEventListener('DOMContentLoaded', () => {
   getBlogData();
   setInterval('getClock()', 1000);
-  getCalendar();
-  getTimer();
+  // getCalendar();
+  // getTimer();
 
   // /*警告対策*/
   // const iframe = document.createElement('iframe');

@@ -17,7 +17,7 @@ function getClock(){
   const nowMin  = addZero(parseInt(nowTime.getMinutes()));
   const msg = nowHour + ":" + nowMin;
 
-  document.getElementById("Clock").innerHTML = msg;
+  // document.getElementById("Clock").innerHTML = msg;
 }
 
 // 1桁に0を付与

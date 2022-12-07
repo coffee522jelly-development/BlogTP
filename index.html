@@ -26,9 +26,9 @@
         <!-- Javascript -->
         <script type="text/javascript" src="dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/load.js"></script>
-        <script type="text/javascript" src="js/timer.js"></script>
+        <!-- <script type="text/javascript" src="js/timer.js"></script> -->
         <script type="text/javascript" src="js/clock.js"></script>
-        <script type="text/javascript" src="js/calendar.js"></script>
+        <!-- <script type="text/javascript" src="js/calendar.js"></script> -->
         <script type="text/javascript" src="js/blogGen.js"></script>
 
         <!-- サイトアイコン -->
@@ -44,23 +44,19 @@
     </head>
     <header>
       <!-- ヘッダー -->
-      <div id ="header">
-          <p>microBlog.</p>
-          <div id="hm">
-            <nav class="nav">
-              <ul>
-                <li><a class="hm" href="#header">Home</a></li>
-                <li><a class="hm" href="#Profile">Profile</a></li>
-                <li><a class="hm" href="#Clock">Clock</a></li>
-                <li><a class="hm" href="#Calendar">Calendar</a></li>
-                <li><a class="hm" href="#Timer">Timer</a></li>
-                <li><a class="hm" href="#Category">Category</a></li>
-                <li><a class="hm" href="#Link">Link</a></li>
-              </ul>
-            </nav>
-          </div>
-          <button type="button" id="navbtn"></button>
-      </div>
+      <nav class="nav">
+        <ul>
+          <li><a class="hm" href="#header">Home</a></li>
+          <!-- <li><a class="hm" href="#Profile">Profile</a></li> -->
+          <!-- <li><a class="hm" href="#Clock">Clock</a></li>
+          <li><a class="hm" href="#Calendar">Calendar</a></li>
+          <li><a class="hm" href="#Timer">Timer</a></li> -->
+          <li><a class="hm" href="#Category">Category</a></li>
+          <li><a class="hm" href="#MyTools">MyTools</a></li>
+          <li><a class="hm" href="#Link">Link</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="navbtn"></button>
       <!-- ヘッダーアニメーション -->
       <div id ="header-animation">
         <div id ="particle"></div>
@@ -83,9 +79,9 @@
                   <!-- サイドバー -->
                   <div id="Sidebar" class="col-sm-4">
                     <!-- 時計 -->
-                    <h1>Clock.</h1>
+                    <!-- <h1>Clock.</h1>
                     <hr>
-                    <div id="Clock"></div>
+                    <div id="Clock"></div> -->
                     <!-- <button id="FsClock" class="btn btn-light">Fullscreen</button> -->
                     <div id="SideList">
                       <!-- カテゴリ設定 -->
@@ -105,6 +101,12 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a href="/B5-MD/index.html" target="_blank" rel="noopener noreferrer">MarkDown-Editor</a>
                         </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="/StudyDoc/index.html" target="_blank" rel="noopener noreferrer">StudyDoc</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="/NewsDoc/index.html" target="_blank" rel="noopener noreferrer">NewsDoc</a>
+                        </li> -->
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a href="/FontEdit/index.html" target="_blank" rel="noopener noreferrer">Wasemikan</a>
                         </li>
@@ -118,6 +120,9 @@
                       <hr>
                       <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -126,7 +131,7 @@
                       </ul>
 
                       <!-- ポモドーロタイマー -->
-                      <h1>Pomodoro-Timer.</h1>
+                      <!-- <h1>Pomodoro-Timer.</h1>
                       <hr>
                       <div id="Timer">
                         <div id="TimerDisplay"></div>
@@ -136,15 +141,13 @@
                           <button id="stop" class="btn btn-danger">Stop</button>
                           <button id="reset" class="btn btn-light">Reset</button>
                           <button id="FsTimer" class="btn btn-light">Fullscreen</button>
-                          <!-- <button id="5min" class="btn btn-light">5min.</button>
-                          <button id="15min" class="btn btn-light">15min.</button> -->
                         </div>
-                      </div>
+                      </div> -->
 
                       <!-- カレンダー -->
-                      <h1>Calendar.</h1>
+                      <!-- <h1>Calendar.</h1>
                       <hr>
-                      <div id="Calendar"></div>
+                      <div id="Calendar"></div> -->
                     </div>
                   </div><!-- sidebar -->
                 </div><!-- row -->

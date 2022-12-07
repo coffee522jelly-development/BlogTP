@@ -67,7 +67,8 @@
 	color: white;
 	text-align: left;
 	z-index: 12;
-	font-family: var(--program-font);
+	font-family: var(--sub-font);
+	padding-bottom: 7px;
 }
 
 
@@ -77,7 +78,7 @@
 
 .particles-js-canvas-el {
 	z-index: -2;
-	filter: opacity(50%);
+	filter: opacity(70%);
 }
 
 
@@ -93,10 +94,10 @@
 
 /*ヘッダー(背景文字)*/
 #header-animation p {
-	margin-top: -130px;
+	margin-top: -110px;
 	text-align: center;
 	font-size: 50px;
-	font-family: var(--program-font);
+	font-family: var(--sub-font);
 	letter-spacing: var(--letter-space);
 	color: var(--light-accent-color);
 }
@@ -125,7 +126,7 @@
 
 /*記事*/
 .paper {
-	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 
@@ -272,6 +273,7 @@ iframe {
 #createdAt {
 	font-size: 10px;
 	margin-bottom: 20px;
+	padding-bottom: 20px;
 	margin: 15px;
 	font-family: var(--program-font);
 }
@@ -299,7 +301,7 @@ iframe {
 .share a{
 	display: block;
 	color: white !important;
-	font-size: 14px;
+	font-size: 8px;
 	letter-spacing: var(--letter-space);
 	font-family: var(--main-font);
 	text-decoration: none;
@@ -593,8 +595,8 @@ code {
 	.nav a{
 	  text-decoration: none;
 	  font-size: 30px;
-	  font-family: var(--program-font) !important;
 	  letter-spacing: 14px;
+	  font-family: var(--sub-font);
 	}
   }
   /* ナビゲーションボタン（開く） */
@@ -610,6 +612,7 @@ code {
 	height: 20px;
 	cursor: pointer;
 	z-index: 1;
+	color:white;
   }
   
   #navbtn::before,
@@ -658,7 +661,7 @@ code {
 	.nav{
 	  /* 右寄せ */
 	  z-index: -5;
-	  margin-left: auto;
+	  margin-top: -24px !important;
 	}
 	.nav ul{
 	  display: flex;

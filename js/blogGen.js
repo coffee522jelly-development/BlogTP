@@ -9,9 +9,6 @@ const url = 'https://think-free.microcms.io/api/v1/blog?limit=' + limit + '&offs
 let uniqueCategory = [];
 let Category = [];
 
-// ①カテゴリ追加時は以下に手代入
-const blogCategory = ['Daily', 'Programming', 'Music','None'];
-
 // ブログオブジェクト
 let blogObj;
 
@@ -50,15 +47,15 @@ function getBlogData(){
       // ブログを描画
       getParam(blogjson);
 
+      //　新着記事取得
+      getRecently(blogjson);
+
       let param;
       if (string != null)   
         param = string.contents_id;
       
       parseBlogs(parent, blogjson, totalCount, 'All', param);
       blogObj = blogjson;
-
-      // // デバッグ用
-      // console.log(blogObj);
 
     }).catch(function (error) {
       console.log(error);
@@ -75,7 +72,6 @@ function getParam(myjson){
   let cAll = document.getElementById('cAll');
   cAll.innerHTML = totalCount;
 
-  // // const categoryCount = Array.from(uniqueCategory);
   var myMap = new Map();
 
   // 初期化
@@ -97,17 +93,31 @@ function getParam(myjson){
   }
 }
 
-// // カレンダー取得
-// function getCalendar(){
-//   const current = new Date();
-//   const wrapper = document.getElementById('Calendar');
-//   addCalendar(wrapper, current.getFullYear(), current.getMonth() + 1);
-// }
 
-// タイマー取得
-// function getTimer(){
-//   document.getElementById("TimerDisplay").innerText = calcMinSec(1500);
-// }
+// 新着ページ取得関数
+function getRecently(myjson){
+  const pages = 5;
+  const ul = document.getElementById('RecentlyList');
+
+  for (let i = 0; i < pages; i++) {
+    const obj = myjson.contents[i];
+    const url = 'https://noisette.ml/' + '?contents_id=' + obj.id;
+    let li = document.createElement("li");
+    li.classList.add('list-group-item');
+    li.classList.add('align-item-center');
+    let text1 = document.createElement("a");
+    text1.innerHTML = myjson.contents[i].title;
+    text1.setAttribute('href', url);
+    let img = document.createElement('img');
+    img.src = obj.photos.url;
+    img.classList.add('Thumb');
+    li.appendChild(img);
+    li.appendChild(text1);
+    ul.classList.add('list-group');
+    ul.classList.add('list-group-flush');
+    ul.appendChild(li);
+  }
+}
 
 //////////////////////////////////////////////////////////////////////////////////
 // イベント
@@ -115,15 +125,6 @@ function getParam(myjson){
 // ロード時イベント
 window.addEventListener('DOMContentLoaded', () => {
   getBlogData();
-  setInterval('getClock()', 1000);
-  // getCalendar();
-  // getTimer();
-
-  // /*警告対策*/
-  // const iframe = document.createElement('iframe');
-  // iframe.setAttribute('allowFullScreen', '');
-  // iframe.setAttribute('allow', 'fullscreen');
-
   InitEvent();
 });
 
@@ -323,10 +324,6 @@ function generateShareButton(parent, buttonName, url, faString){
   let button = document.createElement('div');
   button.setAttribute('class', 'col share');
   button.id = buttonName;
-
-  // let icon = document.createElement('i');
-  // icon.setAttribute('class', 'fab fa-2x ' + faString + ' share');
-  // button.appendChild(icon);
   
   let buttonLink = document.createElement('a');
   buttonLink.text = buttonName + '.';
@@ -412,4 +409,13 @@ function getQueryString() {
       return result;
   }
   return null;
+}
+
+
+// 1桁に0を付与
+function addZero(Item){
+  if ((Item >= 0) && (9 >= Item))
+      return Item = '0' + Item;
+  else
+      return Item;
 }

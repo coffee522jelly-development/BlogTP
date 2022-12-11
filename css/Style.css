@@ -335,7 +335,7 @@ iframe {
 }
 
 #SideList a {
-	font-size: 15px;
+	font-size: 13.5px;
 	font-family: var(--program-font);
 	margin: 10px;
 	transition: color 0.3s;
@@ -436,6 +436,26 @@ iframe {
 .loading-txt {
 	animation: 1.0s flashing infinite;
 	letter-spacing: 3px;
+}
+
+#RecentlyList {
+	list-style: none;
+	font-size: 8px;
+}
+
+.RecentlyList {
+	border-radius: 7px;
+}
+
+.Thumb {
+	width: 25%;
+	/* padding-top: 20px;
+	padding-bottom: 20px; */
+}
+
+#categoryid{
+	font-size: 10px;
+	margin: -20px;
 }
 
 @keyframes flashing {

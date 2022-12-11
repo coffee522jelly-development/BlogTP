@@ -26,16 +26,12 @@
         <!-- Javascript -->
         <script type="text/javascript" src="dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/load.js"></script>
-        <!-- <script type="text/javascript" src="js/timer.js"></script> -->
-        <script type="text/javascript" src="js/clock.js"></script>
-        <!-- <script type="text/javascript" src="js/calendar.js"></script> -->
         <script type="text/javascript" src="js/blogGen.js"></script>
 
         <!-- サイトアイコン -->
         <link rel="icon" href="img/siteicon.png" sizes="32x32" type="image/png" />
         <!-- スマホアイコン準備中 -->
         <link rel="apple-touch-icon-precomposed" href="img/iOSicon.png" type="image/png" />
-        <!-- <script src="https://kit.fontawesome.com/5cd463e365.js" crossorigin="anonymous"></script> -->
 
         <!-- RSSFeed -->
         <!-- <link rel="alternate" type="application/rss+xml" title="フィード" href="フィードページのURL" /> -->
@@ -47,11 +43,8 @@
       <nav class="nav">
         <ul>
           <li><a class="hm" href="#header">Home</a></li>
-          <!-- <li><a class="hm" href="#Profile">Profile</a></li> -->
-          <!-- <li><a class="hm" href="#Clock">Clock</a></li>
-          <li><a class="hm" href="#Calendar">Calendar</a></li>
-          <li><a class="hm" href="#Timer">Timer</a></li> -->
           <li><a class="hm" href="#Category">Category</a></li>
+          <li><a class="hm" href="#Recently">Recently</a></li>
           <li><a class="hm" href="#MyTools">MyTools</a></li>
           <li><a class="hm" href="#Link">Link</a></li>
         </ul>
@@ -78,11 +71,6 @@
                   </div>
                   <!-- サイドバー -->
                   <div id="Sidebar" class="col-sm-4">
-                    <!-- 時計 -->
-                    <!-- <h1>Clock.</h1>
-                    <hr>
-                    <div id="Clock"></div> -->
-                    <!-- <button id="FsClock" class="btn btn-light">Fullscreen</button> -->
                     <div id="SideList">
                       <!-- カテゴリ設定 -->
                       <h1 id="Category">Category.</h1>
@@ -94,24 +82,27 @@
                         </li>
                       </ul>
 
+                      <!-- 新着記事-->
+                      <h1 id="Recently">Recently.</h1>
+                      <hr>
+                      <ul id="RecentlyList">
+                      </ul>
+
                       <!-- マイツールの設定 -->
                       <h1 id="MyTools">MyTools.</h1>
                       <hr>
                       <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="/B5-MD/index.html" target="_blank" rel="noopener noreferrer">MarkDown-Editor</a>
-                        </li>
-                        <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="/StudyDoc/index.html" target="_blank" rel="noopener noreferrer">StudyDoc</a>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="/NewsDoc/index.html" target="_blank" rel="noopener noreferrer">NewsDoc</a>
-                        </li> -->
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
                           <a href="/FontEdit/index.html" target="_blank" rel="noopener noreferrer">Wasemikan</a>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                          <a href="/WetherDoc/index.html" target="_blank" rel="noopener noreferrer">WetherDoc</a>
+                          <a href="/B5-MD/index.html" target="_blank" rel="noopener noreferrer">MarkDown-Editor</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="/StudyDock/index.html" target="_blank" rel="noopener noreferrer">StudyDock</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="/WetherDock/index.html" target="_blank" rel="noopener noreferrer">WetherDock</a>
                         </li>
                       </ul>
 
@@ -129,25 +120,6 @@
                           <a href="https://app.microcms.io/signin" target="_blank" rel="noopener noreferrer">microCMS</a>
                         </li>
                       </ul>
-
-                      <!-- ポモドーロタイマー -->
-                      <!-- <h1>Pomodoro-Timer.</h1>
-                      <hr>
-                      <div id="Timer">
-                        <div id="TimerDisplay"></div>
-                        <div id="TimerPanel">
-                          <p class="Explain">※音が出ます。音量にご注意ください。</p>
-                          <button id="start" class="btn btn-success">Start</button>
-                          <button id="stop" class="btn btn-danger">Stop</button>
-                          <button id="reset" class="btn btn-light">Reset</button>
-                          <button id="FsTimer" class="btn btn-light">Fullscreen</button>
-                        </div>
-                      </div> -->
-
-                      <!-- カレンダー -->
-                      <!-- <h1>Calendar.</h1>
-                      <hr>
-                      <div id="Calendar"></div> -->
                     </div>
                   </div><!-- sidebar -->
                 </div><!-- row -->

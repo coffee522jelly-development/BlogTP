@@ -27,21 +27,39 @@
 	font-display: swap;
 }
 
+/*ヘッダー(背景アニメーション)*/
+@keyframes headerGradient {
+	0% {
+		background-position: 90% 0%
+	}
+	50% {
+		background-position: 11% 100%
+	}
+	100% {
+		background-position: 90% 0%
+	}
+}
+
 /*グローバル変数*/
 :root {
-	/*  --light-main-color: #fff;*/
-	--light-accent-color: #95B0B4;
+	--light-main-color: #ffffff;
+	--light-sub-color: #bebebe;
+	--light-accent-color: #e0e0e0;
 	--light-link-color: #06c755;
+
 	--dark-main-color: 	#243447;
-	--dark-sub-color: #1d2324;
+	--dark-sub-color: #243447;
 	--dark-accent-color: #E6F4F1;
 	--dark-link-color: #00ffb3;
+
+	--light-shadow : 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+	--dark-shadow : 5px 5px 10px #1e2b3b, -5px -5px 10px #2a3d53;	
+
 	--radius-size: 7px;
 	--main-font: 'NotoSansJP', cursive;
 	--sub-font: 'Bebas Neue', sans-serif;
 	--program-font: 'inconsolata', cursive;
 	--letter-space: 1px;
-	--shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 
@@ -86,7 +104,7 @@
 #header-animation {
 	text-align: center;
 	height: 200px;
-	background: linear-gradient(222deg, var(--dark-accent-color), var(--light-accent-color));
+	background: linear-gradient(222deg, var(--dark-sub-color), var(--light-sub-color));
 	background-size: 400% 400%;
 	animation: headerGradient 10s ease infinite;
 }
@@ -100,20 +118,6 @@
 	font-family: var(--sub-font);
 	letter-spacing: var(--letter-space);
 	color: var(--light-accent-color);
-}
-
-
-/*ヘッダー(背景アニメーション)*/
-@keyframes headerGradient {
-	0% {
-		background-position: 90% 0%
-	}
-	50% {
-		background-position: 11% 100%
-	}
-	100% {
-		background-position: 90% 0%
-	}
 }
 
 
@@ -138,8 +142,8 @@
 	border-radius: var(--radius-size);
 	padding: 15px;
 	font-family: var(--main-font);
-	color: rgb(255, 255, 255);
-	box-shadow: var(--shadow);
+	color: var(--light-sub-color);
+	box-shadow: var(--light-shadow);
 }
 
 
@@ -149,13 +153,19 @@ body {
 	border-radius: var(--radius-size);
 	z-index: 1;
 	margin: 15px;
+	background-color: #e0e0e0 !important;
+}
+
+/*セパレータ*/
+hr {
+	height: 4px !important;
+	border-radius: var(--radius-size);
+	background-color: var(--light-sub-color) !important;
 }
 
 h1 {
-	padding-top: 22px;
-	padding-bottom: 10px;
-	color: var(--light-accent-color);
-	margin: 5px;
+	padding-top: 15px;
+	color: var(--light-sub-color);
 	letter-spacing: var(--letter-space);
 	font-family: var(--sub-font);
 }
@@ -169,6 +179,23 @@ p {
 
 a {
 	color: var(--light-link-color) !important;
+}
+
+/*コード*/
+pre {
+	border-radius: var(--radius-size);
+	margin : 10px;
+	padding: 15px;
+	color:white;
+	background-color: var(--light-accent-color);
+	box-shadow: var(--light-shadow);
+}
+
+code {
+	color: #00cb84 !important;
+	font-family: 'inconsolata' !important;
+	width: 100%;
+	font-size: 10.5px !important;
 }
 
 
@@ -222,7 +249,7 @@ footer p {
 	width: 426px !important;
 	height: 240px !important;
 	object-fit: cover !important;
-	box-shadow: var(--shadow);
+	box-shadow: var(--light-shadow);
 }
 
 /*サムネイル*/
@@ -230,35 +257,9 @@ iframe {
 	width: 97% !important;
 	height: 240px !important;
 	object-fit: cover !important;
-	box-shadow: var(--shadow);
+	box-shadow: var(--light-shadow);
 	margin: 10px;
 	border-radius: var(--radius-size);
-}
-
-
-/*カレンダー*/
-#Calendar {
-	font-size: 15px;
-	font-family: var(--sub-font);
-	padding: 15px;
-}
-
-#Calendar th {
-	font-size: 20px;
-	font-family: var(--sub-font);
-}
-
-#Calendar td {
-	font-size: 20px;
-	font-family: var(--sub-font);
-}
-
-.sun {
-	color: #ff7043 !important;
-}
-
-.sat {
-	color: cornflowerblue !important;
 }
 
 /*カテゴリ*/
@@ -288,7 +289,7 @@ iframe {
 	/* color: white; */
 	border-radius: var(--radius-size);
 	margin: 5px;
-	box-shadow: var(--shadow);
+	box-shadow: var(--light-shadow);
 	display: flex;
 	color: white !important;
 }
@@ -332,6 +333,12 @@ iframe {
 
 #SideList ul {
 	border-radius: var(--radius-size);
+	box-shadow: var(--light-shadow);
+}
+
+#SideList li {
+	background-color: #e0e0e0;
+	border: none;
 }
 
 #SideList a {
@@ -348,33 +355,6 @@ iframe {
 	background-color: var(--light-link-color) !important;
 }
 
-
-/*プロフィール画像*/
-#Profile img {
-	margin-top: 40px;
-	margin-bottom: 40px;
-	border-radius: 50%;
-	width: 180px;
-	height: 180px;
-	box-shadow: var(--shadow);
-}
-
-
-/*プロフィールの説明書き*/
-.profExplain {
-	text-align: center;
-	font-size: 15px;
-}
-
-
-/*プロフィールのリスト*/
-#profList li {
-	margin-left: 28px;
-	font-size: 12px;
-	font-family: var(--program-font);
-	list-style-type: decimal-leading-zero;
-}
-
 .ft-area {
 	height: 300px;
 	background-color: #1d2324;
@@ -384,29 +364,6 @@ iframe {
 	font-family: var(--program-font);
 	border-radius: var(--radius-size);
 }
-
-
-/*時計*/
-#Clock {
-	font-size: 136px;
-	font-family: var(--sub-font);
-	text-align: center;
-	color: var(--light-accent-color);
-}
-
-
-/*ポモドーロタイマー*/
-#TimerDisplay {
-	font-size: 67px;
-	font-family: var(--sub-font);
-	text-align: center;
-	color: var(--light-accent-color);
-}
-
-#TimerPanel {
-	text-align: center;
-}
-
 
 /*ローディングアニメーション*/
 .loading {
@@ -464,15 +421,6 @@ iframe {
 	}
 }
 
-
-/*セパレータ*/
-hr {
-	height: 4px !important;
-	border-radius: var(--radius-size);
-	background-color: var(--light-accent-color) !important;
-}
-
-
 /* スクロールバー*/
 ::-webkit-scrollbar {
 	width: 5px;
@@ -488,23 +436,6 @@ hr {
 	border-radius: var(--radius-size);
 }
 
-/*コード*/
-pre {
-	color:white;
-	background-color: var(--dark-sub-color);
-	border-radius: var(--radius-size);
-	margin : 10px;
-	padding: 15px;
-}
-
-code {
-	color: #00cb84 !important;
-	font-family: 'inconsolata' !important;
-	width: 100%;
-	font-size: 10.5px !important;
-}
-
-
 /*ダークモード*/
 @media (prefers-color-scheme: dark) {
 	body {
@@ -514,6 +445,21 @@ code {
 	a {
 		color: var(--dark-link-color) !important;
 	}
+	pre {
+		background-color: var(--dark-main-color);
+		box-shadow: var(--dark-shadow);
+	}
+	iframe {
+		box-shadow: var(--dark-shadow);
+	}
+
+	.img-thumbnail {
+		box-shadow: var(--dark-shadow);
+	}
+	.share {
+		box-shadow: var(--dark-shadow);
+	}
+
 	/*記事内画像*/
 	#wrapper img {
 		filter: grayscale(30%);
@@ -529,30 +475,14 @@ code {
 	}
 	.title {
 		background-color: var(--dark-sub-color) !important;
-	}
-	/*ポモドーロタイマー*/
-	#Timer {
-		border-radius: var(--radius-size);
-	}
-	/*時計*/
-	#Clock {
-		color: var(--light-accent-color);
-		border-radius: var(--radius-size);
-	}
-	#TimerDisplay {
+		box-shadow: var(--dark-shadow);
 		color: var(--light-accent-color);
 	}
-	/*カレンダー*/
-	#Calendar {
-		border-radius: var(--radius-size);
-	}
-	#Calendar th {
-		color: var(--light-accent-color);
-	}
-	#Calendar td {
-		color: var(--light-accent-color);
-	}
+
 	/*サイドバー*/
+	#SideList ul {
+		box-shadow: var(--dark-shadow);
+	}
 	#SideList li {
 		background-color: var(--dark-sub-color) !important;
 	}
@@ -575,15 +505,6 @@ code {
 	/*シェアボタン文字*/
 	#share a {
 		color: white !important;
-	}
-	/*プロフィール画像*/
-	#Profile img {
-		margin-top: 40px;
-		margin-bottom: 40px;
-		border-radius: 50%;
-		width: 180px;
-		height: 180px;
-		box-shadow: var(--shadow);
 	}
 }
 
